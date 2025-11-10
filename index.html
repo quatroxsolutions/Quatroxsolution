@@ -22,6 +22,11 @@
       background: radial-gradient(circle at top left, #2a0a4a, #000000);
       color: #e5e5e5;
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     header {
@@ -53,6 +58,11 @@
     .hero {
       text-align: center;
       padding: 100px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       background: linear-gradient(145deg, rgba(138,43,226,0.2), rgba(0,0,0,0.8));
     }
 
@@ -66,6 +76,7 @@
       font-size: 1.2rem;
       color: #ddd;
       margin-bottom: 30px;
+      max-width: 600px;
     }
 
     .btn {
@@ -83,6 +94,12 @@
       background: #8b00ff;
     }
 
+    /* Hide all sections except hero */
+    .hidden {
+      display: none;
+    }
+
+    /* Section styling */
     section {
       padding: 60px 20px;
       text-align: center;
@@ -126,26 +143,37 @@
   <section class="hero" id="home">
     <h1>Welcome to Quatrox Solutions</h1>
     <p>Quality Unmatched Accuracy Trust Reliability On-time Xcellence.</p>
-    <button class="btn">Discover More</button>
+    <button class="btn" onclick="showContent()">Discover More</button>
   </section>
 
-  <section class="services" id="services">
-    <h2>Our Services</h2>
-    <p>Copy Editing | XML & ePub Conversion | BPO Services | Digital Solutions| Typesetting</p>
-  </section>
+  <div id="content" class="hidden">
+    <section class="services" id="services">
+      <h2>Our Services</h2>
+      <p>Copy Editing | XML & ePub Conversion | BPO Services | Digital Solutions | Typesetting</p>
+    </section>
 
-  <section class="about" id="about">
-    <h2>About Us</h2>
-    <p>Quatrox Solutions is a team of tech-driven professionals delivering data and digital transformation services with accuracy and innovation, dedicated to delivering high-quality to meet the evolving demands of the publishing industry. By harnessing a comprehensive suite of technical capabilities and deep domin expertise, Quatrox enables seamless content transformation through state-of-the-art technologies and strategic insight.</p><p>We have a unique and highly motivated team dedicated to addressing challenges with efficiency, and innovation</p>
-  </section>
+    <section class="about" id="about">
+      <h2>About Us</h2>
+      <p>Quatrox Solutions is a team of tech-driven professionals delivering data and digital transformation services with accuracy and innovation, dedicated to delivering high-quality to meet the evolving demands of the publishing industry. By harnessing a comprehensive suite of technical capabilities and deep domain expertise, Quatrox enables seamless content transformation through state-of-the-art technologies and strategic insight.</p>
+      <p>We have a unique and highly motivated team dedicated to addressing challenges with efficiency and innovation.</p>
+    </section>
 
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: contact@quatroxsolutions.com | Phone: +91-7200801765</p>
-  </section>
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: contact@quatroxsolutions.com | Phone: +91-7200801765</p>
+    </section>
 
-  <footer class="footer">
-    <p>© 2025 Quatrox Solutions. All rights reserved.</p>
-  </footer>
+    <footer class="footer">
+      <p>© 2025 Quatrox Solutions. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    function showContent() {
+      const content = document.getElementById('content');
+      content.classList.remove('hidden');
+      document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
