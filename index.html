@@ -59,30 +59,7 @@
 
     nav a:hover { color: #ffffff; }
 
-    /* MOBILE NAV LEFT LOGO + RIGHT LINKS */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 12px 20px;
-      }
-
-      nav {
-        display: flex;
-        flex-direction: row;
-        gap: 15px;
-      }
-
-      nav a {
-        font-size: 0.9rem;
-      }
-
-      header img {
-        height: 60px;
-      }
-    }
-
-    /* HERO */
+    /* HERO SECTION */
     .hero {
       text-align: center;
       padding: 100px 20px;
@@ -95,10 +72,9 @@
     }
 
     .hero h1 {
-      font-size: 5rem;
+      font-size: 8rem;
       color: #c8a2ff;
       margin-bottom: 20px;
-      word-break: break-word;
     }
 
     .hero p {
@@ -134,12 +110,12 @@
       border-radius: 15px;
       padding: 40px;
       max-width: 1000px;
-      width: 95%;
       box-shadow: 0 0 30px rgba(106, 13, 173, 0.3);
     }
 
     h2 { color: #c8a2ff; margin-bottom: 20px; }
 
+    /* FOOTER */
     .footer {
       text-align: center;
       padding: 20px;
@@ -149,15 +125,32 @@
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* HERO MOBILE SPACING FIX */
+    /* ==========================================
+       MOBILE RESPONSIVE STYLES
+       ========================================== */
     @media (max-width: 768px) {
-      .hero {
-        padding-top: 40px !important;
-        min-height: auto;
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+      }
+
+      nav a {
+        font-size: 0.95rem;
+      }
+
+      header img {
+        height: 70px;
       }
 
       .hero h1 {
-        font-size: 2.8rem;
+        font-size: 3rem;
         line-height: 1.2;
       }
 
@@ -165,19 +158,44 @@
         font-size: 1rem;
         max-width: 90%;
       }
+
+      .services, .about, .contact {
+        padding: 25px;
+        margin: 25px 10px;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
     }
 
     @media (max-width: 480px) {
-      .hero {
-        padding-top: 25px !important;
+      .hero h1 {
+        font-size: 2.4rem;
       }
 
-      .hero h1 {
-        font-size: 2.2rem;
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
       }
     }
+  /* Reduce space above hero section ONLY on mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 40px !important;   /* Reduce from 100px */
+    min-height: auto;               /* Prevent extra space */
+  }
+}
 
-  </style>
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 25px !important;   /* Even smaller on very small screens */
+  }
+}
+</style>
 </head>
 
 <body>
@@ -205,8 +223,8 @@
 
     <section class="about" id="about">
       <h2>About Us</h2>
-      <p>Quatrox Solutions is a team of tech-driven professionals delivering data and digital transformation services with accuracy and innovation.</p>
-      <p>We have a highly motivated team dedicated to addressing challenges with efficiency and innovation.</p>
+      <p>Quatrox Solutions is a team of tech-driven professionals delivering data and digital transformation services with accuracy and innovation, dedicated to delivering high quality to meet the evolving demands of the publishing industry.</p>
+      <p>We have a unique and highly motivated team dedicated to addressing challenges with efficiency and innovation.</p>
     </section>
 
     <section class="contact" id="contact">
