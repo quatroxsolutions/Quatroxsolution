@@ -182,7 +182,20 @@
         font-size: 0.9rem;
       }
     }
-  </style>
+  /* Reduce space above hero section ONLY on mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 40px !important;   /* Reduce from 100px */
+    min-height: auto;               /* Prevent extra space */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 25px !important;   /* Even smaller on very small screens */
+  }
+}
+</style>
 </head>
 
 <body>
