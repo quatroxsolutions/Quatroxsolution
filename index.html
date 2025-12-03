@@ -109,12 +109,13 @@ document.addEventListener("click", function(e) {
 document.querySelector(".hamburger").addEventListener("click", function(e){
     e.stopPropagation();
 });
-    // Close mobile menu after clicking a link
+// Close mobile menu after clicking a link
 document.querySelectorAll(".mobile-menu a").forEach(link => {
     link.addEventListener("click", () => {
         document.getElementById("mobileMenu").style.display = "none";
     });
 });
+
 </script>
 <div class="responsive-image">
     <img src="home.png" alt="Responsive Image">
@@ -187,4 +188,3 @@ document.querySelectorAll(".mobile-menu a").forEach(link => {
 </footer>
 
 </html>
-
