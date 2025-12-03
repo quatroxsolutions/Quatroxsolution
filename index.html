@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quatrox Solutions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+<nav class="nav-bar">
+    <div class="nav-content">
+        <img src="Logo.png" class="logo" alt="Logo">
+
+        <!-- DESKTOP MENU -->
+        <div class="menu desktop-menu">
+            <a href="index.html">Home</a>
+            <a href="#About">About</a>
+            <a href="service.html">Services</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <!-- HAMBURGER ICON (MOBILE) -->
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="#About">About</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+</nav>
+
+
+    <!-- HEADER SECTION -->
+    <header class="header">
+        <img src="hero-bg.png" class="header-bg" alt="">
+        <div class="overlay"></div>
+
+        <div class="header-content">
+            <h1>Quatrox Solutions</h1>
+            <h2><p>Quality Unmatched Accuracy Trust Reliability</p><p>On-time Xcellence</p></h2>
+        </div>
+    </header>
+   <section id="About" class="welcome-section">
+
+    <h2 class="welcome-title fade-text">Welcome to Quatrox Solutions</h2>
+
+    <div class="welcome-content fade-text">
+        <div class="welcome-column">
+            <p>
+                Quatrox Solutions is a global provider of advanced technology services, dedicated to delivering 
+                high-quality, innovative solutions to meet the evolving demands of the publishing industry. 
+                By harnessing a comprehensive suite of technical capabilities and deep domain expertise, 
+                Quatrox Solutions enables seamless content transformation through state-of-the-art technologies 
+                and strategic insight.
+            </p>
+        </div>
+
+        <div class="welcome-column">
+            <p>
+                We have a unique and highly motivated team dedicated to addressing challenges with efficiency, 
+                precision, and innovation.
+            </p>
+        </div>
+    </div>
+
+    <a href="contact.html" class="welcome-btn fade-text">Contact Us</a>
+
+</section>
+
+
+<script>
+    const fadeTexts = document.querySelectorAll(".fade-text");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            } else {
+                entry.target.classList.remove("show");
+            }
+        });
+    });
+
+    fadeTexts.forEach(text => observer.observe(text));
+</script>
+<script>
+function toggleMenu() {
+    var menu = document.getElementById("mobileMenu");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+
+// Hide mobile menu when clicking outside
+document.addEventListener("click", function(e) {
+    var menu = document.getElementById("mobileMenu");
+    var hamburger = document.querySelector(".hamburger");
+
+    // Check if menu is open and click is outside menu & hamburger
+    if (menu.style.display === "flex" && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.style.display = "none";
+    }
+});
+
+// Prevent closing menu when clicking on hamburger itself
+document.querySelector(".hamburger").addEventListener("click", function(e){
+    e.stopPropagation();
+});
+</script>
+<div class="responsive-image">
+    <img src="home.png" alt="Responsive Image">
+</div>
+
+</body>
+
+<section class="what-we-offer-section">
+    <div class="offer-row">
+        <h2 class="what-we-offer-title">What We Offer</h2>
+
+        <div class="offer-items">
+            <div class="service-title">ePub Conversion</div>
+            <div class="service-title">XML Conversion</div>
+            <div class="service-title">Copy Editing</div>
+            <div class="service-title">Accessibility Services</div>
+            <div class="service-title">Typesetting</div>
+         <div class="more-container">
+    <p class="more-text">+More</p>
+</div>   
+             <a href="service.html" class="service-btn">Services</a>
+        </div>
+  
+</section>  
+<!-- Home BANNER IMAGE SECTION -->
+<section class="home-banner">
+    <img src="home footer.png" alt="home Banner" />
+</section>
+<footer class="footer-section">
+    <div class="footer-container">
+        
+        <!-- Logo + Company Name -->
+        <div class="footer-header">
+            <img src="Logo.png" alt="Logo" class="footer-logo">
+            <p class="footer-title">QUATROX SOLUTIONS PRIVATE LIMITED</p>
+        </div>
+
+        <!-- Description -->
+        <div class="footer-subhead">
+            <p>To be a trusted partner in delivering exceptional, fast, and reliable customer</p>
+            <p>services to organizations of all sizes - from startups to global enterprises.</p>
+        </div>
+
+        <!-- Contact Columns -->
+        <div class="footer-columns">
+            <div class="footer-col">
+                <p>Contact@quatroxsolutions.com</p>
+                <p>+91 7200801765</p>
+            </div>
+
+            <div class="footer-col">
+                <p>16-74A, HMP Towers Market Rd,</p>
+                <p>Thuckalay, Tamilnadu,</p>
+                <p>India, Pincode - 629175</p>
+            </div>
+
+            <div class="footer-col footer-links">
+                <a href="https://www.instagram.com/quatrox_solutions?igsh=MWl2MjAwa3Z4ZmFoag==" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/quatrox-data-solutions-a29792378" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/917200801765" target="_blank">Whatsapp</a>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-copy">
+            <p>Quatrox Solutions Pvt Ltd © 2025 All Rights Reserved</p>
+        </div>
+
+    </div>
+</footer>
+
+</html>
