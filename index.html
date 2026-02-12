@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quatrox Solutions</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/geist-font@latest/style.css">
+    <link rel="stylesheet" href="global.css"><link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
@@ -89,34 +91,82 @@
     fadeTexts.forEach(text => observer.observe(text));
 </script>
 <script>
-function toggleMenu() {
-    var menu = document.getElementById("mobileMenu");
-    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-}
+/* -----------------------------
+   AUTO HIDE NAVBAR + MOBILE MENU ON SCROLL
+----------------------------- */
+let lastScroll = 0;
 
-// Hide mobile menu when clicking outside
-document.addEventListener("click", function(e) {
-    var menu = document.getElementById("mobileMenu");
-    var hamburger = document.querySelector(".hamburger");
+window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
 
-    // Check if menu is open and click is outside menu & hamburger
-    if (menu.style.display === "flex" && !menu.contains(e.target) && !hamburger.contains(e.target)) {
-        menu.style.display = "none";
+    // ⭐ CLOSE MOBILE MENU WHEN USER SCROLLS
+    mobileMenu.style.display = "none";
+
+    if (currentScroll > lastScroll && currentScroll > 80) {
+        // scrolling DOWN → hide navbar
+        navbar.style.transform = "translateY(-100%)";
+    } else {
+        // scrolling UP → show navbar
+        navbar.style.transform = "translateY(0)";
     }
-});
 
-// Prevent closing menu when clicking on hamburger itself
-document.querySelector(".hamburger").addEventListener("click", function(e){
-    e.stopPropagation();
+    lastScroll = currentScroll;
 });
-// Close mobile menu after clicking a link
-document.querySelectorAll(".mobile-menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        document.getElementById("mobileMenu").style.display = "none";
-    });
-});
-
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const hamburger = document.querySelector(".hamburger");
+    const navbar = document.querySelector(".nav-bar");
+
+    /* -----------------------------
+       MOBILE MENU TOGGLE
+    ----------------------------- */
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mobileMenu.style.display =
+            mobileMenu.style.display === "flex" ? "none" : "flex";
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.style.display = "none";
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+        if (mobileMenu.style.display === "flex" &&
+            !mobileMenu.contains(e.target) &&
+            !hamburger.contains(e.target)) {
+            mobileMenu.style.display = "none";
+        }
+    });
+
+    /* -----------------------------
+       AUTO HIDE NAVBAR ON SCROLL
+    ----------------------------- */
+    let lastScroll = 0;
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > lastScroll && currentScroll > 80) {
+            // Scrolling DOWN → hide navbar
+            navbar.style.transform = "translateY(-100%)";
+        } else {
+            // Scrolling UP → show navbar
+            navbar.style.transform = "translateY(0)";
+        }
+
+        lastScroll = currentScroll;
+    });
+
+});
+</script>
+
 <div class="responsive-image">
     <img src="home.png" alt="Responsive Image">
 </div>
