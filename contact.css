@@ -4,55 +4,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-/* -----------------------------------
-   NAVIGATION BAR
------------------------------------ */
-.nav-bar {
-    width: 100%;
-    background: linear-gradient(to right, #0D0D29, #010103);
-    padding: 20px 50px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.nav-content {
-    width: 100%;
-    max-width: 1400px; /* FIX: prevents navbar from becoming too wide on big screens */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    height: 60px;
-    width: auto;
-}
-
-/* RIGHT SIDE MENU */
-.menu {
-    display: flex;
-    gap: 45px;  /* Enough spacing */
-}
-
-/* FIXED COLOR + SPACING */
-.nav-bar .menu a {
-    color: #F2F2F2 !important;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-/* Hover */
-.nav-bar .menu a:hover {
-    color: #ffffff !important;
-}
 /* -----------------------------------
    RESPONSIVE CONTACT IMAGE
 ----------------------------------- */
