@@ -91,8 +91,6 @@
     fadeTexts.forEach(text => observer.observe(text));
 </script>
 <script>
-
-<script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const mobileMenu = document.querySelector(".mobile-menu");
@@ -158,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div id="chatbot-messages"></div>
     <div id="chatbot-input-area">
         <input type="text" id="chatbot-input" placeholder="Ask something..." />
-        <button onclick="sendMessage()">Send</button>
+        <button id="chatbot-send">Send</button>
     </div>
 </div>
 
@@ -188,10 +186,19 @@ document.addEventListener("DOMContentLoaded", function () {
     height: 420px;
     background: white;
     border-radius: 15px;
-    display:none;
+    display: none;
     flex-direction: column;
-    overflow:hidden;
-    z-index:9999;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+#chatbot-window.open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
 }
 
 #chatbot-header {
@@ -226,18 +233,6 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 </style>
 
-<!-- Quatro AI Chatbot -->
-<div style="position:fixed;bottom:20px;right:20px;background:#fff;
-padding:15px;border-radius:10px;box-shadow:0 0 10px #999;width:300px">
-
-<h3>Chat with Quatro AI</h3>
-
-<input id="msg" placeholder="Ask something..." style="width:100%">
-<button onclick="send()" style="width:100%;margin-top:5px">Send</button>
-
-<div id="chat" style="margin-top:10px;font-size:14px;"></div>
-</div>
-
 <script>
 async function send() {
   const message = document.getElementById("msg").value;
@@ -256,7 +251,62 @@ async function send() {
     data.contact;
 }
 </script>
+<script>
+const chatbotButton = document.getElementById("chatbot-button");
+const chatbotWindow = document.getElementById("chatbot-window");
+const chatbotInput = document.getElementById("chatbot-input");
 
+let autoCloseTimer;
+
+// Function to open chatbot
+function openChatbot() {
+    chatbotWindow.classList.add("open");
+
+    // Clear previous timer
+    if (autoCloseTimer) clearTimeout(autoCloseTimer);
+
+    // Auto-close after 10 seconds if no focus
+    autoCloseTimer = setTimeout(() => {
+        chatbotWindow.classList.remove("open");
+    }, 10000);
+}
+
+// Button click toggles chatbot
+chatbotButton.addEventListener("click", () => {
+    if (chatbotWindow.classList.contains("open")) {
+        chatbotWindow.classList.remove("open");
+        clearTimeout(autoCloseTimer);
+    } else {
+        openChatbot();
+        chatbotInput.focus(); // Optional: focus input automatically
+    }
+});
+
+// Stop auto-close if user focuses the input
+chatbotInput.addEventListener("focus", () => {
+    if (autoCloseTimer) clearTimeout(autoCloseTimer);
+});
+const sendBtn = document.getElementById("chatbot-send");
+const inputField = document.getElementById("chatbot-input");
+const messages = document.getElementById("chatbot-messages");
+
+sendBtn.addEventListener("click", async () => {
+    const message = inputField.value;
+    if (!message) return;
+
+    messages.innerHTML += `<p><b>You:</b> ${message}</p>`;
+    inputField.value = "";
+
+    const res = await fetch("http://localhost:5000/chat", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({message})
+    });
+
+    const data = await res.json();
+    messages.innerHTML += `<p><b>Quatro:</b> ${data.reply}</p>`;
+});
+</script>
 </body>
 
 <section class="what-we-offer-section">
