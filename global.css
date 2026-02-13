@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ===============================
    GLOBAL RESET + FONT
 ================================ */
@@ -110,3 +111,117 @@ body {
         height: 45px;
     }
 }
+=======
+/* ===============================
+   GLOBAL RESET + FONT
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Geist", sans-serif;
+}
+
+/* ===============================
+   NAVBAR (GLOBAL FOR ALL PAGES)
+================================ */
+.nav-bar {
+    width: 100%;
+    background: linear-gradient(to right, #0D0D29, #010103);
+    padding: 0 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.4s ease;
+
+}
+
+.nav-content {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+/* DESKTOP MENU */
+.desktop-menu {
+    display: flex;
+    gap: 45px;
+}
+
+.desktop-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.desktop-menu a:hover {
+    color: #d9d9d9;
+}
+
+/* HAMBURGER */
+.hamburger {
+    display: none;
+    font-size: 34px;
+    cursor: pointer;
+    color: white;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #0D0D29;
+    padding: 20px;
+    width: 100%;
+    position: absolute;
+    top: 90px;
+    left: 0;
+}
+
+.mobile-menu a {
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+/* ===============================
+   RESPONSIVE NAVBAR
+================================ */
+@media (max-width: 800px) {
+
+    .desktop-menu {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .mobile-menu {
+        display: none;
+    }
+
+    .logo {
+        height: 45px;
+    }
+}
+>>>>>>> ac7bce68e15db4a4c62c357df8edd0967662a707

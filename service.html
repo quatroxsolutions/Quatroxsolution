@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -216,3 +217,223 @@ document.addEventListener("DOMContentLoaded", () => {
 </footer>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quatrox Solutions - Services</title>
+    <link rel="stylesheet" href="https://unpkg.com/geist-font@latest/style.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="service.css" />
+</head>
+
+<body>
+
+     <!-- NAVIGATION BAR -->
+   <nav class="nav-bar"> 
+    <div class="nav-content">
+        <img src="Logo.png" alt="Logo" class="logo" />
+
+        <!-- DESKTOP MENU -->
+        <div class="menu desktop-menu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="service.html">Services</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+    </div>
+
+    <!-- MOBILE SLIDE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+</nav>
+
+
+
+        <!-- DESKTOP MENU -->
+        <div class="menu desktop-menu">
+            <a href="index.html">Home</a>
+            <a href="service.html">Services</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+    </div>
+
+    <!-- MOBILE SLIDE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+</nav>
+
+    <!-- SERVICE IMAGE SECTION -->
+    <div class="service-image">
+        <img src="service home.png" alt="Service Image">
+    </div>
+
+<!-- OUR SERVICES SECTION -->
+<section class="our-services-section">
+    <div class="services-container">
+
+        <h2 class="services-heading">
+            Navigating complex data challenges? <br /> 
+            We Can Help.
+        </h2>
+
+        <div class="services-list">
+
+            <div class="service-box">
+                <h3>EPUB CONVERSION</h3>
+                <p>The concept of electronic book (e-Book) is Enhancing the reading habits of people worldwide. E-Book publishing is the next (r) evolution in digital publishing.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>XML CONVERSION</h3>
+                <p>XML is one of the EPUB modes to offer publishers through defining the structure of the eBook, specifying exact meta data, managing navigability and controlled presentation. These effect in Open packaging formatting.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>COPY EDITING</h3>
+                <p>Our copyediting process ensures every document is accurate, consistent, and ready far publication. We focus on enhancing clarity and readability while maintaining the author's intent.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>ACCESSIBILITY SERVICES</h3>
+                <p>We through our document accessibility offer cost—efficient and high quality ADA compliant solution sets. We through our WCAG guidelines offer tagging services automated by section 508 and ADA compliance based on USA suitable for multiple countries guidelines.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>TYPESETTING</h3>
+                <p>Type setting process involves the formatting through arrangement of contents thereby making it visually presentable and appealing. Typesetting involves adjustments, line spacings, graphics positioning and table placements for the improvised publishing experience.</p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<!-- SERVICE BANNER IMAGE SECTION -->
+<section class="service-banner">
+    <img src="service footer.png" alt="Service Banner" />
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const hamburger = document.querySelector(".hamburger");
+
+    // Toggle menu when clicking the hamburger
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation(); // prevent event from reaching document
+        mobileMenu.style.display =
+            mobileMenu.style.display === "flex" ? "none" : "flex";
+    });
+
+    // Auto-hide menu when clicking any link
+    const links = document.querySelectorAll(".mobile-menu a");
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.style.display = "none";
+        });
+    });
+
+    // Hide menu when clicking outside
+    document.addEventListener("click", (e) => {
+        if (mobileMenu.style.display === "flex" && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            mobileMenu.style.display = "none";
+        }
+    });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const navbar = document.querySelector(".nav-bar");
+    const mobileMenu = document.querySelector(".mobile-menu");
+
+    let lastScroll = 0;
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        /* ⭐ CLOSE MOBILE MENU WHEN USER SCROLLS */
+        mobileMenu.style.display = "none";
+
+        if (currentScroll > lastScroll && currentScroll > 80) {
+            // scrolling DOWN → hide navbar
+            navbar.style.transform = "translateY(-100%)";
+        } else {
+            // scrolling UP → show navbar
+            navbar.style.transform = "translateY(0)";
+        }
+
+        lastScroll = currentScroll;
+    });
+
+});
+</script>
+</body>
+<footer class="footer-section">
+    <div class="footer-container">
+        
+        <!-- Logo + Company Name -->
+        <div class="footer-header">
+            <img src="Logo.png" alt="Logo" class="footer-logo">
+            <p class="footer-title">QUATROX SOLUTIONS PRIVATE LIMITED</p>
+        </div>
+
+        <!-- Description -->
+        <div class="footer-subhead">
+            <p>To be a trusted partner in delivering exceptional, fast, and reliable customer</p>
+            <p>services to organizations of all sizes - from startups to global enterprises.</p>
+        </div>
+
+        <!-- Contact Columns -->
+        <div class="footer-columns">
+            <div class="footer-col">
+                <p>Contact@quatroxsolutions.com</p>
+                <p>+91 7200801765</p>
+            </div>
+
+            <div class="footer-col">
+                <p>16-74A, HMP Towers Market Rd,</p>
+                <p>Thuckalay, Tamilnadu,</p>
+                <p>India, Pincode - 629175</p>
+            </div>
+            <div class="footer-col">
+                <p>66 5-5/9 Meenakshi street,</p>
+                <p>Thirunagar, Madurai-6</p>
+                <p>TamilNadu, India, Pincode - 625006</p>
+            </div>
+
+            <div class="footer-col footer-links">
+                <a href="https://www.instagram.com/quatrox_solutions?igsh=MWl2MjAwa3Z4ZmFoag==" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/quatrox-data-solutions-a29792378" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/917200801765" target="_blank">Whatsapp</a>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-copy">
+            <p>Quatrox Solutions Pvt Ltd © 2025 All Rights Reserved</p>
+        </div>
+
+    </div>
+</footer>
+
+</html>
+>>>>>>> ac7bce68e15db4a4c62c357df8edd0967662a707

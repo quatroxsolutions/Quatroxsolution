@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* RESET */
 * {
     margin: 0;
@@ -434,3 +435,441 @@
     }
 }
 
+=======
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* -----------------------------------
+   RESPONSIVE CONTACT IMAGE
+----------------------------------- */
+
+/* Wrapper */
+.contact {
+    width: 100%;
+    position: relative;
+    margin-top: 90px; /* space below navbar */
+    overflow: hidden;
+}
+
+/* Default (Desktop) */
+.contact img {
+    width: 100%;
+    height: 100vh;      /* Full-screen image */
+    object-fit: cover;  /* Prevents distortion */
+    object-position: top;
+    display: block;
+}
+
+/* Tablet */
+@media (max-width: 1280px) {
+    .contact img {
+        height: 70vh;   /* Reduce height */
+        object-position: center top;
+    }
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+    .contact img {
+        height: 55vh;   /* Perfect mobile size */
+        width: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+}
+.header {
+        height: 90vh;
+        margin-top: 75px;
+    }
+    .header-content {
+        padding: 10px;
+        text-align: left;
+        align-items: left;
+    }
+    .header-content h1 {
+    font-size: 56px;
+    white-space: normal;
+    z-index: 1;
+    line-height: 1.1;  /* <-- reduces space between lines */
+}
+/* ------------- TABLET (≤1280px) ------------- */
+@media (max-width: 1280px) {
+    .header-content h1 {
+        font-size: 70px;
+        line-height: 1.1;
+        white-space: normal;
+    }
+
+    .service-title {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+}
+/* ------------- MOBILE (≤800px) ------------- */
+@media (max-width: 800px) {
+    
+    .header-content {
+        padding: 10px;
+    }
+
+    .header-content h1 {
+        font-size: 48px;
+        line-height: 1.15;
+        white-space: normal;
+    }
+}
+/* SERVICES SECTION */
+.services-section {
+    width: 100%;
+    background: #0d0d29;
+    color: white;
+    padding: 60px 300px;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+.services-header h2 {
+    font-size: 32px;
+    margin: 0;
+    letter-spacing: -1px;
+}
+.services-header h3 {
+    font-size: 32px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+
+/* SERVICE BOX */
+.service-box {
+    border-top: 1px solid white;
+    padding: 40px 0;
+    display: flex;
+    align-items: Right;
+    gap: 30px;
+}
+
+.service-number {
+    font-size: 140px;
+    font-weight: 200;
+    margin: 0;
+    line-height: 0.8;
+}
+
+.service-content h4 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.service-content p {
+    font-size: 18px;
+    line-height: 1.4;
+    max-width: 600px;
+}
+
+/* CTA — DESKTOP & TABLET */
+.cta-box {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;   /* left + right */
+    align-items: center;
+}
+
+.cta-left {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.cta-btn {
+    background: white;
+    color: black;
+    padding: 10px 22px;
+    border-radius: 40px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+/* TABLET */
+@media (max-width: 1024px) {
+    .service-number {
+        font-size: 110px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .service-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .service-number {
+        font-size: 90px;
+    }
+
+    .service-content h4 {
+        font-size: 22px;
+    }
+
+    @media (max-width: 800px) {
+    .cta-box {
+        flex-direction: column;   /* Stack items */
+        align-items: flex-start;  /* Left aligned (change to center if needed) */
+        gap: 15px;
+    }
+
+    .cta-left {
+        font-size: 24px;
+    }
+
+    .cta-btn {
+        align-self: flex-start;   /* Button stays left (change to center if needed) */
+    }
+}
+
+
+}
+/* FORCE LEFT–RIGHT LAYOUT FOR DESKTOP & TABLET */
+@media (min-width: 769px) {
+    .service-box {
+        display: flex;
+        flex-direction: row;
+        align-items: Right;
+        gap: 40px;
+    }
+
+    .service-number {
+        min-width: 160px;   /* keeps the number fixed on left */
+        text-align: left;
+    }
+
+    .service-content {
+        flex: 1;
+    }
+}
+/* DESKTOP & TABLET — NUMBER LEFT + TEXT LEFT + PERFECT ALIGNMENT */
+@media (max-width: 768px) {
+    .service-box {
+        flex-direction: column;   /* Number on top, text below */
+        align-items: center;      /* Center items */
+        text-align: center;       /* Prevents overflow */
+        padding: 20px;
+    }
+
+     .service-number {
+        font-size: 80px;          /* Reduce size so it fits */
+        line-height: 1;
+        margin-bottom: 15px;
+    }
+
+
+     .service-content {
+        text-align: center;       /* Makes paragraph stay inside screen */
+        padding: 0 15px;          /* Prevent text touching edges */
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .service-content p {
+        word-wrap: break-word;    /* Ensures long words break */
+    }
+}
+/* MOBILE FIX: Prevent text overflowing */
+@media (max-width: 768px) {
+
+    .services-section {
+        padding: 40px 20px; /* Adds safe padding on both sides */
+        box-sizing: border-box;
+    }
+
+    .service-box {
+        display: flex;
+        flex-direction: column; /* Number on top, text below */
+        align-items: left;
+        text-align: left;
+        width: 100%;
+    }
+
+    .service-number {
+        font-size: 80px;      /* Reduce number size */
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        width: 100%;
+    }
+
+    .service-content {
+        width: 100%;
+        text-align: left;
+        padding: 0 10px;      /* Prevents text touching screen edges */
+        box-sizing: border-box;
+    }
+
+    .service-content p,
+    .service-content h4 {
+        word-wrap: break-word;
+        overflow-wrap: break-word; /* Ensures text wraps properly */
+        max-width: 100%;           /* Forces text to stay inside */
+    }
+}
+/* HIDE HAMBURGER IN DESKTOP */
+.hamburger {
+    display: none;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}
+
+/* DESKTOP MENU SHOWS */
+.desktop-menu {
+    display: flex;
+    gap: 45px;
+}
+
+/* MOBILE MENU (HIDDEN AT FIRST) */
+.mobile-menu {
+    display: none;
+    text-decoration: none !important;
+    flex-direction: column;
+    background: #0d0d29;
+    padding: 20px;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    width: 100%;
+}
+
+.mobile-menu a {
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+    color: white;
+    text-decoration: none !important;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 800px) {
+
+    /* Hide desktop menu */
+    .desktop-menu {
+        display: none;
+    }
+
+    /* Show hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Mobile menu full width */
+    .mobile-menu {
+        width: 100%;
+        text-decoration: none !important;
+    }
+}
+/* FOOTER MAIN STYLE */
+.footer-section {
+    background: #f7f4eb;
+    padding: 60px 150px;
+    width: 100%;
+}
+
+/* Container */
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Header */
+.footer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    width: 63px;
+}
+
+.footer-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Subhead */
+.footer-subhead p {
+    font-size: 18px;
+    margin: 2px 0;
+    color: #000;
+}
+
+/* Columns layout */
+.footer-columns {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-col {
+    font-size: 14px;
+    color: #000;
+    line-height: 1.5;
+}
+
+/* Social links */
+.footer-links a {
+    display: block;
+    color: #000;
+    text-decoration: none;   /* underline removed */
+    margin-bottom: 5px;
+}
+
+/* Social links */
+.footer-links a {
+    display: block;
+    color: #000;
+    text-decoration: none;   /* underline removed */
+    margin-bottom: 5px;
+}
+
+
+.footer-links a:hover {
+    color: #555;
+}
+
+
+/* Copyright */
+.footer-copy p {
+    font-size: 14px;
+    color: #000;
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 1280px) {
+    .footer-section {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 800px) {
+    .footer-section {
+        padding: 40px 25px;
+    }
+
+    .footer-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+>>>>>>> ac7bce68e15db4a4c62c357df8edd0967662a707

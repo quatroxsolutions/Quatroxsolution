@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -179,3 +180,186 @@ document.addEventListener("DOMContentLoaded", function () {
     </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quatrox Solutions - contact</title>
+    <link rel="stylesheet" href="https://unpkg.com/geist-font@latest/style.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="contact.css" />
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+   <nav class="nav-bar"> 
+    <div class="nav-content">
+        <img src="Logo.png" alt="Logo" class="logo" />
+
+        <!-- DESKTOP MENU -->
+        <div class="menu desktop-menu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="service.html">Services</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+    </div>
+
+    <!-- MOBILE SLIDE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="service.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+</nav>
+
+    <!-- CONTACT IMAGE SECTION -->
+    <div class="contact">
+        <img src="contact header.png" alt="Contact Image">
+    </div>
+    <section class="services-section">
+    <div class="services-header">
+        <h2>Ready to Take the Next Step?</h2>
+        <h3>Let's Discuss</h3>
+    </div>
+
+    <div class="service-box">
+        <p class="service-number">1.</p>
+        <div class="service-content">
+            <h4>XML Conversion</h4>
+            <p>Our XML Conversion Department consists of 10 highly skilled professionals, ensuring every file is transformed with precision, consistency, and high-quality output.</p>
+        </div>
+    </div>
+
+    <div class="service-box">
+        <p class="service-number">2.</p>
+        <div class="service-content">
+            <h4>Copy Editing</h4>
+            <p>Our Copyediting team of 5 experts ensures clarity, precision, and polished content across all projects.</p>
+        </div>
+    </div>
+
+    <div class="service-box">
+        <p class="service-number">3.</p>
+        <div class="service-content">
+            <h4>EPUB Conversion</h4>
+            <p>Our 10-member EPUB Conversion team delivers high-quality digital book transformations for publishers and authors.</p>
+        </div>
+    </div>
+
+    <div class="cta-box">
+       <div class="cta-left">Discover how we can help</div>
+        <a href="tel:+917200801765" class="cta-btn">Schedule a Call</a>
+    </div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const hamburger = document.querySelector(".hamburger");
+    const navbar = document.querySelector(".nav-bar");
+
+    /* MOBILE MENU TOGGLE */
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mobileMenu.style.display =
+            mobileMenu.style.display === "flex" ? "none" : "flex";
+    });
+
+    /* Close menu when clicking link */
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.style.display = "none";
+        });
+    });
+
+    /* Close menu when clicking outside */
+    document.addEventListener("click", (e) => {
+        if (mobileMenu.style.display === "flex" &&
+            !mobileMenu.contains(e.target) &&
+            !hamburger.contains(e.target)) {
+            mobileMenu.style.display = "none";
+        }
+    });
+
+    /* AUTO HIDE NAVBAR + AUTO CLOSE MENU ON SCROLL */
+    let lastScroll = 0;
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        // close mobile menu when scrolling
+        mobileMenu.style.display = "none";
+
+        if (currentScroll > lastScroll && currentScroll > 80) {
+            navbar.style.transform = "translateY(-100%)";
+        } else {
+            navbar.style.transform = "translateY(0)";
+        }
+
+        lastScroll = currentScroll;
+    });
+
+});
+</script>
+<footer class="footer-section">
+    <div class="footer-container">
+        
+        <!-- Logo + Company Name -->
+        <div class="footer-header">
+            <img src="Logo.png" alt="Logo" class="footer-logo">
+            <p class="footer-title">QUATROX SOLUTIONS PRIVATE LIMITED</p>
+        </div>
+
+        <!-- Description -->
+        <div class="footer-subhead">
+            <p>To be a trusted partner in delivering exceptional, fast, and reliable customer</p>
+            <p>services to organizations of all sizes - from startups to global enterprises.</p>
+        </div>
+
+        <!-- Contact Columns -->
+        <div class="footer-columns">
+            <div class="footer-col">
+                <p>Contact@quatroxsolutions.com</p>
+                <p>+91 7200801765</p>
+            </div>
+
+            <div class="footer-col">
+                <p>16-74A, HMP Towers Market Rd,</p>
+                <p>Thuckalay, Tamilnadu,</p>
+                <p>India, Pincode - 629175</p>
+            </div>
+            <div class="footer-col">
+                <p>66 5-5/9 Meenakshi street,</p>
+                <p>Thirunagar, Madurai-6</p>
+                <p>TamilNadu, India, Pincode - 625006</p>
+            </div>
+
+            <div class="footer-col footer-links">
+                <a href="https://www.instagram.com/quatrox_solutions?igsh=MWl2MjAwa3Z4ZmFoag==" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/in/quatrox-data-solutions-a29792378" target="_blank">LinkedIn</a>
+                <a href="https://wa.me/917200801765" target="_blank">Whatsapp</a>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-copy">
+            <p>Quatrox Solutions Pvt Ltd © 2025 All Rights Reserved</p>
+        </div>
+
+    </div>
+</footer>
+
+    </body>
+
+</html>
+>>>>>>> ac7bce68e15db4a4c62c357df8edd0967662a707
