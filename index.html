@@ -1,38 +1,4 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Quatro AI</title>
-</head>
-<body style="font-family: Arial; padding:40px">
-
-<h2>🤖 Quatro AI Chat</h2>
-
-<input id="msg" placeholder="Ask something..." style="width:300px;padding:10px">
-<button onclick="send()">Send</button>
-
-<p id="reply"></p>
-
-<script>
-async function send() {
-  const message = document.getElementById("msg").value;
-
-  const res = await fetch("http://localhost:5000/chat", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify({message})
-  });
-
-  const data = await res.json();
-
-  document.getElementById("reply").innerHTML =
-    "<b>Quatro:</b> " + data.reply + "<br>" + data.contact;
-}
-</script>
-
-</body>
-</html>
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -124,30 +90,7 @@ async function send() {
 
     fadeTexts.forEach(text => observer.observe(text));
 </script>
-
 <script>
-/* -----------------------------
-   AUTO HIDE NAVBAR + MOBILE MENU ON SCROLL
------------------------------ */
-let lastScroll = 0;
-
-window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
-
-    // ⭐ CLOSE MOBILE MENU WHEN USER SCROLLS
-    mobileMenu.style.display = "none";
-
-    if (currentScroll > lastScroll && currentScroll > 80) {
-        // scrolling DOWN → hide navbar
-        navbar.style.transform = "translateY(-100%)";
-    } else {
-        // scrolling UP → show navbar
-        navbar.style.transform = "translateY(0)";
-    }
-
-    lastScroll = currentScroll;
-});
-</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -206,118 +149,100 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="responsive-image">
     <img src="home.png" alt="Responsive Image">
 </div>
-
-<!-- FLOATING BUTTON -->
-<div id="openChat" style="
-position:fixed;
-bottom:25px;
-right:25px;
-background:#0D0D29;
-color:white;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-cursor:pointer;
-z-index:9999;">💬</div>
+<!-- CHATBOT BUTTON -->
+<div id="chatbot-button">💭</div>
 
 <!-- CHAT WINDOW -->
-<div id="chatBox" style="
-display:none;
-position:fixed;
-bottom:100px;
-right:25px;
-background:#fff;
-padding:15px;
-border-radius:12px;
-box-shadow:0 0 15px #999;
-width:320px;
-z-index:9999">
-
-<h3>Chat with Quatro AI</h3>
-
-<input id="msg" placeholder="Ask something..." style="width:100%">
-<button onclick="send()" style="width:100%;margin-top:5px">Send</button>
-
-<div id="chat" style="margin-top:10px;font-size:14px;height:200px;overflow:auto;"></div>
+<div id="chatbot-window">
+    <div id="chatbot-header">Quatro AI</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input-area">
+        <input type="text" id="chatbot-input" placeholder="Ask something..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
 </div>
 
-<script>
-document.getElementById("openChat").onclick = () => {
-  const box = document.getElementById("chatBox");
-  box.style.display = box.style.display === "none" ? "block" : "none";
-};
-
-async function send() {
-  const message = document.getElementById("msg").value;
-
-  const res = await fetch("https://quatro-ai.onrender.com/chat", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify({message})
-  });
-
-  const data = await res.json();
-  document.getElementById("chat").innerHTML += 
-    "<p><b>You:</b> "+message+"</p>" +
-    "<p><b>Quatro:</b> "+data.reply+"</p>";
+<style>
+#chatbot-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #0D0D29;
+    color: white;
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:9999;
 }
-</script>
 
+#chatbot-window {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 320px;
+    height: 420px;
+    background: white;
+    border-radius: 15px;
+    display:none;
+    flex-direction: column;
+    overflow:hidden;
+    z-index:9999;
+}
 
-<!-- ================= CHATBOT ================= -->
+#chatbot-header {
+    background:#0D0D29;
+    color:white;
+    padding:15px;
+    font-weight:bold;
+}
 
-<!-- Floating Button -->
-<div id="openChat" style="
-position:fixed;
-bottom:25px;
-right:25px;
-background:#0D0D29;
-color:white;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-cursor:pointer;
-z-index:9999;">💬</div>
+#chatbot-messages {
+    flex:1;
+    padding:10px;
+    overflow-y:auto;
+}
 
-<!-- Chat Window -->
-<div id="chatBox" style="
-display:none;
-position:fixed;
-bottom:100px;
-right:25px;
-background:#fff;
-padding:15px;
-border-radius:12px;
-box-shadow:0 0 15px #999;
-width:320px;
-z-index:9999">
+#chatbot-input-area {
+    display:flex;
+    border-top:1px solid #ddd;
+}
+
+#chatbot-input {
+    flex:1;
+    padding:10px;
+    border:none;
+}
+
+#chatbot-input-area button {
+    background:#0D0D29;
+    color:white;
+    border:none;
+    padding:10px 15px;
+}
+</style>
+
+<!-- Quatro AI Chatbot -->
+<div style="position:fixed;bottom:20px;right:20px;background:#fff;
+padding:15px;border-radius:10px;box-shadow:0 0 10px #999;width:300px">
 
 <h3>Chat with Quatro AI</h3>
 
 <input id="msg" placeholder="Ask something..." style="width:100%">
 <button onclick="send()" style="width:100%;margin-top:5px">Send</button>
 
-<div id="chat" style="margin-top:10px;font-size:14px;height:200px;overflow:auto;"></div>
+<div id="chat" style="margin-top:10px;font-size:14px;"></div>
 </div>
 
 <script>
-document.getElementById("openChat").onclick = () => {
-  const box = document.getElementById("chatBox");
-  box.style.display = box.style.display === "none" ? "block" : "none";
-};
-
 async function send() {
   const message = document.getElementById("msg").value;
 
-  const res = await fetch("/chat", {
+  const res = await fetch("http://localhost:5000/chat", {
     method: "POST",
     headers: {"Content-Type":"application/json"},
     body: JSON.stringify({message})
@@ -327,11 +252,11 @@ async function send() {
 
   document.getElementById("chat").innerHTML += 
     "<p><b>You:</b> "+message+"</p>" +
-    "<p><b>Quatro:</b> "+data.reply+"</p>";
+    "<p><b>Quatro:</b> "+data.reply+"</p>" +
+    data.contact;
 }
 </script>
 
-<!-- ================= END CHATBOT ================= -->
 </body>
 
 <section class="what-we-offer-section">
@@ -404,5 +329,3 @@ async function send() {
 </footer>
 
 </html>
-</html>
-
