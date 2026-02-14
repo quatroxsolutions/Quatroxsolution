@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <!-- CHAT WINDOW -->
 <div id="chatbot-window">
-    <div id="chatbot-header">Quatro AI</div>
+    <div id="chatbot-header">Quatrox solution's Assistant</div>
     <div id="chatbot-messages"></div>
     <div id="chatbot-input-area">
         <input type="text" id="chatbot-input" placeholder="Ask something..." />
@@ -162,9 +162,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <style>
 #chatbot-button {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 25px !important;
     background: #0D0D29;
     color: white;
     font-size: 24px;
@@ -175,15 +175,22 @@ document.addEventListener("DOMContentLoaded", function () {
     align-items:center;
     justify-content:center;
     cursor:pointer;
-    z-index:9999;
+    z-index:9999 !important;
+    box-shadow: 0 4px 12px rgba(13, 13, 41, 0.4);
+    transition: transform 0.2s ease;
+}
+
+#chatbot-button:hover {
+    transform: scale(1.1);
 }
 
 #chatbot-window {
-    position: fixed;
-    bottom: 100px;
-    right: 25px;
+    position: fixed !important;
+    bottom: 100px !important;
+    right: 25px !important;
     width: 320px;
     height: 420px;
+    max-height: calc(100vh - 120px);
     background: white;
     border-radius: 15px;
     display: none;
@@ -193,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
     transition: transform 0.3s ease, opacity 0.3s ease;
     transform: translateY(20px);
     opacity: 0;
+    z-index: 9998 !important;
 }
 
 #chatbot-window.open {
@@ -212,6 +220,13 @@ document.addEventListener("DOMContentLoaded", function () {
     flex:1;
     padding:10px;
     overflow-y:auto;
+    overflow-x: hidden;
+}
+
+#chatbot-messages div {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 #chatbot-input-area {
@@ -230,45 +245,30 @@ document.addEventListener("DOMContentLoaded", function () {
     color:white;
     border:none;
     padding:10px 15px;
+    cursor: pointer;
+}
+
+#chatbot-input-area button:hover {
+    background: #1a1a3e;
 }
 </style>
 
 <script>
-async function send() {
-  const message = document.getElementById("msg").value;
-
-  const res = await fetch("http://localhost:5000/chat", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify({message})
-  });
-
-  const data = await res.json();
-
-  document.getElementById("chat").innerHTML += 
-    "<p><b>You:</b> "+message+"</p>" +
-    "<p><b>Quatro:</b> "+data.reply+"</p>" +
-    data.contact;
-}
-</script>
-<script>
 const chatbotButton = document.getElementById("chatbot-button");
 const chatbotWindow = document.getElementById("chatbot-window");
 const chatbotInput = document.getElementById("chatbot-input");
+const sendBtn = document.getElementById("chatbot-send");
+const messages = document.getElementById("chatbot-messages");
 
 let autoCloseTimer;
 
 // Function to open chatbot
 function openChatbot() {
     chatbotWindow.classList.add("open");
-
-    // Clear previous timer
     if (autoCloseTimer) clearTimeout(autoCloseTimer);
-
-    // Auto-close after 10 seconds if no focus
     autoCloseTimer = setTimeout(() => {
         chatbotWindow.classList.remove("open");
-    }, 10000);
+    }, 30000); // 30 seconds
 }
 
 // Button click toggles chatbot
@@ -278,33 +278,151 @@ chatbotButton.addEventListener("click", () => {
         clearTimeout(autoCloseTimer);
     } else {
         openChatbot();
-        chatbotInput.focus(); // Optional: focus input automatically
+        chatbotInput.focus();
+        
+        // Show welcome message on first open
+        if (messages.children.length === 0) {
+            setTimeout(() => {
+                const welcomeMsg = document.createElement('div');
+                welcomeMsg.style.cssText = 'margin:10px 0;padding:8px 12px;background:#0D0D29;color:white;border-radius:15px;max-width:80%;';
+                welcomeMsg.innerHTML = `<b>Quatro:</b> Hello! 👋 Welcome to Quatrox Solutions. How can I assist you today?`;
+                messages.appendChild(welcomeMsg);
+            }, 500);
+        }
+    }
+});
+// Close chatbot when clicking outside
+document.addEventListener("click", (e) => {
+    if (chatbotWindow.classList.contains("open") &&
+        !chatbotWindow.contains(e.target) &&
+        !chatbotButton.contains(e.target)) {
+        chatbotWindow.classList.remove("open");
+        clearTimeout(autoCloseTimer);
     }
 });
 
+// Prevent chatbot window clicks from closing it
+chatbotWindow.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
+
+// Prevent chatbot button clicks from propagating
+chatbotButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
 // Stop auto-close if user focuses the input
 chatbotInput.addEventListener("focus", () => {
     if (autoCloseTimer) clearTimeout(autoCloseTimer);
 });
-const sendBtn = document.getElementById("chatbot-send");
-const inputField = document.getElementById("chatbot-input");
-const messages = document.getElementById("chatbot-messages");
 
-sendBtn.addEventListener("click", async () => {
-    const message = inputField.value;
+// AI-Powered Response Function
+async function getAIResponse(userMessage) {
+    const msg = userMessage.toLowerCase();
+    
+    // Company information responses
+    const responses = {
+        services: "Quatrox Solutions offers ePub Conversion, XML Conversion, Copy Editing, Accessibility Services, Typesetting, and more publishing technology services. Would you like to know more about any specific service?",
+        // Make email and phone clickable
+    contact: `You can reach us at <a href="mailto:Contact@quatroxsolutions.com">Contact@quatroxsolutions.com</a> or call <a href="tel:+917200801765">+91 7200801765</a>. We have offices in Thuckalay and Madurai, Tamil Nadu.`,
+        about: "Quatrox Solutions is a global provider of advanced technology services for the publishing industry. We deliver high-quality, innovative solutions with a focus on Quality, Trust, Reliability, and Excellence.",
+        location: "We have two offices: 1) HMP Towers Market Rd, Thuckalay, Tamil Nadu - 629175, and 2) Meenakshi Street, Thirunagar, Madurai - 625006, Tamil Nadu, India.",
+        epub: "Our ePub conversion service transforms your content into professional digital formats compatible with all major e-readers and devices. We ensure perfect formatting and accessibility.",
+        xml: "We provide XML conversion services that structure your content for multiple output formats, making it easier to manage, update, and distribute across platforms.",
+        editing: "Our copy editing service ensures your content is polished, error-free, and maintains consistency in style and tone throughout your publication.",
+        accessibility: "We make your digital content accessible to everyone, including people with disabilities, meeting WCAG standards and legal requirements.",
+        typesetting: "Our professional typesetting service creates beautiful, readable layouts for print and digital publications, maintaining the highest quality standards.",
+        price: "For pricing information, please contact us at Contact@quatroxsolutions.com or call +91 7200801765. We'll provide a custom quote based on your specific requirements.",
+        hello: "Hi! Iam quatro AI, Welcome to Quatrox Solution's. How can I help you today? You can ask about our services, contact information, or anything else!",
+        help: "I can help you with information about our services (ePub, XML, Copy Editing, Accessibility, Typesetting), contact details, location, pricing, or general questions about Quatrox Solutions.",
+        thanks: "You're welcome! Feel free to reach out anytime. Have a great day! 😊",
+        hours: "For business hours and availability, please contact us at Contact@quatroxsolutions.com or call +91 7200801765.",
+        team: "We have a unique and highly motivated team dedicated to addressing challenges with efficiency, precision, and innovation in the publishing industry.",
+        bye: "Thankyou for connecting Quatro AI. If you have any more questions, feel free to ask. Have a great day!"
+    };
+    
+    // Check for keywords and respond
+    if (msg.includes("service") || msg.includes("offer") || msg.includes("what do you do") || msg.includes("what can you")) {
+        return responses.services;
+    } else if (msg.includes("contact") || msg.includes("email") || msg.includes("phone") || msg.includes("call") || msg.includes("reach")) {
+        return responses.contact;
+    } else if (msg.includes("about") || msg.includes("who are you") || msg.includes("company") || msg.includes("quatrox")) {
+        return responses.about;
+    } else if (msg.includes("location") || msg.includes("address") || msg.includes("office") || msg.includes("where")) {
+        return responses.location;
+    } else if (msg.includes("epub") || msg.includes("ebook") || msg.includes("e-book")) {
+        return responses.epub;
+    } else if (msg.includes("xml")) {
+        return responses.xml;
+    } else if (msg.includes("edit") || msg.includes("copy") || msg.includes("proofread")) {
+        return responses.editing;
+    } else if (msg.includes("accessibility") || msg.includes("accessible") || msg.includes("wcag")) {
+        return responses.accessibility;
+    } else if (msg.includes("typeset") || msg.includes("layout") || msg.includes("design")) {
+        return responses.typesetting;
+    } else if (msg.includes("price") || msg.includes("cost") || msg.includes("quote") || msg.includes("pricing")) {
+        return responses.price;
+    } else if (msg.includes("hello") || msg.includes("hi") || msg.includes("hey") || msg.includes("greetings")) {
+        return responses.hello;
+    } else if (msg.includes("help") || msg.includes("assist")) {
+        return responses.help;
+    } else if (msg.includes("thank") || msg.includes("thanks")) {
+        return responses.thanks;
+    } else if (msg.includes("hour") || msg.includes("time") || msg.includes("open") || msg.includes("available")) {
+        return responses.hours;
+    } else if (msg.includes("team") || msg.includes("staff") || msg.includes("people")) {
+        return responses.team;
+    } else if (msg.includes("bye") || msg.includes("goodbye") || msg.includes("see you later")) {
+        return responses.bye;
+    } else {
+        return "I'd be happy to help! You can ask me about our services, contact information, location, pricing, or anything else about Quatrox Solutions. What would you like to know?";
+    }
+}
+
+// Handle sending messages
+async function handleSendMessage() {
+    const message = chatbotInput.value.trim();
     if (!message) return;
 
-    messages.innerHTML += `<p><b>You:</b> ${message}</p>`;
-    inputField.value = "";
+    // Display user message
+    const userMsg = document.createElement('div');
+    userMsg.style.cssText = 'margin:10px 0;padding:8px 12px;background:#f0f0f0;border-radius:15px;max-width:75%;align-self:flex-end;word-wrap:break-word;word-break:break-word;overflow-wrap:break-word;box-sizing:border-box;';
+    userMsg.innerHTML = `<b>You:</b> ${message}`;
+    messages.appendChild(userMsg);
+    
+    chatbotInput.value = "";
+    messages.scrollTop = messages.scrollHeight;
 
-    const res = await fetch("http://localhost:5000/chat", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({message})
-    });
+    // Show typing indicator
+    const typingDiv = document.createElement('div');
+    typingDiv.id = 'typing-indicator';
+    typingDiv.style.cssText = 'margin:10px 0;padding:8px 12px;background:#0D0D29;color:white;border-radius:15px;max-width:60px;';
+    typingDiv.textContent = '...';
+    messages.appendChild(typingDiv);
+    messages.scrollTop = messages.scrollHeight;
 
-    const data = await res.json();
-    messages.innerHTML += `<p><b>Quatro:</b> ${data.reply}</p>`;
+    // Get AI response
+    setTimeout(async () => {
+        const typing = document.getElementById('typing-indicator');
+        if (typing) typing.remove();
+
+        const reply = await getAIResponse(message);
+        
+        const botMsg = document.createElement('div');
+        botMsg.style.cssText = 'margin:10px 0;padding:8px 12px;background:#0D0D29;color:white;border-radius:15px;max-width:75%;word-wrap:break-word;word-break:break-word;overflow-wrap:break-word;box-sizing:border-box;';
+        botMsg.innerHTML = `<b>Quatro:</b> ${reply}`;
+        messages.appendChild(botMsg);
+        messages.scrollTop = messages.scrollHeight;
+    }, 800);
+}
+
+// Send message on button click
+sendBtn.addEventListener("click", handleSendMessage);
+
+// Send message on Enter key
+chatbotInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        handleSendMessage();
+    }
 });
 </script>
 </body>
