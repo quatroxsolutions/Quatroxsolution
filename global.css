@@ -1,11 +1,18 @@
 /* ===============================
    GLOBAL RESET + FONT
 ================================ */
+* /* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent !important;  /* ← ADD */
+    -webkit-touch-callout: none !important;               /* ← ADD */
+    outline: none !important;                             /* ← ADD */
+}
+
+a, button, div, span {
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important; /* ← ADD */
 }
 body {
     font-family: "Geist", sans-serif;
