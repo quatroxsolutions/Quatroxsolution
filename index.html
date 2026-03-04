@@ -323,7 +323,7 @@ async function getAIResponse(userMessage) {
     const responses = {
         services: "Quatrox Solutions offers ePub Conversion, XML Conversion, Copy Editing, Accessibility Services, Typesetting, and more publishing technology services. Would you like to know more about any specific service?",
         // Make email and phone clickable
-    contact: `You can reach us at <a href="mailto:Contact@quatroxsolutions.com">Contact@quatroxsolutions.com</a> or call <a href="tel:+917200801765">+91 7200801765</a>. We have offices in Thuckalay and Madurai, Tamil Nadu.`,
+    contact: `You can reach us at <a href="mailto:Contact@quatroxsolutions.com?subject=Enquiry%20from%20Website&body=Hello%20Quatrox%20Solutions%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20services." style="color:#90CAF9;">Contact@quatroxsolutions.com</a> or call <a href="tel:+917200801765" style="color:#90CAF9;">+91 7200801765</a>. We have offices in Thuckalay and Madurai, Tamil Nadu.`,
         about: "Quatrox Solutions is a global provider of advanced technology services for the publishing industry. We deliver high-quality, innovative solutions with a focus on Quality, Trust, Reliability, and Excellence.",
         location: "We have two offices: 1) HMP Towers Market Rd, Thuckalay, Tamil Nadu - 629175, and 2) Meenakshi Street, Thirunagar, Madurai - 625006, Tamil Nadu, India.",
         epub: "Our ePub conversion service transforms your content into professional digital formats compatible with all major e-readers and devices. We ensure perfect formatting and accessibility.",
@@ -466,7 +466,7 @@ chatbotInput.addEventListener("keypress", (e) => {
         <!-- Contact Columns -->
         <div class="footer-columns">
             <div class="footer-col">
-                <p>Contact@quatroxsolutions.com</p>
+                <a href="mailto:Contact@quatroxsolutions.com?subject=Enquiry%20from%20Website&body=Hello%20Quatrox%20Solutions%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20services." style="color:#000;text-decoration:none;">Contact@quatroxsolutions.com</a>
                 <p>+91 7200801765</p>
             </div>
 
