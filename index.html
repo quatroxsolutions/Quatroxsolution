@@ -6,21 +6,18 @@
     <title>Quatrox Solutions</title>
     <meta name="google-site-verification" content="vFKmIM9E4jNi2PVW1JEpS1E-dFTAry-Ey7KrB8d3Tzs" />
 
-   <!-- SEO & FAVICON -->
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
-<link rel="shortcut icon" href="/favicon.png">
-<link rel="apple-touch-icon" href="/favicon.png">
+    <!-- SEO & FAVICON -->
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
 
-<meta name="description" content="Quatrox Solutions - Global provider of advanced technology services for the publishing industry. ePub Conversion, XML, Copy Editing, Accessibility, Typesetting.">
-
-<meta name="keywords" content="Quatrox Solutions, ePub Conversion, XML Conversion, Copy Editing, Typesetting, Publishing Technology">
-
-<meta property="og:title" content="Quatrox Solutions">
-<meta property="og:description" content="Quality Unmatched Accuracy Trust Reliability On-time Xcellence">
-<meta property="og:image" content="https://www.quatroxsolutions.com/Logo.png">
-<meta property="og:url" content="https://www.quatroxsolutions.com">
-
-<meta name="robots" content="index, follow">
+    <meta name="description" content="Quatrox Solutions - Global provider of advanced technology services for the publishing industry. ePub Conversion, XML, Copy Editing, Accessibility, Typesetting.">
+    <meta name="keywords" content="Quatrox Solutions, ePub Conversion, XML Conversion, Copy Editing, Typesetting, Publishing Technology">
+    <meta property="og:title" content="Quatrox Solutions">
+    <meta property="og:description" content="Quality Unmatched Accuracy Trust Reliability On-time Xcellence">
+    <meta property="og:image" content="https://www.quatroxsolutions.com/Logo.png">
+    <meta property="og:url" content="https://www.quatroxsolutions.com">
+    <meta name="robots" content="index, follow">
 
     <link rel="stylesheet" href="https://unpkg.com/geist-font@latest/style.css">
     <link rel="stylesheet" href="global.css">
@@ -79,20 +76,17 @@
     </div>
 </header>
 
+<!-- ═══════════════════════════════════════
+     ABOUT SECTION
+════════════════════════════════════════ -->
 <style>
-  /* ── About Section ── */
   .about-section {
     background: #fff;
     padding: 90px 5% 80px;
     font-family: 'Geist', 'Segoe UI', sans-serif;
   }
+  .about-inner { max-width: 1200px; margin: 0 auto; }
 
-  .about-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  /* Eyebrow label — no dot, clean pill style */
   .about-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -107,8 +101,6 @@
     color: #0D0D29;
     margin-bottom: 24px;
   }
-
-  /* Hero headline */
   .about-headline {
     font-size: clamp(28px, 4vw, 46px);
     font-weight: 800;
@@ -117,11 +109,7 @@
     margin: 0 0 20px;
     max-width: 700px;
   }
-  .about-headline span {
-    color: #888a8d;
-  }
-
-  /* Lead paragraph */
+  .about-headline span { color: #888a8d; }
   .about-lead {
     font-size: 17px;
     line-height: 1.75;
@@ -129,18 +117,13 @@
     max-width: 780px;
     margin: 0 0 48px;
   }
-
-  /* ── Two-column layout ── */
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
     margin-bottom: 60px;
   }
-  @media (max-width: 768px) {
-    .about-grid { grid-template-columns: 1fr; }
-  }
-
+  @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
   .about-card {
     background: #f8f8fd;
     border: 1px solid #e8e8f4;
@@ -150,10 +133,7 @@
     overflow: hidden;
     transition: box-shadow 0.25s ease, transform 0.25s ease;
   }
-  .about-card:hover {
-    box-shadow: 0 8px 30px rgba(13,13,41,0.12);
-    transform: translateY(-3px);
-  }
+  .about-card:hover { box-shadow: 0 8px 30px rgba(13,13,41,0.12); transform: translateY(-3px); }
   .about-card::before {
     content: '';
     position: absolute;
@@ -162,29 +142,13 @@
     background: #0D0D29;
     border-radius: 4px 0 0 4px;
   }
-  .about-card-icon {
-    font-size: 28px;
-    margin-bottom: 12px;
-    display: block;
-  }
-  .about-card h3 {
-    font-size: 17px;
-    font-weight: 700;
-    color: #0D0D29;
-    margin: 0 0 10px;
-  }
-  .about-card p {
-    font-size: 14.5px;
-    line-height: 1.7;
-    color: #555;
-    margin: 0;
-  }
+  .about-card-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .about-card h3 { font-size: 17px; font-weight: 700; color: #0D0D29; margin: 0 0 10px; }
+  .about-card p { font-size: 14.5px; line-height: 1.7; color: #555; margin: 0; }
 
-  /* ── Stats row ── */
   .about-stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 0;
     background: #0D0D29;
     border-radius: 18px;
     overflow: hidden;
@@ -197,37 +161,16 @@
     text-align: center;
   }
   .stat-item:last-child { border-right: none; }
-  .stat-number {
-    font-size: 38px;
-    font-weight: 800;
-    color: #fff;
-    display: block;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .stat-label {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
+  .stat-number { font-size: 38px; font-weight: 800; color: #fff; display: block; line-height: 1; margin-bottom: 8px; }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; text-transform: uppercase; }
 
-  /* ── Why choose us — pillars ── */
-  .about-pillars-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: #0D0D29;
-    margin: 0 0 28px;
-    text-align: center;
-  }
-
+  .about-pillars-title { font-size: 22px; font-weight: 700; color: #0D0D29; margin: 0 0 28px; text-align: center; }
   .pillars-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 20px;
     margin-bottom: 56px;
   }
-
   .pillar {
     background: #fff;
     border: 1.5px solid #e0e0f0;
@@ -236,58 +179,26 @@
     text-align: center;
     transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
   }
-  .pillar:hover {
-    background: #0D0D29;
-    border-color: #0D0D29;
-    transform: translateY(-4px);
-  }
+  .pillar:hover { background: #0D0D29; border-color: #0D0D29; transform: translateY(-4px); }
   .pillar:hover .pillar-label,
   .pillar:hover .pillar-icon { color: #fff; }
+  .pillar-icon { font-size: 30px; display: block; margin-bottom: 12px; color: #0D0D29; transition: color 0.25s; }
+  .pillar-label { font-size: 13.5px; font-weight: 700; color: #0D0D29; letter-spacing: 0.03em; transition: color 0.25s; }
 
-  .pillar-icon {
-    font-size: 30px;
-    display: block;
-    margin-bottom: 12px;
-    color: #0D0D29;
-    transition: color 0.25s;
-  }
-  .pillar-label {
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #0D0D29;
-    letter-spacing: 0.03em;
-    transition: color 0.25s;
-  }
-
-  /* ── Mission bar ── */
   .about-mission {
     background: linear-gradient(135deg, #0D0D29 0%, #1c1c52 100%);
     border-radius: 18px;
-    padding: 44px 44px;
+    padding: 44px;
     display: flex;
     align-items: center;
     gap: 40px;
     flex-wrap: wrap;
     margin-bottom: 56px;
   }
-  .mission-text {
-    flex: 1 1 340px;
-  }
-  .mission-text h3 {
-    font-size: 22px;
-    font-weight: 800;
-    color: #fff;
-    margin: 0 0 14px;
-  }
-  .mission-text p {
-    font-size: 15px;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.75);
-    margin: 0;
-  }
-  .mission-cta {
-    flex: 0 0 auto;
-  }
+  .mission-text { flex: 1 1 340px; }
+  .mission-text h3 { font-size: 22px; font-weight: 800; color: #fff; margin: 0 0 14px; }
+  .mission-text p { font-size: 15px; line-height: 1.75; color: rgba(255,255,255,0.75); margin: 0; }
+  .mission-cta { flex: 0 0 auto; }
   .mission-cta a {
     display: inline-block;
     background: #fff;
@@ -300,30 +211,11 @@
     letter-spacing: 0.04em;
     transition: background 0.2s ease, transform 0.2s ease;
   }
-  .mission-cta a:hover {
-    background: #e8e8f8;
-    transform: scale(1.04);
-  }
+  .mission-cta a:hover { background: #e8e8f8; transform: scale(1.04); }
 
-  /* ── Certifications / trust badges ── */
-  .about-trust {
-    text-align: center;
-    border-top: 1px solid #eee;
-    padding-top: 40px;
-  }
-  .about-trust p {
-    font-size: 13px;
-    color: #999;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 22px;
-  }
-  .trust-badges {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-  }
+  .about-trust { text-align: center; border-top: 1px solid #eee; padding-top: 40px; }
+  .about-trust p { font-size: 13px; color: #999; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 22px; }
+  .trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
   .trust-badge {
     background: #f4f4fb;
     border: 1px solid #e0e0f0;
@@ -336,16 +228,12 @@
     align-items: center;
     gap: 7px;
   }
-
-  /* fade-in on scroll */
   .fade-text { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-text.show { opacity: 1; transform: none; }
 </style>
 
 <section id="About" class="about-section">
   <div class="about-inner">
-
-    <!-- Eyebrow + Headline -->
     <div class="about-eyebrow fade-text">Who We Are</div>
     <h2 class="about-headline fade-text">
       Your Trusted <span>Business Process Outsourcing</span><br>Partner in Publishing Technology
@@ -353,8 +241,6 @@
     <p class="about-lead fade-text">
       Quatrox Solutions is a globally oriented BPO company specialising in end-to-end publishing and content technology services. With offices in Thuckalay and Madurai, Tamil Nadu, we combine deep domain expertise with cutting-edge workflows to help publishers, corporates, and content companies deliver faster, smarter, and at scale — without compromising on quality.
     </p>
-
-    <!-- Two-column detail cards -->
     <div class="about-grid fade-text">
       <div class="about-card">
         <span class="about-card-icon">🏢</span>
@@ -378,67 +264,31 @@
       </div>
     </div>
 
-    <!-- Stats row -->
     <div class="about-stats fade-text">
-      <div class="stat-item">
-        <span class="stat-number">100+</span>
-        <span class="stat-label">Projects Delivered</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">99%</span>
-        <span class="stat-label">Accuracy Rate</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">2</span>
-        <span class="stat-label">Office Locations</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">24h</span>
-        <span class="stat-label">Turnaround Support</span>
-      </div>
+      <div class="stat-item"><span class="stat-number">100+</span><span class="stat-label">Projects Delivered</span></div>
+      <div class="stat-item"><span class="stat-number">99%</span><span class="stat-label">Accuracy Rate</span></div>
+      <div class="stat-item"><span class="stat-number">2</span><span class="stat-label">Office Locations</span></div>
+      <div class="stat-item"><span class="stat-number">24h</span><span class="stat-label">Turnaround Support</span></div>
     </div>
 
-    <!-- Why Choose Us pillars -->
     <h3 class="about-pillars-title fade-text">Why Clients Choose Us</h3>
     <div class="pillars-grid fade-text">
-      <div class="pillar">
-        <span class="pillar-icon">✅</span>
-        <span class="pillar-label">Quality Assured</span>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">⏱️</span>
-        <span class="pillar-label">On-Time Delivery</span>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">📊</span>
-        <span class="pillar-label">Scalable Operations</span>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">🔒</span>
-        <span class="pillar-label">Data Security</span>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">🤝</span>
-        <span class="pillar-label">Dedicated Support</span>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon">🌍</span>
-        <span class="pillar-label">Global Standards</span>
-      </div>
+      <div class="pillar"><span class="pillar-icon">✅</span><span class="pillar-label">Quality Assured</span></div>
+      <div class="pillar"><span class="pillar-icon">⏱️</span><span class="pillar-label">On-Time Delivery</span></div>
+      <div class="pillar"><span class="pillar-icon">📊</span><span class="pillar-label">Scalable Operations</span></div>
+      <div class="pillar"><span class="pillar-icon">🔒</span><span class="pillar-label">Data Security</span></div>
+      <div class="pillar"><span class="pillar-icon">🤝</span><span class="pillar-label">Dedicated Support</span></div>
+      <div class="pillar"><span class="pillar-icon">🌍</span><span class="pillar-label">Global Standards</span></div>
     </div>
 
-    <!-- Mission bar with CTA -->
     <div class="about-mission fade-text">
       <div class="mission-text">
         <h3>Our Mission</h3>
         <p>To be a trusted partner in delivering exceptional, fast, and reliable outsourcing services to organisations of all sizes — from independent publishers and startups to global enterprises — by combining precision, technology, and a people-first culture.</p>
       </div>
-      <div class="mission-cta">
-        <a href="contact.html">Get in Touch →</a>
-      </div>
+      <div class="mission-cta"><a href="contact.html">Get in Touch →</a></div>
     </div>
 
-    <!-- Trust / compliance badges -->
     <div class="about-trust fade-text">
       <p>Our commitments</p>
       <div class="trust-badges">
@@ -449,67 +299,26 @@
         <div class="trust-badge">✔ 100% Human-Verified Output</div>
       </div>
     </div>
-
   </div>
 </section>
 
-<script>
-    const fadeTexts = document.querySelectorAll(".fade-text");
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add("show");
-            else entry.target.classList.remove("show");
-        });
-    });
-    fadeTexts.forEach(text => observer.observe(text));
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const mobileMenu = document.querySelector(".mobile-menu");
-    const hamburger = document.querySelector(".hamburger");
-    const navbar = document.querySelector(".nav-bar");
-
-    hamburger.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
-    });
-
-    document.querySelectorAll(".mobile-menu a").forEach(link => {
-        link.addEventListener("click", () => { mobileMenu.style.display = "none"; });
-    });
-
-    document.addEventListener("click", (e) => {
-        if (mobileMenu.style.display === "flex" && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-            mobileMenu.style.display = "none";
-        }
-    });
-
-    let lastScroll = 0;
-    window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
-        if (currentScroll > lastScroll && currentScroll > 80) navbar.style.transform = "translateY(-100%)";
-        else navbar.style.transform = "translateY(0)";
-        lastScroll = currentScroll;
-    });
-});
-</script>
-    <style>
+<!-- ═══════════════════════════════════════
+     UNIFIED DARK BLOCK (BPO + SERVICES)
+════════════════════════════════════════ -->
+<style>
   .unified-block {
     background: #0D0D29;
     font-family: 'Geist', 'Segoe UI', sans-serif;
     overflow: hidden;
   }
 
-  /* ── Main content grid: image left, text right ── */
+  /* Top: image left, BPO content right */
   .unified-inner {
     display: grid;
     grid-template-columns: 42% 58%;
     min-height: 580px;
     align-items: center;
   }
-
-  /* Left — image as a modern floating card */
   .unified-img {
     position: relative;
     display: flex;
@@ -520,12 +329,10 @@ document.addEventListener("DOMContentLoaded", function () {
   .unified-img::before {
     content: '';
     position: absolute;
-    width: 260px;
-    height: 260px;
+    width: 260px; height: 260px;
     background: rgba(152,152,204,0.15);
     border-radius: 50%;
-    top: 50%;
-    left: 55%;
+    top: 50%; left: 55%;
     transform: translate(-50%, -50%);
     z-index: 0;
     filter: blur(50px);
@@ -546,16 +353,12 @@ document.addEventListener("DOMContentLoaded", function () {
     transform: translateY(-6px) scale(1.01);
     box-shadow: 0 36px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.12);
   }
-
-  /* Right — unified content, no internal dividers */
   .unified-content {
     padding: 58px 7% 56px 6%;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-
-  /* Eyebrow */
   .unified-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -570,13 +373,10 @@ document.addEventListener("DOMContentLoaded", function () {
   .unified-eyebrow::before {
     content: '';
     display: inline-block;
-    width: 22px;
-    height: 2px;
+    width: 22px; height: 2px;
     background: rgba(255,255,255,0.3);
     border-radius: 2px;
   }
-
-  /* Headline */
   .unified-content h2 {
     font-size: clamp(22px, 2.8vw, 34px);
     font-weight: 800;
@@ -584,12 +384,7 @@ document.addEventListener("DOMContentLoaded", function () {
     line-height: 1.2;
     margin: 0 0 14px;
   }
-  .unified-content h2 em {
-    font-style: normal;
-    color: #9898cc;
-  }
-
-  /* Lead paragraph */
+  .unified-content h2 em { font-style: normal; color: #9898cc; }
   .unified-content > p {
     font-size: 15px;
     line-height: 1.8;
@@ -597,14 +392,7 @@ document.addEventListener("DOMContentLoaded", function () {
     margin: 0 0 28px;
     max-width: 480px;
   }
-
-  /* Voice + Non-Voice inline pills */
-  .unified-bpo-row {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-  }
+  .unified-bpo-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 30px; }
   .unified-bpo-pill {
     display: flex;
     align-items: center;
@@ -616,29 +404,9 @@ document.addEventListener("DOMContentLoaded", function () {
     flex: 1 1 160px;
   }
   .unified-bpo-pill-icon { font-size: 22px; line-height: 1; }
-  .unified-bpo-pill-text { }
-  .unified-bpo-pill-title {
-    display: block;
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.2;
-  }
-  .unified-bpo-pill-sub {
-    display: block;
-    font-size: 11.5px;
-    color: rgba(255,255,255,0.45);
-    margin-top: 2px;
-  }
-
-  /* Services strip — inline, no label separation */
-  .unified-services {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 30px;
-  }
+  .unified-bpo-pill-title { display: block; font-size: 14px; font-weight: 700; color: #fff; line-height: 1.2; }
+  .unified-bpo-pill-sub { display: block; font-size: 11.5px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+  .unified-services { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 30px; }
   .unified-chip {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.12);
@@ -650,18 +418,8 @@ document.addEventListener("DOMContentLoaded", function () {
     white-space: nowrap;
     transition: background 0.2s, border-color 0.2s;
   }
-  .unified-chip:hover {
-    background: rgba(255,255,255,0.12);
-    border-color: rgba(255,255,255,0.26);
-  }
-  .unified-chip-more {
-    font-size: 12.5px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.28);
-    padding: 6px 4px;
-  }
-
-  /* CTA */
+  .unified-chip:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.26); }
+  .unified-chip-more { font-size: 12.5px; font-weight: 700; color: rgba(255,255,255,0.28); padding: 6px 4px; }
   .unified-cta {
     display: inline-block;
     background: #fff;
@@ -677,14 +435,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   .unified-cta:hover { background: #e8e8f8; transform: scale(1.04); }
 
-  @media (max-width: 820px) {
-    .unified-inner { grid-template-columns: 1fr; }
-    .unified-img { padding: 40px 6% 20px; justify-content: center; }
-    .unified-img img { max-width: 280px; height: 300px; }
-    .unified-content { padding: 20px 6% 44px; }
-  }
-
-  /* ── Bottom: banner image + What We Offer merged ── */
+  /* Bottom: services cards left, image right */
   .offer-block {
     display: grid;
     grid-template-columns: 52% 48%;
@@ -711,8 +462,7 @@ document.addEventListener("DOMContentLoaded", function () {
   .offer-block-eyebrow::before {
     content: '';
     display: inline-block;
-    width: 22px;
-    height: 2px;
+    width: 22px; height: 2px;
     background: rgba(255,255,255,0.3);
     border-radius: 2px;
   }
@@ -723,53 +473,98 @@ document.addEventListener("DOMContentLoaded", function () {
     line-height: 1.22;
     margin: 0 0 14px;
   }
-  .offer-block-text h2 em {
-    font-style: normal;
-    color: #9898cc;
-  }
+  .offer-block-text h2 em { font-style: normal; color: #9898cc; }
   .offer-block-text > p {
     font-size: 15px;
     line-height: 1.8;
     color: rgba(255,255,255,0.6);
-    margin: 0 0 30px;
+    margin: 0 0 24px;
     max-width: 460px;
   }
-  .offer-list {
+
+  /* Service cards */
+  .svc-track-wrap { position: relative; margin-bottom: 28px; }
+  .svc-track {
     display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-bottom: 32px;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 8px;
+    scrollbar-width: none;
   }
-  .offer-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
+  .svc-track::-webkit-scrollbar { display: none; }
+  .svc-card {
+    flex: 0 0 160px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 20px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
-  .offer-item-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+  .svc-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(152,152,204,0.18), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 18px;
+  }
+  .svc-card:hover { border-color: rgba(255,255,255,0.22); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
+  .svc-card:hover::before { opacity: 1; }
+  .svc-card.active {
+    border-color: rgba(152,152,204,0.7);
+    background: rgba(152,152,204,0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(152,152,204,0.3);
+  }
+  .svc-card.active::before { opacity: 1; }
+  .svc-card-icon { font-size: 26px; margin-bottom: 12px; display: block; }
+  .svc-card-title { font-size: 13.5px; font-weight: 800; color: #fff; margin-bottom: 10px; line-height: 1.25; letter-spacing: 0.01em; }
+  .svc-card-desc { font-size: 11.5px; line-height: 1.65; color: rgba(255,255,255,0.5); margin-bottom: 14px; display: none; }
+  .svc-card.active .svc-card-desc { display: block; animation: fadeSlideIn 0.35s ease forwards; }
+  @keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .svc-card-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(152,152,204,0.8);
+    background: rgba(152,152,204,0.1);
+    border: 1px solid rgba(152,152,204,0.25);
+    border-radius: 50px;
+    padding: 3px 10px;
+  }
+  .svc-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
+    transition: background 0.2s ease;
+    z-index: 2;
+    line-height: 1;
   }
-  .offer-item-body { flex: 1; }
-  .offer-item-title {
-    display: block;
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 3px;
-  }
-  .offer-item-desc {
-    font-size: 12.5px;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.48);
-  }
+  .svc-arrow:hover { background: rgba(255,255,255,0.18); }
+  .svc-arrow-left  { left: -16px; }
+  .svc-arrow-right { right: -16px; }
+
+  /* Right image */
   .offer-block-img {
     position: relative;
     display: flex;
@@ -780,12 +575,10 @@ document.addEventListener("DOMContentLoaded", function () {
   .offer-block-img::before {
     content: '';
     position: absolute;
-    width: 240px;
-    height: 240px;
+    width: 240px; height: 240px;
     background: rgba(152,152,204,0.13);
     border-radius: 50%;
-    top: 50%;
-    left: 45%;
+    top: 50%; left: 45%;
     transform: translate(-50%, -50%);
     z-index: 0;
     filter: blur(50px);
@@ -806,7 +599,12 @@ document.addEventListener("DOMContentLoaded", function () {
     transform: translateY(-6px) scale(1.01);
     box-shadow: 0 36px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.12);
   }
+
   @media (max-width: 820px) {
+    .unified-inner { grid-template-columns: 1fr; }
+    .unified-img { padding: 40px 6% 20px; justify-content: center; }
+    .unified-img img { max-width: 280px; height: 300px; }
+    .unified-content { padding: 20px 6% 44px; }
     .offer-block { grid-template-columns: 1fr; }
     .offer-block-img { padding: 20px 6% 40px; order: -1; justify-content: center; }
     .offer-block-img img { max-width: 280px; height: 300px; }
@@ -815,22 +613,16 @@ document.addEventListener("DOMContentLoaded", function () {
 </style>
 
 <div class="unified-block">
-  <div class="unified-inner">
 
-    <!-- Left: image -->
+  <!-- Top row: image + BPO content -->
+  <div class="unified-inner">
     <div class="unified-img">
       <img src="home.png" alt="Quatrox BPO Services">
     </div>
-
-    <!-- Right: all content as one continuous flow -->
     <div class="unified-content">
-
       <div class="unified-eyebrow">What We Do</div>
-
       <h2>End-to-End BPO &amp; Publishing<br>Services for <em>Every Need</em></h2>
-
       <p>Quatrox Solutions delivers comprehensive outsourcing across Voice and Non-Voice verticals — from live customer interactions and inbound support to data processing, content management, and back-office publishing workflows. One partner, every solution.</p>
-
       <div class="unified-bpo-row">
         <div class="unified-bpo-pill">
           <span class="unified-bpo-pill-icon">📞</span>
@@ -847,7 +639,6 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>
       </div>
-
       <div class="unified-services">
         <span class="unified-chip">ePub Conversion</span>
         <span class="unified-chip">XML Conversion</span>
@@ -856,63 +647,50 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="unified-chip">Typesetting</span>
         <span class="unified-chip-more">+More</span>
       </div>
-
       <a href="service.html" class="unified-cta">Explore All Services →</a>
-
     </div>
   </div>
 
-  <!-- Bottom: What We Offer merged with banner image -->
+  <!-- Bottom row: interactive service cards + image -->
   <div class="offer-block">
-
-    <!-- Left: explained services as interactive accordion boxes -->
     <div class="offer-block-text">
       <div class="offer-block-eyebrow">What We Offer</div>
       <h2>Publishing &amp; Content Services<br>Built for <em>Precision &amp; Scale</em></h2>
       <p>From structured XML workflows to pixel-perfect typesetting, every service we offer is designed to meet the demands of modern publishers — accurate, fast, and fully compliant.</p>
 
-      <!-- Scrollable card track -->
       <div class="svc-track-wrap">
         <div class="svc-track" id="svcTrack">
-
           <div class="svc-card active" onclick="selectCard(this)">
             <div class="svc-card-icon">📖</div>
             <div class="svc-card-title">ePub Conversion</div>
             <div class="svc-card-desc">Transform manuscripts and PDFs into fully validated, reflowable ePub files compatible with all major e-readers and platforms.</div>
             <div class="svc-card-tag">Digital Publishing</div>
           </div>
-
           <div class="svc-card" onclick="selectCard(this)">
             <div class="svc-card-icon">🗂️</div>
             <div class="svc-card-title">XML Conversion</div>
             <div class="svc-card-desc">Structure your content in industry-standard XML formats (JATS, BITS, NLM) for seamless multi-channel publishing and archiving.</div>
             <div class="svc-card-tag">Data Structuring</div>
           </div>
-
           <div class="svc-card" onclick="selectCard(this)">
             <div class="svc-card-icon">✏️</div>
             <div class="svc-card-title">Copy Editing</div>
             <div class="svc-card-desc">Expert editorial review for grammar, style, consistency, and clarity — preserving your author's voice while raising overall quality.</div>
             <div class="svc-card-tag">Editorial</div>
           </div>
-
           <div class="svc-card" onclick="selectCard(this)">
             <div class="svc-card-icon">♿</div>
             <div class="svc-card-title">Accessibility</div>
             <div class="svc-card-desc">WCAG 2.1 and PDF/UA compliant remediation so your digital content is fully accessible to all readers, including those with disabilities.</div>
             <div class="svc-card-tag">WCAG 2.1</div>
           </div>
-
           <div class="svc-card" onclick="selectCard(this)">
             <div class="svc-card-icon">🖨️</div>
             <div class="svc-card-title">Typesetting</div>
             <div class="svc-card-desc">Professional print-ready and digital layouts using InDesign and LaTeX — precise, consistent, and ready for press or screen.</div>
-            <div class="svc-card-tag">Print & Digital</div>
+            <div class="svc-card-tag">Print &amp; Digital</div>
           </div>
-
         </div>
-
-        <!-- Scroll arrows -->
         <button class="svc-arrow svc-arrow-left" onclick="scrollTrack(-1)">&#8592;</button>
         <button class="svc-arrow svc-arrow-right" onclick="scrollTrack(1)">&#8594;</button>
       </div>
@@ -920,145 +698,69 @@ document.addEventListener("DOMContentLoaded", function () {
       <a href="service.html" class="unified-cta">View All Services →</a>
     </div>
 
-    <style>
-      .svc-track-wrap {
-        position: relative;
-        margin-bottom: 28px;
-      }
-      .svc-track {
-        display: flex;
-        gap: 12px;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        padding-bottom: 8px;
-        scrollbar-width: none;
-      }
-      .svc-track::-webkit-scrollbar { display: none; }
-
-      .svc-card {
-        flex: 0 0 160px;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 18px;
-        padding: 20px 16px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-      .svc-card::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, rgba(152,152,204,0.18), transparent);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        border-radius: 18px;
-      }
-      .svc-card:hover {
-        border-color: rgba(255,255,255,0.22);
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(0,0,0,0.4);
-      }
-      .svc-card:hover::before { opacity: 1; }
-      .svc-card.active {
-        border-color: rgba(152,152,204,0.7);
-        background: rgba(152,152,204,0.12);
-        transform: translateY(-6px);
-        box-shadow: 0 16px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(152,152,204,0.3);
-      }
-      .svc-card.active::before { opacity: 1; }
-
-      .svc-card-icon {
-        font-size: 26px;
-        margin-bottom: 12px;
-        display: block;
-      }
-      .svc-card-title {
-        font-size: 13.5px;
-        font-weight: 800;
-        color: #fff;
-        margin-bottom: 10px;
-        line-height: 1.25;
-        letter-spacing: 0.01em;
-      }
-      .svc-card-desc {
-        font-size: 11.5px;
-        line-height: 1.65;
-        color: rgba(255,255,255,0.5);
-        margin-bottom: 14px;
-        display: none;
-      }
-      .svc-card.active .svc-card-desc {
-        display: block;
-        animation: fadeSlideIn 0.35s ease forwards;
-      }
-      @keyframes fadeSlideIn {
-        from { opacity: 0; transform: translateY(6px); }
-        to   { opacity: 1; transform: translateY(0); }
-      }
-      .svc-card-tag {
-        display: inline-block;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: rgba(152,152,204,0.8);
-        background: rgba(152,152,204,0.1);
-        border: 1px solid rgba(152,152,204,0.25);
-        border-radius: 50px;
-        padding: 3px 10px;
-      }
-
-      /* Scroll arrows */
-      .svc-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(255,255,255,0.08);
-        border: 1px solid rgba(255,255,255,0.15);
-        color: #fff;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        font-size: 16px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.2s ease;
-        z-index: 2;
-        line-height: 1;
-      }
-      .svc-arrow:hover { background: rgba(255,255,255,0.18); }
-      .svc-arrow-left  { left: -16px; }
-      .svc-arrow-right { right: -16px; }
-    </style>
-
-    <script>
-      function selectCard(card) {
-        document.querySelectorAll('.svc-card').forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      }
-      function scrollTrack(dir) {
-        const track = document.getElementById('svcTrack');
-        track.scrollBy({ left: dir * 180, behavior: 'smooth' });
-      }
-    </script>
-
-    <!-- Right: banner image -->
     <div class="offer-block-img">
       <img src="home footer.png" alt="Quatrox Services">
     </div>
-
   </div>
+
 </div>
 
-<!-- CHATBOT BUTTON -->
-<div id="chatbot-button">💭</div>
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script>
+  const fadeTexts = document.querySelectorAll(".fade-text");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
+      else entry.target.classList.remove("show");
+    });
+  });
+  fadeTexts.forEach(text => observer.observe(text));
 
-<!-- CHAT WINDOW -->
+  function selectCard(card) {
+    document.querySelectorAll('.svc-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+  function scrollTrack(dir) {
+    const track = document.getElementById('svcTrack');
+    track.scrollBy({ left: dir * 180, behavior: 'smooth' });
+  }
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const hamburger = document.querySelector(".hamburger");
+    const navbar = document.querySelector(".nav-bar");
+
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
+    });
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+        link.addEventListener("click", () => { mobileMenu.style.display = "none"; });
+    });
+    document.addEventListener("click", (e) => {
+        if (mobileMenu.style.display === "flex" && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            mobileMenu.style.display = "none";
+        }
+    });
+    let lastScroll = 0;
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > lastScroll && currentScroll > 80) navbar.style.transform = "translateY(-100%)";
+        else navbar.style.transform = "translateY(0)";
+        lastScroll = currentScroll;
+    });
+});
+</script>
+
+<!-- ═══════════════════════════════════════
+     CHATBOT
+════════════════════════════════════════ -->
+<div id="chatbot-button">💭</div>
 <div id="chatbot-window">
     <div id="chatbot-header">
         <span>Quatrox solution's Assistant</span>
@@ -1073,53 +775,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <style>
 #chatbot-button {
-    position: fixed !important;
-    bottom: 25px !important;
-    right: 25px !important;
-    background: #0D0D29;
-    color: white;
-    font-size: 24px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 9999 !important;
+    position: fixed !important; bottom: 25px !important; right: 25px !important;
+    background: #0D0D29; color: white; font-size: 24px;
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 9999 !important;
     box-shadow: 0 4px 12px rgba(13,13,41,0.4);
     transition: transform 0.2s ease;
-    -webkit-tap-highlight-color: transparent !important;
-    user-select: none;
+    -webkit-tap-highlight-color: transparent !important; user-select: none;
 }
 #chatbot-button:hover { transform: scale(1.1); }
 #chatbot-window {
-    position: fixed !important;
-    bottom: 100px !important;
-    right: 25px !important;
-    width: 320px;
-    height: 420px;
-    max-height: calc(100vh - 120px);
-    background: white;
-    border-radius: 15px;
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: fixed !important; bottom: 100px !important; right: 25px !important;
+    width: 320px; height: 420px; max-height: calc(100vh - 120px);
+    background: white; border-radius: 15px; display: none; flex-direction: column;
+    overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: transform 0.3s ease, opacity 0.3s ease;
-    transform: translateY(20px);
-    opacity: 0;
-    z-index: 9998 !important;
+    transform: translateY(20px); opacity: 0; z-index: 9998 !important;
 }
 #chatbot-window.open { display: flex; transform: translateY(0); opacity: 1; }
 #chatbot-header {
-    background: #0D0D29;
-    color: white;
-    padding: 15px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: #0D0D29; color: white; padding: 15px; font-weight: bold;
+    display: flex; justify-content: space-between; align-items: center;
 }
 #chatbot-close { cursor: pointer; font-size: 18px; opacity: 0.8; -webkit-tap-highlight-color: transparent; transition: opacity 0.2s; }
 #chatbot-close:hover { opacity: 1; }
@@ -1144,21 +821,15 @@ function openChatbot() {
     if (autoCloseTimer) clearTimeout(autoCloseTimer);
     autoCloseTimer = setTimeout(() => { chatbotWindow.classList.remove("open"); }, 30000);
 }
-
 document.getElementById("chatbot-close").addEventListener("click", (e) => {
-    e.stopPropagation();
-    chatbotWindow.classList.remove("open");
-    clearTimeout(autoCloseTimer);
+    e.stopPropagation(); chatbotWindow.classList.remove("open"); clearTimeout(autoCloseTimer);
 });
-
 chatbotButton.addEventListener("click", (e) => {
     e.stopPropagation();
     if (chatbotWindow.classList.contains("open")) {
-        chatbotWindow.classList.remove("open");
-        clearTimeout(autoCloseTimer);
+        chatbotWindow.classList.remove("open"); clearTimeout(autoCloseTimer);
     } else {
-        openChatbot();
-        chatbotInput.focus();
+        openChatbot(); chatbotInput.focus();
         if (messages.children.length === 0) {
             setTimeout(() => {
                 const welcomeMsg = document.createElement('div');
@@ -1169,11 +840,9 @@ chatbotButton.addEventListener("click", (e) => {
         }
     }
 });
-
 document.addEventListener("click", (e) => {
     if (chatbotWindow.classList.contains("open") && !chatbotWindow.contains(e.target) && !chatbotButton.contains(e.target)) {
-        chatbotWindow.classList.remove("open");
-        clearTimeout(autoCloseTimer);
+        chatbotWindow.classList.remove("open"); clearTimeout(autoCloseTimer);
     }
 });
 chatbotWindow.addEventListener("click", (e) => { e.stopPropagation(); });
@@ -1247,47 +916,35 @@ async function handleSendMessage() {
 sendBtn.addEventListener("click", handleSendMessage);
 chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handleSendMessage(); });
 </script>
+
+<!-- ═══════════════════════════════════════
+     SCHEMA
+════════════════════════════════════════ -->
 <script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "Organization",
- "name": "Quatrox Solutions",
- "url": "https://www.quatroxsolutions.com",
- "logo": "https://www.quatroxsolutions.com/Logo.png",
- "sameAs": [
-  "https://www.instagram.com/quatrox_solutions",
-  "https://www.linkedin.com/in/quatrox-data-solutions-a29792378"
- ]
-}
+{"@context":"https://schema.org","@type":"Organization","name":"Quatrox Solutions","url":"https://www.quatroxsolutions.com","logo":"https://www.quatroxsolutions.com/Logo.png","sameAs":["https://www.instagram.com/quatrox_solutions","https://www.linkedin.com/in/quatrox-data-solutions-a29792378"]}
 </script>
-    <script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "WebSite",
- "name": "Quatrox Solutions",
- "url": "https://www.quatroxsolutions.com/"
-}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Quatrox Solutions","url":"https://www.quatroxsolutions.com/"}
 </script>
 
+<!-- ═══════════════════════════════════════
+     FOOTER (original — unchanged)
+════════════════════════════════════════ -->
 <footer class="footer-section">
     <div class="footer-container">
 
-        <!-- Logo + Company Name -->
         <div class="footer-header">
             <img src="Logo.png" alt="Logo" class="footer-logo">
             <p class="footer-title">QUATROX SOLUTIONS PRIVATE LIMITED</p>
         </div>
 
-        <!-- Description -->
         <div class="footer-subhead">
             <p>To be a trusted partner in delivering exceptional, fast, and reliable customer</p>
             <p>services to organizations of all sizes - from startups to global enterprises.</p>
         </div>
 
-        <!-- Contact Columns -->
         <div class="footer-columns">
 
-            <!-- Email + Phone with Icons -->
             <div class="footer-col">
                 <a href="mailto:Contact@quatroxsolutions.com?subject=Enquiry%20from%20Website&body=Hello%20Quatrox%20Solutions%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20services."
                    style="color:#000;text-decoration:none;display:flex;align-items:center;gap:8px;margin-bottom:12px;">
@@ -1296,8 +953,7 @@ chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handle
                     </svg>
                     Contact@quatroxsolutions.com
                 </a>
-                <a href="tel:+917200801765"
-                   style="color:#000;text-decoration:none;display:flex;align-items:center;gap:8px;">
+                <a href="tel:+917200801765" style="color:#000;text-decoration:none;display:flex;align-items:center;gap:8px;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z"/>
                     </svg>
@@ -1305,27 +961,20 @@ chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handle
                 </a>
             </div>
 
-            <!-- Thuckalay Address -->
             <div class="footer-col">
                 <a href="https://maps.google.com/?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175"
-                   target="_blank"
-                   style="color:#000;text-decoration:none;display:block;line-height:1.8;">
-                    📍 16-74A, HMP Towers Market Rd,<br>
-                    Thuckalay, Tamilnadu - 629175
+                   target="_blank" style="color:#000;text-decoration:none;display:block;line-height:1.8;">
+                    📍 16-74A, HMP Towers Market Rd,<br>Thuckalay, Tamilnadu - 629175
                 </a>
             </div>
 
-            <!-- Madurai Address -->
             <div class="footer-col">
                 <a href="https://maps.google.com/?q=Meenakshi+Street+Thirunagar+Madurai+Tamil+Nadu+625006"
-                   target="_blank"
-                   style="color:#000;text-decoration:none;display:block;line-height:1.8;">
-                    📍 66 5-5/9 Meenakshi street,<br>
-                    Thirunagar, Madurai - 625006
+                   target="_blank" style="color:#000;text-decoration:none;display:block;line-height:1.8;">
+                    📍 66 5-5/9 Meenakshi street,<br>Thirunagar, Madurai - 625006
                 </a>
             </div>
 
-            <!-- Social Links with Icons -->
             <div class="footer-col footer-links">
                 <a href="https://www.instagram.com/quatrox_solutions?igsh=MWl2MjAwa3Z4ZmFoag==" target="_blank"
                    style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;margin-bottom:10px;">
@@ -1351,15 +1000,12 @@ chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handle
             </div>
         </div>
 
-        <!-- ONE MAP SHOWING BOTH LOCATIONS -->
         <div class="footer-map">
             <iframe
                 src="https://maps.google.com/maps?q=Tamil+Nadu,India&output=embed&z=7"
-                width="100%"
-                height="250"
+                width="100%" height="250"
                 style="border:0;border-radius:12px;display:block;"
-                allowfullscreen=""
-                loading="lazy"
+                allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
             <div style="display:flex;gap:20px;margin-top:10px;flex-wrap:wrap;">
@@ -1374,12 +1020,12 @@ chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handle
             </div>
         </div>
 
-        <!-- Copyright -->
         <div class="footer-copy">
             <p>Quatrox Solutions Pvt Ltd © 2025 All Rights Reserved</p>
         </div>
 
     </div>
 </footer>
+
 </body>
 </html>
