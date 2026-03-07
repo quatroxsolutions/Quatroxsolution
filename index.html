@@ -494,6 +494,566 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+    <style>
+  .unified-block {
+    background: #0D0D29;
+    font-family: 'Geist', 'Segoe UI', sans-serif;
+    overflow: hidden;
+  }
+
+  /* ── Main content grid: image left, text right ── */
+  .unified-inner {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    min-height: 580px;
+    align-items: center;
+  }
+
+  /* Left — image as a modern floating card */
+  .unified-img {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 0 48px 7%;
+  }
+  .unified-img::before {
+    content: '';
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: rgba(152,152,204,0.15);
+    border-radius: 50%;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: blur(50px);
+  }
+  .unified-img img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 320px;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.07);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .unified-img img:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 36px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.12);
+  }
+
+  /* Right — unified content, no internal dividers */
+  .unified-content {
+    padding: 58px 7% 56px 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Eyebrow */
+  .unified-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+  .unified-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+  }
+
+  /* Headline */
+  .unified-content h2 {
+    font-size: clamp(22px, 2.8vw, 34px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0 0 14px;
+  }
+  .unified-content h2 em {
+    font-style: normal;
+    color: #9898cc;
+  }
+
+  /* Lead paragraph */
+  .unified-content > p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+    margin: 0 0 28px;
+    max-width: 480px;
+  }
+
+  /* Voice + Non-Voice inline pills */
+  .unified-bpo-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .unified-bpo-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 14px;
+    padding: 12px 20px;
+    flex: 1 1 160px;
+  }
+  .unified-bpo-pill-icon { font-size: 22px; line-height: 1; }
+  .unified-bpo-pill-text { }
+  .unified-bpo-pill-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .unified-bpo-pill-sub {
+    display: block;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 2px;
+  }
+
+  /* Services strip — inline, no label separation */
+  .unified-services {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  .unified-chip {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50px;
+    padding: 6px 15px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.78);
+    white-space: nowrap;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .unified-chip:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.26);
+  }
+  .unified-chip-more {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.28);
+    padding: 6px 4px;
+  }
+
+  /* CTA */
+  .unified-cta {
+    display: inline-block;
+    background: #fff;
+    color: #0D0D29;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    align-self: flex-start;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .unified-cta:hover { background: #e8e8f8; transform: scale(1.04); }
+
+  @media (max-width: 820px) {
+    .unified-inner { grid-template-columns: 1fr; }
+    .unified-img { padding: 40px 6% 20px; justify-content: center; }
+    .unified-img img { max-width: 280px; height: 300px; }
+    .unified-content { padding: 20px 6% 44px; }
+  }
+
+  /* ── Bottom: banner image + What We Offer merged ── */
+  .offer-block {
+    display: grid;
+    grid-template-columns: 52% 48%;
+    min-height: 480px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .offer-block-text {
+    padding: 58px 6% 56px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .offer-block-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .offer-block-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 2px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+  }
+  .offer-block-text h2 {
+    font-size: clamp(22px, 2.8vw, 32px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.22;
+    margin: 0 0 14px;
+  }
+  .offer-block-text h2 em {
+    font-style: normal;
+    color: #9898cc;
+  }
+  .offer-block-text > p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+    margin: 0 0 30px;
+    max-width: 460px;
+  }
+  .offer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .offer-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .offer-item-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .offer-item-body { flex: 1; }
+  .offer-item-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 3px;
+  }
+  .offer-item-desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.48);
+  }
+  .offer-block-img {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 7% 48px 0;
+  }
+  .offer-block-img::before {
+    content: '';
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: rgba(152,152,204,0.13);
+    border-radius: 50%;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: blur(50px);
+  }
+  .offer-block-img img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 320px;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.07);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .offer-block-img img:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 36px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.12);
+  }
+  @media (max-width: 820px) {
+    .offer-block { grid-template-columns: 1fr; }
+    .offer-block-img { padding: 20px 6% 40px; order: -1; justify-content: center; }
+    .offer-block-img img { max-width: 280px; height: 300px; }
+    .offer-block-text { padding: 44px 6%; }
+  }
+</style>
+
+<div class="unified-block">
+  <div class="unified-inner">
+
+    <!-- Left: image -->
+    <div class="unified-img">
+      <img src="home.png" alt="Quatrox BPO Services">
+    </div>
+
+    <!-- Right: all content as one continuous flow -->
+    <div class="unified-content">
+
+      <div class="unified-eyebrow">What We Do</div>
+
+      <h2>End-to-End BPO &amp; Publishing<br>Services for <em>Every Need</em></h2>
+
+      <p>Quatrox Solutions delivers comprehensive outsourcing across Voice and Non-Voice verticals — from live customer interactions and inbound support to data processing, content management, and back-office publishing workflows. One partner, every solution.</p>
+
+      <div class="unified-bpo-row">
+        <div class="unified-bpo-pill">
+          <span class="unified-bpo-pill-icon">📞</span>
+          <div class="unified-bpo-pill-text">
+            <span class="unified-bpo-pill-title">Voice BPO</span>
+            <span class="unified-bpo-pill-sub">Inbound · Outbound · Support</span>
+          </div>
+        </div>
+        <div class="unified-bpo-pill">
+          <span class="unified-bpo-pill-icon">💬</span>
+          <div class="unified-bpo-pill-text">
+            <span class="unified-bpo-pill-title">Non-Voice BPO</span>
+            <span class="unified-bpo-pill-sub">Data · Content · Back-Office</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="unified-services">
+        <span class="unified-chip">ePub Conversion</span>
+        <span class="unified-chip">XML Conversion</span>
+        <span class="unified-chip">Copy Editing</span>
+        <span class="unified-chip">Accessibility Services</span>
+        <span class="unified-chip">Typesetting</span>
+        <span class="unified-chip-more">+More</span>
+      </div>
+
+      <a href="service.html" class="unified-cta">Explore All Services →</a>
+
+    </div>
+  </div>
+
+  <!-- Bottom: What We Offer merged with banner image -->
+  <div class="offer-block">
+
+    <!-- Left: explained services as interactive accordion boxes -->
+    <div class="offer-block-text">
+      <div class="offer-block-eyebrow">What We Offer</div>
+      <h2>Publishing &amp; Content Services<br>Built for <em>Precision &amp; Scale</em></h2>
+      <p>From structured XML workflows to pixel-perfect typesetting, every service we offer is designed to meet the demands of modern publishers — accurate, fast, and fully compliant.</p>
+
+      <!-- Scrollable card track -->
+      <div class="svc-track-wrap">
+        <div class="svc-track" id="svcTrack">
+
+          <div class="svc-card active" onclick="selectCard(this)">
+            <div class="svc-card-icon">📖</div>
+            <div class="svc-card-title">ePub Conversion</div>
+            <div class="svc-card-desc">Transform manuscripts and PDFs into fully validated, reflowable ePub files compatible with all major e-readers and platforms.</div>
+            <div class="svc-card-tag">Digital Publishing</div>
+          </div>
+
+          <div class="svc-card" onclick="selectCard(this)">
+            <div class="svc-card-icon">🗂️</div>
+            <div class="svc-card-title">XML Conversion</div>
+            <div class="svc-card-desc">Structure your content in industry-standard XML formats (JATS, BITS, NLM) for seamless multi-channel publishing and archiving.</div>
+            <div class="svc-card-tag">Data Structuring</div>
+          </div>
+
+          <div class="svc-card" onclick="selectCard(this)">
+            <div class="svc-card-icon">✏️</div>
+            <div class="svc-card-title">Copy Editing</div>
+            <div class="svc-card-desc">Expert editorial review for grammar, style, consistency, and clarity — preserving your author's voice while raising overall quality.</div>
+            <div class="svc-card-tag">Editorial</div>
+          </div>
+
+          <div class="svc-card" onclick="selectCard(this)">
+            <div class="svc-card-icon">♿</div>
+            <div class="svc-card-title">Accessibility</div>
+            <div class="svc-card-desc">WCAG 2.1 and PDF/UA compliant remediation so your digital content is fully accessible to all readers, including those with disabilities.</div>
+            <div class="svc-card-tag">WCAG 2.1</div>
+          </div>
+
+          <div class="svc-card" onclick="selectCard(this)">
+            <div class="svc-card-icon">🖨️</div>
+            <div class="svc-card-title">Typesetting</div>
+            <div class="svc-card-desc">Professional print-ready and digital layouts using InDesign and LaTeX — precise, consistent, and ready for press or screen.</div>
+            <div class="svc-card-tag">Print & Digital</div>
+          </div>
+
+        </div>
+
+        <!-- Scroll arrows -->
+        <button class="svc-arrow svc-arrow-left" onclick="scrollTrack(-1)">&#8592;</button>
+        <button class="svc-arrow svc-arrow-right" onclick="scrollTrack(1)">&#8594;</button>
+      </div>
+
+      <a href="service.html" class="unified-cta">View All Services →</a>
+    </div>
+
+    <style>
+      .svc-track-wrap {
+        position: relative;
+        margin-bottom: 28px;
+      }
+      .svc-track {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+      .svc-track::-webkit-scrollbar { display: none; }
+
+      .svc-card {
+        flex: 0 0 160px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 18px;
+        padding: 20px 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .svc-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(152,152,204,0.18), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 18px;
+      }
+      .svc-card:hover {
+        border-color: rgba(255,255,255,0.22);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+      }
+      .svc-card:hover::before { opacity: 1; }
+      .svc-card.active {
+        border-color: rgba(152,152,204,0.7);
+        background: rgba(152,152,204,0.12);
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(152,152,204,0.3);
+      }
+      .svc-card.active::before { opacity: 1; }
+
+      .svc-card-icon {
+        font-size: 26px;
+        margin-bottom: 12px;
+        display: block;
+      }
+      .svc-card-title {
+        font-size: 13.5px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 10px;
+        line-height: 1.25;
+        letter-spacing: 0.01em;
+      }
+      .svc-card-desc {
+        font-size: 11.5px;
+        line-height: 1.65;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 14px;
+        display: none;
+      }
+      .svc-card.active .svc-card-desc {
+        display: block;
+        animation: fadeSlideIn 0.35s ease forwards;
+      }
+      @keyframes fadeSlideIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .svc-card-tag {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(152,152,204,0.8);
+        background: rgba(152,152,204,0.1);
+        border: 1px solid rgba(152,152,204,0.25);
+        border-radius: 50px;
+        padding: 3px 10px;
+      }
+
+      /* Scroll arrows */
+      .svc-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease;
+        z-index: 2;
+        line-height: 1;
+      }
+      .svc-arrow:hover { background: rgba(255,255,255,0.18); }
+      .svc-arrow-left  { left: -16px; }
+      .svc-arrow-right { right: -16px; }
+    </style>
+
+    <script>
+      function selectCard(card) {
+        document.querySelectorAll('.svc-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+      function scrollTrack(dir) {
+        const track = document.getElementById('svcTrack');
+        track.scrollBy({ left: dir * 180, behavior: 'smooth' });
+      }
+    </script>
+
+    <!-- Right: banner image -->
+    <div class="offer-block-img">
+      <img src="home footer.png" alt="Quatrox Services">
+    </div>
+
+  </div>
+</div>
 
 <!-- CHATBOT BUTTON -->
 <div id="chatbot-button">💭</div>
@@ -708,27 +1268,6 @@ chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handle
  "url": "https://www.quatroxsolutions.com/"
 }
 </script>
-
-
-<section class="what-we-offer-section">
-    <div class="offer-row">
-        <h2 class="what-we-offer-title">What We Offer</h2>
-        <div class="offer-items">
-            <div class="service-title">ePub Conversion</div>
-            <div class="service-title">XML Conversion</div>
-            <div class="service-title">Copy Editing</div>
-            <div class="service-title">Accessibility Services</div>
-            <div class="service-title">Typesetting</div>
-            <div class="more-container"><p class="more-text">+More</p></div>
-            <a href="service.html" class="service-btn">Services</a>
-        </div>
-    </div>
-</section>
-
-<!-- Home BANNER IMAGE SECTION -->
-<section class="home-banner">
-    <img src="home footer.png" alt="home Banner" />
-</section>
 
 <footer class="footer-section">
     <div class="footer-container">
