@@ -1292,6 +1292,20 @@ document.addEventListener("DOMContentLoaded", function () {
     #chatbot-input { padding: 8px !important; font-size: 14px !important; }
     #chatbot-input-area button { padding: 8px 12px !important; font-size: 13px !important; }
 }
+/* Fix mobile keyboard overlap */
+@media (max-width: 600px) {
+
+  #chatbot-window {
+    width: 320px;
+    height: 70vh;
+    max-height: 70vh;
+}
+
+  #chatbot-messages {
+    overflow-y: auto;
+  }
+
+}
 </style>
 
 <script>
@@ -1415,6 +1429,14 @@ sendBtn.addEventListener("click", () => {
     setTimeout(() => chatbotInput.focus(), 50);
 });
 chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handleSendMessage(); });
+chatbotInput.addEventListener("focus", () => {
+  setTimeout(() => {
+    chatbotInput.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }, 300);
+});
 </script>
 
 <!-- ═══════════════════════════════════════
