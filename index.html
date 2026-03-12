@@ -7,6 +7,7 @@
     <meta name="google-site-verification" content="vFKmIM9E4jNi2PVW1JEpS1E-dFTAry-Ey7KrB8d3Tzs" />
 
     <!-- SEO & FAVICON -->
+    <link rel="icon" href="images/favicon.png">
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
@@ -81,7 +82,7 @@
 ════════════════════════════════════════ -->
 <style>
   .about-section {
-    background: #fff;
+    background: #f7f4eb;
     padding: 90px 5% 80px;
     font-family: 'Geist', 'Segoe UI', sans-serif;
   }
@@ -125,7 +126,7 @@
   }
   @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
   .about-card {
-    background: #f8f8fd;
+    background: #f7f4eb;
     border: 1px solid #e8e8f4;
     border-radius: 16px;
     padding: 32px 28px;
@@ -172,7 +173,7 @@
     margin-bottom: 56px;
   }
   .pillar {
-    background: #fff;
+    background: #f7f4eb;
     border: 1.5px solid #e0e0f0;
     border-radius: 14px;
     padding: 26px 18px 22px;
@@ -201,7 +202,7 @@
   .mission-cta { flex: 0 0 auto; }
   .mission-cta a {
     display: inline-block;
-    background: #fff;
+    background: #f7f4eb;
     color: #0D0D29;
     font-weight: 700;
     font-size: 14px;
@@ -310,8 +311,6 @@
     font-family: 'Geist', 'Segoe UI', sans-serif;
     overflow: hidden;
   }
-
-  /* Top: image left, BPO content right */
   .unified-inner {
     display: grid;
     grid-template-columns: 42% 58%;
@@ -421,7 +420,7 @@
   .unified-chip-more { font-size: 12.5px; font-weight: 700; color: rgba(255,255,255,0.28); padding: 6px 4px; }
   .unified-cta {
     display: inline-block;
-    background: #fff;
+    background: #f7f4eb;
     color: #0D0D29;
     font-weight: 700;
     font-size: 13.5px;
@@ -433,8 +432,6 @@
     transition: background 0.2s, transform 0.2s;
   }
   .unified-cta:hover { background: #e8e8f8; transform: scale(1.04); }
-
-  /* Bottom: services cards left, image right */
   .offer-block {
     display: grid;
     grid-template-columns: 52% 48%;
@@ -472,7 +469,7 @@
     line-height: 1.22;
     margin: 0 0 14px;
   }
-  .offer-block-text h2 em { font-style: normal; color: #9898cc; }
+  .offer-block-text h2 em { font-style: normal; color: #a0a0a0; }
   .offer-block-text > p {
     font-size: 15px;
     line-height: 1.8;
@@ -480,8 +477,6 @@
     margin: 0 0 24px;
     max-width: 460px;
   }
-
-  /* Service cards */
   .svc-track-wrap { position: relative; margin-bottom: 28px; }
   .svc-track {
     display: flex;
@@ -562,8 +557,6 @@
   .svc-arrow:hover { background: rgba(255,255,255,0.18); }
   .svc-arrow-left  { left: -16px; }
   .svc-arrow-right { right: -16px; }
-
-  /* Right image */
   .offer-block-img {
     position: relative;
     display: flex;
@@ -598,164 +591,579 @@
     transform: translateY(-6px) scale(1.01);
     box-shadow: 0 36px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.12);
   }
-
- @media (max-width: 820px) {
-
-  .unified-inner {
-    grid-template-columns: 1fr;
+  @media (max-width: 820px) {
+    .unified-inner { grid-template-columns: 1fr; }
+    .unified-img { padding: 40px 6% 20px; justify-content: center; }
+    .unified-img img { max-width: 260px; height: auto; }
+    .unified-content { padding: 20px 6% 40px; }
+    .offer-block { grid-template-columns: 1fr; }
+    .offer-block-text { padding: 40px 6%; }
+    .offer-block-img { order: -1; padding: 20px 6% 40px; justify-content: center; }
+    .offer-block-img img { max-width: 260px; height: auto; }
+    .svc-track { flex-direction: column; overflow-x: hidden; gap: 14px; }
+    .svc-card { width: 100%; flex: none; }
+    .svc-card-desc { display: block; }
+    .svc-arrow { display: none; }
   }
-
-  .unified-img {
-    padding: 40px 6% 20px;
-    justify-content: center;
-  }
-
-  .unified-img img {
-    max-width: 260px;
-    height: auto;
-  }
-
-  .unified-content {
-    padding: 20px 6% 40px;
-  }
-
-  .offer-block {
-    grid-template-columns: 1fr;
-  }
-
-  .offer-block-text {
-    padding: 40px 6%;
-  }
-
-  .offer-block-img {
-    order: -1;
-    padding: 20px 6% 40px;
-    justify-content: center;
-  }
-
-  .offer-block-img img {
-    max-width: 260px;
-    height: auto;
-  }
-
-  /* FIX SERVICE CARDS FOR MOBILE */
-
-  .svc-track {
-    flex-direction: column;
-    overflow-x: hidden;
-    gap: 14px;
-  }
-
-  .svc-card {
-    width: 100%;
-    flex: none;
-  }
-
-  .svc-card-desc {
-    display: block;
-  }
-
-  /* Hide arrows on mobile */
-
-  .svc-arrow {
-    display: none;
-  }
-
-}
 </style>
 
-<div class="unified-block">
+<!-- WHAT WE OFFER — REDESIGNED -->
+<style>
+  .wwo-section {
+    background: #0D0D29;
+    padding: 100px 6%;
+    font-family: 'Geist', 'Segoe UI', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  /* subtle background glow */
+  .wwo-section::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(152,152,204,0.12) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+  .wwo-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
 
-  <!-- Top row: image + BPO content -->
-  <div class="unified-inner">
-    <div class="unified-img">
-      <img src="home.png" alt="Quatrox BPO Services">
+  /* Top header row */
+  .wwo-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 64px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .wwo-header-left {}
+  .wwo-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+  .wwo-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 22px; height: 2px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+  }
+  .wwo-title {
+    font-size: clamp(28px, 3.5vw, 46px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+  .wwo-title em { font-style: normal; color: #a0a0a0; }
+  .wwo-desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.5);
+    max-width: 380px;
+    margin-bottom: 28px;
+  }
+  .wwo-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: #0D0D29;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 13px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .wwo-cta:hover { background: #f7f4eb; transform: scale(1.04); }
+
+  /* Service grid */
+  .wwo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .wwo-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    border-radius: 4px;
+  }
+  .wwo-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, #9898cc, #c8c8ff);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .wwo-card:hover {
+    background: rgba(152,152,204,0.1);
+    border-color: rgba(152,152,204,0.3);
+    transform: translateY(-4px);
+  }
+  .wwo-card:hover::after { transform: scaleX(1); }
+
+  /* Number badge */
+  .wwo-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 24px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .wwo-icon {
+    width: 48px; height: 48px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .wwo-card:hover .wwo-icon {
+    background: rgba(152,152,204,0.2);
+    border-color: rgba(152,152,204,0.4);
+  }
+
+  .wwo-card-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .wwo-card-desc {
+    font-size: 13.5px;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+  .wwo-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(152,152,204,0.9);
+    background: rgba(152,152,204,0.1);
+    border: 1px solid rgba(152,152,204,0.2);
+    border-radius: 50px;
+    padding: 4px 12px;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .wwo-grid { grid-template-columns: repeat(2, 1fr); }
+    .wwo-header { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 560px) {
+    .wwo-grid { grid-template-columns: 1fr; }
+    .wwo-section { padding: 70px 5%; }
+  }
+</style>
+
+<section class="wwo-section">
+  <div class="wwo-inner">
+
+    <div class="wwo-header">
+      <div class="wwo-header-left">
+        <div class="wwo-eyebrow">What We Offer</div>
+        <h2 class="wwo-title">Publishing &amp; Content Services<br>Built for <em>Precision &amp; Scale</em></h2>
+      </div>
+      <div class="wwo-header-right">
+        <p class="wwo-desc">Every service is designed to meet the demands of modern publishers — accurate, fast, and fully compliant with global standards.</p>
+        <a href="service.html" class="wwo-cta">View All Services →</a>
+      </div>
     </div>
-    <div class="unified-content">
-      <div class="unified-eyebrow">What We Do</div>
-      <h2>End-to-End BPO &amp; Publishing<br>Services for <em>Every Need</em></h2>
-      <p>Quatrox Solutions delivers comprehensive outsourcing across Voice and Non-Voice verticals — from live customer interactions and inbound support to data processing, content management, and back-office publishing workflows. One partner, every solution.</p>
-      <div class="unified-bpo-row">
-        <div class="unified-bpo-pill">
-          <span class="unified-bpo-pill-icon">📞</span>
-          <div class="unified-bpo-pill-text">
-            <span class="unified-bpo-pill-title">Voice BPO</span>
-            <span class="unified-bpo-pill-sub">Inbound · Outbound · Support</span>
-          </div>
-        </div>
-        <div class="unified-bpo-pill">
-          <span class="unified-bpo-pill-icon">💬</span>
-          <div class="unified-bpo-pill-text">
-            <span class="unified-bpo-pill-title">Non-Voice BPO</span>
-            <span class="unified-bpo-pill-sub">Data · Content · Back-Office</span>
-          </div>
-        </div>
+
+    <div class="wwo-grid">
+      <div class="wwo-card">
+        <div class="wwo-num">01</div>
+        <div class="wwo-icon">📖</div>
+        <div class="wwo-card-title">ePub Conversion</div>
+        <div class="wwo-card-desc">Transform manuscripts and PDFs into fully validated, reflowable ePub files compatible with all major e-readers and platforms.</div>
+        <span class="wwo-tag">Digital Publishing</span>
       </div>
-      <div class="unified-services">
-        <span class="unified-chip">ePub Conversion</span>
-        <span class="unified-chip">XML Conversion</span>
-        <span class="unified-chip">Copy Editing</span>
-        <span class="unified-chip">Accessibility Services</span>
-        <span class="unified-chip">Typesetting</span>
-        <span class="unified-chip-more">+More</span>
+      <div class="wwo-card">
+        <div class="wwo-num">02</div>
+        <div class="wwo-icon">🗂️</div>
+        <div class="wwo-card-title">XML Conversion</div>
+        <div class="wwo-card-desc">Structure your content in industry-standard XML formats (JATS, BITS, NLM) for seamless multi-channel publishing and archiving.</div>
+        <span class="wwo-tag">Data Structuring</span>
       </div>
-      <a href="service.html" class="unified-cta">Explore All Services →</a>
+      <div class="wwo-card">
+        <div class="wwo-num">03</div>
+        <div class="wwo-icon">✏️</div>
+        <div class="wwo-card-title">Copy Editing</div>
+        <div class="wwo-card-desc">Expert editorial review for grammar, style, consistency, and clarity — preserving your author's voice while raising overall quality.</div>
+        <span class="wwo-tag">Editorial</span>
+      </div>
+      <div class="wwo-card">
+        <div class="wwo-num">04</div>
+        <div class="wwo-icon">♿</div>
+        <div class="wwo-card-title">Accessibility Services</div>
+        <div class="wwo-card-desc">WCAG 2.1 and PDF/UA compliant remediation so your digital content is fully accessible to all readers, including those with disabilities.</div>
+        <span class="wwo-tag">WCAG 2.1</span>
+      </div>
+      <div class="wwo-card">
+        <div class="wwo-num">05</div>
+        <div class="wwo-icon">🖨️</div>
+        <div class="wwo-card-title">Typesetting</div>
+        <div class="wwo-card-desc">Professional print-ready and digital layouts using InDesign and LaTeX — precise, consistent, and ready for press or screen.</div>
+        <span class="wwo-tag">Print &amp; Digital</span>
+      </div>
+      <div class="wwo-card">
+        <div class="wwo-num">06</div>
+        <div class="wwo-icon">🌐</div>
+        <div class="wwo-card-title">Voice Internationalisation</div>
+        <div class="wwo-card-desc">Multilingual voice-over coordination, script adaptation, and SRT captioning for global e-learning, media, and corporate projects.</div>
+        <span class="wwo-tag">Voice &amp; Global</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     HISTORY SECTION
+════════════════════════════════════════ -->
+<style>
+  .qs-history {
+    background: #f7f4eb;
+    padding: 90px 5% 80px;
+    font-family: 'Geist', 'Segoe UI', sans-serif;
+  }
+  .qs-history-inner { max-width: 1200px; margin: 0 auto; }
+
+  .qs-section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0ddd4;
+    padding-bottom: 20px;
+    margin-bottom: 52px;
+  }
+  .qs-section-title {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 800;
+    color: #0D0D29;
+    letter-spacing: -0.02em;
+  }
+  .qs-section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #6b6baa;
+  }
+
+  /* Two-column layout */
+  .qs-history-body {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  /* Photo column */
+  .qs-history-photos {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: sticky;
+    top: 90px;
+  }
+  .qs-history-photos a {
+    display: block;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(13,13,41,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .qs-history-photos a:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 16px 40px rgba(13,13,41,0.18);
+  }
+  .qs-history-photos img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .qs-history-photos a:hover img { transform: scale(1.04); }
+  .qs-photo-caption {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b6baa;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* Timeline */
+  .qs-timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+  .qs-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #0D0D29 0%, #9898cc 100%);
+    border-radius: 2px;
+  }
+  .qs-tl-item {
+    position: relative;
+    padding: 0 0 48px 44px;
+    opacity: 0;
+    transform: translateX(-14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .qs-tl-item.visible { opacity: 1; transform: translateX(0); }
+  .qs-tl-dot {
+    position: absolute;
+    left: -7px; top: 7px;
+    width: 14px; height: 14px;
+    background: #0D0D29;
+    border-radius: 50%;
+    border: 3px solid #f7f4eb;
+    box-shadow: 0 0 0 2px #0D0D29;
+  }
+  .qs-tl-year {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6b6baa;
+    margin-bottom: 8px;
+  }
+  .qs-tl-heading {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0D0D29;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .qs-tl-body {
+    font-size: 14.5px;
+    line-height: 1.78;
+    color: #555;
+  }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .qs-history-body { grid-template-columns: 1fr; gap: 40px; }
+    .qs-history-photos { flex-direction: row; flex-wrap: wrap; position: static; }
+    .qs-history-photos a { flex: 1 1 calc(33% - 10px); }
+    .qs-history-photos img { height: 160px; }
+    .qs-photo-caption { display: none; }
+  }
+  @media (max-width: 600px) {
+    .qs-history-photos a { flex: 1 1 calc(50% - 7px); }
+  }
+</style>
+
+<section id="History" class="qs-history">
+  <div class="qs-history-inner">
+    <div class="qs-section-header">
+      <h2 class="qs-section-title">Quatrox History at a Glance</h2>
+      <span class="qs-section-eyebrow">Our Journey</span>
+    </div>
+
+    <div class="qs-history-body">
+
+      <!-- LEFT: Photo column -->
+      <div class="qs-history-photos">
+        <a href="history1.jpg" target="_blank">
+          <img src="history1.jpg" alt="Quatrox Team Celebration" />
+        </a>
+        <a href="history2.jpg" target="_blank">
+          <img src="history2.jpg" alt="Quatrox Team Diwali" />
+        </a>
+        <a href="history3.jpg" target="_blank">
+          <img src="history3.jpg" alt="Quatrox New Year Celebration" />
+        </a>
+        <p class="qs-photo-caption">Our Team · 2025</p>
+      </div>
+
+      <!-- RIGHT: Timeline -->
+      <div class="qs-timeline">
+
+        <div class="qs-tl-item">
+          <div class="qs-tl-dot"></div>
+          <div class="qs-tl-year">2025 — Founded</div>
+          <div class="qs-tl-heading">Quatrox Solutions Is Born</div>
+          <div class="qs-tl-body">Quatrox Solutions is established in India with a bold vision: to deliver world-class document transformation and BPO services to clients globally. The founding team unites specialists in publishing technology, digital content, and linguistic services — driven by a shared commitment to precision and quality from day one.</div>
+        </div>
+
+        <div class="qs-tl-item">
+          <div class="qs-tl-dot"></div>
+          <div class="qs-tl-year">2025 — Launch</div>
+          <div class="qs-tl-heading">Full Service Suite Goes Live</div>
+          <div class="qs-tl-body">Quatrox immediately launches its complete range of services — SRT captioning, ePub production, XML structuring, PDF-to-Word/Excel conversion, Copy Editing, Typesetting, and Accessibility — attracting its first wave of clients from publishing, media, e-learning, and corporate sectors.</div>
+        </div>
+
+        <div class="qs-tl-item">
+          <div class="qs-tl-dot"></div>
+          <div class="qs-tl-year">2025 — Expansion</div>
+          <div class="qs-tl-heading">Voice Internationalisation Division Added</div>
+          <div class="qs-tl-body">Responding to growing client demand for multilingual content, Quatrox expands into voice internationalisation — coordinating multilingual voice-over production, script adaptation, and audio localisation for clients in e-learning, corporate training, and international media.</div>
+        </div>
+
+        <div class="qs-tl-item">
+          <div class="qs-tl-dot"></div>
+          <div class="qs-tl-year">2025 — Today</div>
+          <div class="qs-tl-heading">Building a Global Reputation</div>
+          <div class="qs-tl-body">Within its very first year, Quatrox Solutions is already serving clients across multiple countries with offices in Thuckalay and Madurai, Tamil Nadu — building a reputation for consistency, accuracy, and genuine partnership. The journey has only just begun.</div>
+        </div>
+
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Bottom row: interactive service cards + image -->
-  <div class="offer-block">
-    <div class="offer-block-text">
-      <div class="offer-block-eyebrow">What We Offer</div>
-      <h2>Publishing &amp; Content Services<br>Built for <em>Precision &amp; Scale</em></h2>
-      <p>From structured XML workflows to pixel-perfect typesetting, every service we offer is designed to meet the demands of modern publishers — accurate, fast, and fully compliant.</p>
+<!-- ═══════════════════════════════════════
+     LEADERSHIP SECTION  ← NEW
+════════════════════════════════════════ -->
+<style>
+  .qs-leadership {
+    background: #f7f4eb;
+    padding: 90px 5% 80px;
+    font-family: 'Geist', 'Segoe UI', sans-serif;
+  }
+  .qs-leadership-inner { max-width: 1200px; margin: 0 auto; }
 
-      <div class="svc-track-wrap">
-        <div class="svc-track" id="svcTrack">
-          <div class="svc-card active" onclick="selectCard(this)">
-            <div class="svc-card-icon">📖</div>
-            <div class="svc-card-title">ePub Conversion</div>
-            <div class="svc-card-desc">Transform manuscripts and PDFs into fully validated, reflowable ePub files compatible with all major e-readers and platforms.</div>
-            <div class="svc-card-tag">Digital Publishing</div>
-          </div>
-          <div class="svc-card" onclick="selectCard(this)">
-            <div class="svc-card-icon">🗂️</div>
-            <div class="svc-card-title">XML Conversion</div>
-            <div class="svc-card-desc">Structure your content in industry-standard XML formats (JATS, BITS, NLM) for seamless multi-channel publishing and archiving.</div>
-            <div class="svc-card-tag">Data Structuring</div>
-          </div>
-          <div class="svc-card" onclick="selectCard(this)">
-            <div class="svc-card-icon">✏️</div>
-            <div class="svc-card-title">Copy Editing</div>
-            <div class="svc-card-desc">Expert editorial review for grammar, style, consistency, and clarity — preserving your author's voice while raising overall quality.</div>
-            <div class="svc-card-tag">Editorial</div>
-          </div>
-          <div class="svc-card" onclick="selectCard(this)">
-            <div class="svc-card-icon">♿</div>
-            <div class="svc-card-title">Accessibility</div>
-            <div class="svc-card-desc">WCAG 2.1 and PDF/UA compliant remediation so your digital content is fully accessible to all readers, including those with disabilities.</div>
-            <div class="svc-card-tag">WCAG 2.1</div>
-          </div>
-          <div class="svc-card" onclick="selectCard(this)">
-            <div class="svc-card-icon">🖨️</div>
-            <div class="svc-card-title">Typesetting</div>
-            <div class="svc-card-desc">Professional print-ready and digital layouts using InDesign and LaTeX — precise, consistent, and ready for press or screen.</div>
-            <div class="svc-card-tag">Print &amp; Digital</div>
-          </div>
-        </div>
-        <button class="svc-arrow svc-arrow-left" onclick="scrollTrack(-1)">&#8592;</button>
-        <button class="svc-arrow svc-arrow-right" onclick="scrollTrack(1)">&#8594;</button>
+  .qs-leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .qs-leaders-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 580px) { .qs-leaders-grid { grid-template-columns: 1fr; } }
+
+  .qs-leader-card {
+    background: #f7f4eb;
+    border: 1px solid #e8e8f4;
+    border-radius: 18px;
+    padding: 36px 28px;
+    border-top: 4px solid transparent;
+    transition: border-top-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .qs-leader-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0D0D29, #9898cc);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+    border-radius: 18px 18px 0 0;
+  }
+  .qs-leader-card:hover::before { transform: scaleX(1); }
+  .qs-leader-card:hover {
+    box-shadow: 0 12px 40px rgba(13,13,41,0.1);
+    transform: translateY(-4px);
+  }
+  .qs-leader-avatar {
+    width: 62px; height: 62px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0D0D29 0%, #4a4a8a 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+    font-family: 'Geist', sans-serif;
+  }
+  .qs-leader-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: #0D0D29;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .qs-leader-role {
+    display: inline-flex;
+    align-items: center;
+    background: #f0f0fa;
+    border: 1px solid #d4d4f0;
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0D0D29;
+    margin-bottom: 18px;
+  }
+  .qs-leader-bio {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #555;
+  }
+</style>
+
+<section id="Leadership" class="qs-leadership">
+  <div class="qs-leadership-inner">
+    <div class="qs-section-header">
+      <h2 class="qs-section-title">Our Leadership</h2>
+      <span class="qs-section-eyebrow">The Team</span>
+    </div>
+    <div class="qs-leaders-grid">
+
+      <div class="qs-leader-card fade-text">
+        <div class="qs-leader-avatar">CEO</div>
+        <div class="qs-leader-name">Founder & CEO</div>
+        <div class="qs-leader-role">Chief Executive Officer</div>
+        <div class="qs-leader-bio">Visionary leader who established Quatrox Solutions in 2025 with a mission to deliver world-class document transformation services from India to the globe. Brings deep expertise across publishing, BPO, digital content, and localisation strategy.</div>
       </div>
 
-      <a href="service.html" class="unified-cta">View All Services →</a>
-    </div>
+      <div class="qs-leader-card fade-text">
+        <div class="qs-leader-avatar">VP</div>
+        <div class="qs-leader-name">Co-Founder</div>
+        <div class="qs-leader-role">Vice President</div>
+        <div class="qs-leader-bio">Co-architect of Quatrox's growth strategy and business vision. As Vice President, oversees client relationships, operations, and the company's expansion into international markets — ensuring Quatrox delivers excellence at every touchpoint.</div>
+      </div>
 
-    <div class="offer-block-img">
-      <img src="home footer.png" alt="Quatrox Services">
+      <div class="qs-leader-card fade-text">
+        <div class="qs-leader-avatar">VTL</div>
+        <div class="qs-leader-name">Voice Processing Team Lead</div>
+        <div class="qs-leader-role">Head of Voice & International</div>
+        <div class="qs-leader-bio">Leads Quatrox's voice internationalisation division — managing multilingual voice-over production, SRT captioning, and audio localisation workflows. Brings specialist expertise in voice processing and international content delivery for global clients.</div>
+      </div>
+
     </div>
   </div>
-
-</div>
+</section>
 
 <!-- ═══════════════════════════════════════
      SCRIPTS
@@ -779,6 +1187,18 @@
     const track = document.getElementById('svcTrack');
     track.scrollBy({ left: dir * 180, behavior: 'smooth' });
   }
+
+  /* Timeline scroll reveal */
+  const tlItems = document.querySelectorAll('.qs-tl-item');
+  const tlObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 120);
+        tlObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  tlItems.forEach(item => tlObserver.observe(item));
 </script>
 
 <script>
@@ -857,59 +1277,20 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 #chatbot-close { cursor: pointer; font-size: 18px; opacity: 0.8; -webkit-tap-highlight-color: transparent; transition: opacity 0.2s; }
 #chatbot-close:hover { opacity: 1; }
-#chatbot-messages {
-    flex: 1;
-    min-height: 0;
-    padding: 10px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+#chatbot-messages { flex: 1; min-height: 0; padding: 10px; overflow-y: auto; overflow-x: hidden; }
 #chatbot-messages div { word-wrap: break-word; word-break: break-word; overflow-wrap: break-word; }
-#chatbot-input-area {
-    display: flex;
-    border-top: 1px solid #ddd;
-    flex-shrink: 0;
-}
+#chatbot-input-area { display: flex; border-top: 1px solid #ddd; flex-shrink: 0; }
 #chatbot-input { flex: 1; padding: 10px; border: none; outline: none; font-size: 16px; }
 #chatbot-input-area button { background: #0D0D29; color: white; border: none; padding: 10px 15px; cursor: pointer; -webkit-tap-highlight-color: transparent !important; }
 #chatbot-input-area button:hover { background: #1a1a3e; }
-
 @media (max-width: 600px) {
-    #chatbot-button {
-        bottom: 20px !important;
-        right: 20px !important;
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 18px !important;
-    }
-    #chatbot-window {
-        position: fixed !important;
-        bottom: 80px !important;
-        left: 10px !important;
-        right: 10px !important;
-        width: calc(100% - 20px) !important;
-        height: 340px !important;
-        max-height: 340px !important;
-        border-radius: 16px !important;
-    }
-    #chatbot-header {
-        padding: 11px 14px !important;
-        font-size: 13px !important;
-    }
-    #chatbot-messages {
-        padding: 8px !important;
-    }
-    #chatbot-messages div {
-        font-size: 13px !important;
-    }
-    #chatbot-input {
-        padding: 8px !important;
-        font-size: 14px !important;
-    }
-    #chatbot-input-area button {
-        padding: 8px 12px !important;
-        font-size: 13px !important;
-    }
+    #chatbot-button { bottom: 20px !important; right: 20px !important; width: 48px !important; height: 48px !important; font-size: 18px !important; }
+    #chatbot-window { position: fixed !important; bottom: 80px !important; left: 10px !important; right: 10px !important; width: calc(100% - 20px) !important; height: 340px !important; max-height: 340px !important; border-radius: 16px !important; }
+    #chatbot-header { padding: 11px 14px !important; font-size: 13px !important; }
+    #chatbot-messages { padding: 8px !important; }
+    #chatbot-messages div { font-size: 13px !important; }
+    #chatbot-input { padding: 8px !important; font-size: 14px !important; }
+    #chatbot-input-area button { padding: 8px 12px !important; font-size: 13px !important; }
 }
 </style>
 
@@ -960,14 +1341,9 @@ document.addEventListener("click", (e) => {
     }
 });
 chatbotWindow.addEventListener("click", (e) => { e.stopPropagation(); });
-chatbotInput.addEventListener("focus", () => {
-    if (autoCloseTimer) clearTimeout(autoCloseTimer);
-});
+chatbotInput.addEventListener("focus", () => { if (autoCloseTimer) clearTimeout(autoCloseTimer); });
 chatbotInput.addEventListener("blur", (e) => {
-    // Prevent keyboard dismiss when tapping Send button
-    if (e.relatedTarget && e.relatedTarget.id === "chatbot-send") {
-        chatbotInput.focus();
-    }
+    if (e.relatedTarget && e.relatedTarget.id === "chatbot-send") { chatbotInput.focus(); }
 });
 async function getAIResponse(userMessage) {
     const msg = userMessage.toLowerCase();
@@ -1007,7 +1383,6 @@ async function getAIResponse(userMessage) {
     else if (msg.includes("bye") || msg.includes("goodbye") || msg.includes("see you later")) return responses.bye;
     else return "I'd be happy to help! You can ask me about our services, contact information, location, pricing, or anything else about Quatrox Solutions. What would you like to know?";
 }
-
 async function handleSendMessage() {
     const message = chatbotInput.value.trim();
     if (!message) return;
@@ -1034,12 +1409,10 @@ async function handleSendMessage() {
         messages.scrollTop = messages.scrollHeight;
     }, 800);
 }
-sendBtn.addEventListener("mousedown", (e) => {
-    e.preventDefault(); // prevents input from losing focus/keyboard dismissing
-});
+sendBtn.addEventListener("mousedown", (e) => { e.preventDefault(); });
 sendBtn.addEventListener("click", () => {
     handleSendMessage();
-    setTimeout(() => chatbotInput.focus(), 50); // refocus after send
+    setTimeout(() => chatbotInput.focus(), 50);
 });
 chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handleSendMessage(); });
 </script>
