@@ -982,9 +982,50 @@
     .qs-history-photos a { flex: 1 1 calc(33% - 10px); }
     .qs-history-photos img { height: 160px; }
     .qs-photo-caption { display: none; }
+    .qs-timeline { padding-left: 0; }
+    .qs-timeline::before { display: none; }
+    .qs-tl-item { padding: 0 0 20px 0; display: flex; justify-content: flex-start; }
+    .qs-tl-item:nth-child(even) { justify-content: flex-end; }
+    .qs-tl-item .qs-tl-content {
+      max-width: 70%;
+      background: #0D0D29;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 18px;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .qs-tl-item:nth-child(even) .qs-tl-content {
+      background: #f0f0f0;
+      color: #0D0D29;
+    }
+    .qs-tl-item .qs-tl-content::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: -8px;
+      width: 0;
+      height: 0;
+      border: 8px solid transparent;
+      border-right-color: #0D0D29;
+      border-left: 0;
+      border-top: 0;
+    }
+    .qs-tl-item:nth-child(even) .qs-tl-content::before {
+      left: auto;
+      right: -8px;
+      border-right-color: transparent;
+      border-left-color: #f0f0f0;
+      border-right: 0;
+    }
+    .qs-tl-dot { display: none; }
+    .qs-tl-year { font-size: 10px; margin-bottom: 5px; }
+    .qs-tl-heading { font-size: 16px; margin-bottom: 8px; }
+    .qs-tl-body { font-size: 13px; line-height: 1.6; }
   }
   @media (max-width: 600px) {
     .qs-history-photos a { flex: 1 1 calc(50% - 7px); }
+    .qs-tl-item .qs-tl-content { max-width: 85%; }
   }
 </style>
 
@@ -1016,30 +1057,38 @@
 
         <div class="qs-tl-item">
           <div class="qs-tl-dot"></div>
-          <div class="qs-tl-year">2025 — Founded</div>
-          <div class="qs-tl-heading">Quatrox Solutions Is Born</div>
-          <div class="qs-tl-body">Quatrox Solutions is established in India with a bold vision: to deliver world-class document transformation and BPO services to clients globally. The founding team unites specialists in publishing technology, digital content, and linguistic services — driven by a shared commitment to precision and quality from day one.</div>
+          <div class="qs-tl-content">
+            <div class="qs-tl-year">2025 — Founded</div>
+            <div class="qs-tl-heading">Quatrox Solutions Is Born</div>
+            <div class="qs-tl-body">Quatrox Solutions is established in India with a bold vision: to deliver world-class document transformation and BPO services to clients globally. The founding team unites specialists in publishing technology, digital content, and linguistic services — driven by a shared commitment to precision and quality from day one.</div>
+          </div>
         </div>
 
         <div class="qs-tl-item">
           <div class="qs-tl-dot"></div>
-          <div class="qs-tl-year">2025 — Launch</div>
-          <div class="qs-tl-heading">Full Service Suite Goes Live</div>
-          <div class="qs-tl-body">Quatrox immediately launches its complete range of services — SRT captioning, ePub production, XML structuring, PDF-to-Word/Excel conversion, Copy Editing, Typesetting, and Accessibility — attracting its first wave of clients from publishing, media, e-learning, and corporate sectors.</div>
+          <div class="qs-tl-content">
+            <div class="qs-tl-year">2025 — Launch</div>
+            <div class="qs-tl-heading">Full Service Suite Goes Live</div>
+            <div class="qs-tl-body">Quatrox immediately launches its complete range of services — SRT captioning, ePub production, XML structuring, PDF-to-Word/Excel conversion, Copy Editing, Typesetting, and Accessibility — attracting its first wave of clients from publishing, media, e-learning, and corporate sectors.</div>
+          </div>
         </div>
 
         <div class="qs-tl-item">
           <div class="qs-tl-dot"></div>
-          <div class="qs-tl-year">2025 — Expansion</div>
-          <div class="qs-tl-heading">Voice Internationalisation Division Added</div>
-          <div class="qs-tl-body">Responding to growing client demand for multilingual content, Quatrox expands into voice internationalisation — coordinating multilingual voice-over production, script adaptation, and audio localisation for clients in e-learning, corporate training, and international media.</div>
+          <div class="qs-tl-content">
+            <div class="qs-tl-year">2025 — Expansion</div>
+            <div class="qs-tl-heading">Voice Internationalisation Division Added</div>
+            <div class="qs-tl-body">Responding to growing client demand for multilingual content, Quatrox expands into voice internationalisation — coordinating multilingual voice-over production, script adaptation, and audio localisation for clients in e-learning, corporate training, and international media.</div>
+          </div>
         </div>
 
         <div class="qs-tl-item">
           <div class="qs-tl-dot"></div>
-          <div class="qs-tl-year">2025 — Today</div>
-          <div class="qs-tl-heading">Building a Global Reputation</div>
-          <div class="qs-tl-body">Within its very first year, Quatrox Solutions is already serving clients across multiple countries with offices in Thuckalay and Madurai, Tamil Nadu — building a reputation for consistency, accuracy, and genuine partnership. The journey has only just begun.</div>
+          <div class="qs-tl-content">
+            <div class="qs-tl-year">2025 — Today</div>
+            <div class="qs-tl-heading">Building a Global Reputation</div>
+            <div class="qs-tl-body">Within its very first year, Quatrox Solutions is already serving clients across multiple countries with offices in Thuckalay and Madurai, Tamil Nadu — building a reputation for consistency, accuracy, and genuine partnership. The journey has only just begun.</div>
+          </div>
         </div>
 
       </div>
@@ -1439,6 +1488,25 @@ chatbotInput.addEventListener("focus", () => {
 });
 </script>
 
+<script>
+// Disable right-click, drag, and click on images
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+</script>
+
 <!-- ═══════════════════════════════════════
      SCHEMA
 ════════════════════════════════════════ -->
@@ -1462,7 +1530,7 @@ chatbotInput.addEventListener("focus", () => {
 
         <div class="footer-subhead">
             <p>To be a trusted partner in delivering exceptional, fast, and reliable customer</p>
-            <p>services to organizations of all sizes - from startups to global enterprises.</p>
+            <p>services to orga5nizations of all sizes - from startups to global enterprises.</p>
         </div>
 
         <div class="footer-columns">
