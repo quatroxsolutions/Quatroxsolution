@@ -20,7 +20,9 @@
     <meta property="og:url" content="https://www.quatroxsolutions.com">
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="https://unpkg.com/geist-font@latest/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="style.css">
     <style>
@@ -86,7 +88,7 @@
   .about-section {
     background: #f7f4eb;
     padding: 90px 5% 80px;
-    font-family: 'Geist', 'Segoe UI', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
   .about-inner { max-width: 1200px; margin: 0 auto; }
 
@@ -855,7 +857,7 @@
   .qs-history {
     background: #f7f4eb;
     padding: 90px 5% 80px;
-    font-family: 'Geist', 'Segoe UI', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
   .qs-history-inner { max-width: 1200px; margin: 0 auto; }
 
@@ -984,50 +986,132 @@
     .qs-history-photos a { flex: 1 1 calc(33% - 10px); }
     .qs-history-photos img { height: 160px; }
     .qs-photo-caption { display: none; }
-    .qs-timeline { padding-left: 0; }
-    .qs-timeline::before { display: none; }
-    .qs-tl-item { padding: 0 0 20px 0; display: flex; justify-content: flex-start; }
-    .qs-tl-item:nth-child(even) { justify-content: flex-end; }
-    .qs-tl-item .qs-tl-content {
-      max-width: 70%;
-      background: #0D0D29;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 18px;
-      position: relative;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    .qs-timeline { 
+      padding-left: 0; 
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
-    .qs-tl-item:nth-child(even) .qs-tl-content {
-      background: #f0f0f0;
-      color: #0D0D29;
-    }
-    .qs-tl-item .qs-tl-content::before {
+    .qs-timeline::before { 
+      display: block;
       content: '';
       position: absolute;
-      top: 15px;
-      left: -8px;
-      width: 0;
-      height: 0;
-      border: 8px solid transparent;
-      border-right-color: #0D0D29;
-      border-left: 0;
-      border-top: 0;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #0D0D29 0%, #9898cc 50%, #6b6baa 100%);
+      border-radius: 3px;
     }
-    .qs-tl-item:nth-child(even) .qs-tl-content::before {
-      left: auto;
-      right: -8px;
-      border-right-color: transparent;
-      border-left-color: #f0f0f0;
-      border-right: 0;
+    .qs-tl-item { 
+      padding: 0 0 40px 60px;
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      opacity: 1;
+      transform: none;
+      transition: all 0.4s ease;
     }
-    .qs-tl-dot { display: none; }
-    .qs-tl-year { font-size: 10px; margin-bottom: 5px; }
-    .qs-tl-heading { font-size: 16px; margin-bottom: 8px; }
-    .qs-tl-body { font-size: 13px; line-height: 1.6; }
+    .qs-tl-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .qs-tl-item .qs-tl-content {
+      width: 100%;
+      max-width: 100%;
+      background: linear-gradient(135deg, #0D0D29 0%, #2a2a5c 100%);
+      color: white;
+      padding: 24px 20px;
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(13,13,41,0.2);
+      border-left: 4px solid #9898cc;
+      transition: all 0.3s ease;
+    }
+    .qs-tl-item .qs-tl-content:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(13,13,41,0.3);
+      border-left-color: #ff6b6b;
+    }
+    .qs-tl-item:nth-child(even) .qs-tl-content {
+      background: linear-gradient(135deg, #f7f4eb 0%, #f0f0fa 100%);
+      color: #0D0D29;
+      border-left-color: #6b6baa;
+    }
+    .qs-tl-item:nth-child(even) .qs-tl-content:hover {
+      background: linear-gradient(135deg, #f0f0fa 0%, #e8e8f4 100%);
+      border-left-color: #ff9800;
+    }
+    .qs-tl-item:nth-child(odd) .qs-tl-year {
+      color: #9898cc;
+    }
+    .qs-tl-item:nth-child(odd) .qs-tl-heading {
+      color: #e0e7ff;
+    }
+    .qs-tl-item:nth-child(odd) .qs-tl-body {
+      color: #cfd9ff;
+    }
+    .qs-tl-item:nth-child(even) .qs-tl-year {
+      color: #6b6baa;
+    }
+    .qs-tl-dot { 
+      display: block;
+      position: absolute;
+      left: 12px;
+      top: 28px;
+      width: 24px; 
+      height: 24px;
+      background: linear-gradient(135deg, #9898cc 0%, #6b6baa 100%);
+      border-radius: 50%;
+      border: 4px solid #f7f4eb;
+      box-shadow: 0 0 0 3px #0D0D29;
+      z-index: 10;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    .qs-tl-item:nth-child(even) .qs-tl-dot {
+      background: linear-gradient(135deg, #ff9800 0%, #ff6b6b 100%);
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 3px #0D0D29, 0 0 0 6px rgba(13,13,41,0.1); }
+      50% { box-shadow: 0 0 0 3px #0D0D29, 0 0 0 10px rgba(13,13,41,0.2); }
+    }
+    .qs-tl-year { 
+      font-size: 10px; 
+      margin-bottom: 6px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .qs-tl-heading { 
+      font-size: 16px; 
+      margin-bottom: 10px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+    .qs-tl-body { 
+      font-size: 13px; 
+      line-height: 1.65;
+      opacity: 0.95;
+    }
   }
   @media (max-width: 600px) {
     .qs-history-photos a { flex: 1 1 calc(50% - 7px); }
-    .qs-tl-item .qs-tl-content { max-width: 85%; }
+    .qs-tl-item { 
+      padding: 0 0 32px 48px;
+    }
+    .qs-timeline::before {
+      left: 18px;
+    }
+    .qs-tl-dot { 
+      left: 8px;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #f7f4eb;
+      box-shadow: 0 0 0 2px #0D0D29;
+    }
+    .qs-tl-item .qs-tl-content {
+      padding: 18px 16px;
+    }
   }
 </style>
 
@@ -1105,15 +1189,16 @@
   .qs-leadership {
     background: #f7f4eb;
     padding: 90px 5% 80px;
-    font-family: 'Geist', 'Segoe UI', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
   .qs-leadership-inner { max-width: 1200px; margin: 0 auto; }
 
   .qs-leaders-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 24px;
   }
+  @media (max-width: 1200px) { .qs-leaders-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 900px) { .qs-leaders-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 580px) { .qs-leaders-grid { grid-template-columns: 1fr; } }
 
@@ -1192,142 +1277,33 @@
     <div class="qs-leaders-grid">
 
       <div class="qs-leader-card fade-text">
-        <div class="qs-leader-avatar">CEO</div>
-        <div class="qs-leader-name">Founder & CEO</div>
-        <div class="qs-leader-role">Chief Executive Officer</div>
-        <div class="qs-leader-bio">Visionary leader who established Quatrox Solutions in 2025 with a mission to deliver world-class document transformation services from India to the globe. Brings deep expertise across publishing, BPO, digital content, and localisation strategy.</div>
+        <div class="qs-leader-avatar">MF</div>
+        <div class="qs-leader-name">Mohamed Fahad M</div>
+        <div class="qs-leader-role">Director</div>
       </div>
 
       <div class="qs-leader-card fade-text">
-        <div class="qs-leader-avatar">VP</div>
-        <div class="qs-leader-name">Co-Founder</div>
+        <div class="qs-leader-avatar">SH</div>
+        <div class="qs-leader-name">Sameera Hajara J</div>
+        <div class="qs-leader-role">Co Director</div>
+      </div>
+
+      <div class="qs-leader-card fade-text">
+        <div class="qs-leader-avatar">SW</div>
+        <div class="qs-leader-name">Sunil Walker</div>
         <div class="qs-leader-role">Vice President</div>
-        <div class="qs-leader-bio">Co-architect of Quatrox's growth strategy and business vision. As Vice President, oversees client relationships, operations, and the company's expansion into international markets — ensuring Quatrox delivers excellence at every touchpoint.</div>
       </div>
 
       <div class="qs-leader-card fade-text">
-        <div class="qs-leader-avatar">VTL</div>
-        <div class="qs-leader-name">Voice Processing Team Lead</div>
-        <div class="qs-leader-role">Head of Voice & International</div>
-        <div class="qs-leader-bio">Leads Quatrox's voice internationalisation division — managing multilingual voice-over production, SRT captioning, and audio localisation workflows. Brings specialist expertise in voice processing and international content delivery for global clients.</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     LEADERSHIP SECTION  ← NEW
-════════════════════════════════════════ -->
-<style>
-  .qs-leadership {
-    background: #f7f4eb;
-    padding: 90px 5% 80px;
-    font-family: 'Geist', 'Segoe UI', sans-serif;
-  }
-  .qs-leadership-inner { max-width: 1200px; margin: 0 auto; }
-
-  .qs-leaders-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  @media (max-width: 900px) { .qs-leaders-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 580px) { .qs-leaders-grid { grid-template-columns: 1fr; } }
-
-  .qs-leader-card {
-    background: #f7f4eb;
-    border: 1px solid #e8e8f4;
-    border-radius: 18px;
-    padding: 36px 28px;
-    border-top: 4px solid transparent;
-    transition: border-top-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .qs-leader-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #0D0D29, #9898cc);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s ease;
-    border-radius: 18px 18px 0 0;
-  }
-  .qs-leader-card:hover::before { transform: scaleX(1); }
-  .qs-leader-card:hover {
-    box-shadow: 0 12px 40px rgba(13,13,41,0.1);
-    transform: translateY(-4px);
-  }
-  .qs-leader-avatar {
-    width: 62px; height: 62px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #0D0D29 0%, #4a4a8a 100%);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.02em;
-    margin-bottom: 20px;
-    font-family: 'Geist', sans-serif;
-  }
-  .qs-leader-name {
-    font-size: 17px;
-    font-weight: 800;
-    color: #0D0D29;
-    margin-bottom: 4px;
-    line-height: 1.3;
-  }
-  .qs-leader-role {
-    display: inline-flex;
-    align-items: center;
-    background: #f0f0fa;
-    border: 1px solid #d4d4f0;
-    border-radius: 50px;
-    padding: 4px 14px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #0D0D29;
-    margin-bottom: 18px;
-  }
-  .qs-leader-bio {
-    font-size: 14px;
-    line-height: 1.75;
-    color: #555;
-  }
-</style>
-
-<section id="Leadership" class="qs-leadership">
-  <div class="qs-leadership-inner">
-    <div class="qs-section-header">
-      <h2 class="qs-section-title">Our Leadership</h2>
-      <span class="qs-section-eyebrow">The Team</span>
-    </div>
-    <div class="qs-leaders-grid">
-
-      <div class="qs-leader-card fade-text">
-        <div class="qs-leader-avatar">CEO</div>
-        <div class="qs-leader-name">Founder & CEO</div>
-        <div class="qs-leader-role">Chief Executive Officer</div>
-        <div class="qs-leader-bio">Visionary leader who established Quatrox Solutions in 2025 with a mission to deliver world-class document transformation services from India to the globe. Brings deep expertise across publishing, BPO, digital content, and localisation strategy.</div>
+        <div class="qs-leader-avatar">FB</div>
+        <div class="qs-leader-name">Fahima Barveen M</div>
+        <div class="qs-leader-role">CEO</div>
       </div>
 
       <div class="qs-leader-card fade-text">
-        <div class="qs-leader-avatar">VP</div>
-        <div class="qs-leader-name">Co-Founder</div>
-        <div class="qs-leader-role">Vice President</div>
-        <div class="qs-leader-bio">Co-architect of Quatrox's growth strategy and business vision. As Vice President, oversees client relationships, operations, and the company's expansion into international markets — ensuring Quatrox delivers excellence at every touchpoint.</div>
-      </div>
-
-      <div class="qs-leader-card fade-text">
-        <div class="qs-leader-avatar">VTL</div>
-        <div class="qs-leader-name">Voice Processing Team Lead</div>
-        <div class="qs-leader-role">Head of Voice & International</div>
-        <div class="qs-leader-bio">Leads Quatrox's voice internationalisation division — managing multilingual voice-over production, SRT captioning, and audio localisation workflows. Brings specialist expertise in voice processing and international content delivery for global clients.</div>
+        <div class="qs-leader-avatar">SS</div>
+        <div class="qs-leader-name">Selvakumar S</div>
+        <div class="qs-leader-role">Manager</div>
       </div>
 
     </div>
@@ -1391,8 +1367,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let lastScroll = 0;
     window.addEventListener("scroll", () => {
         const currentScroll = window.pageYOffset;
-        if (currentScroll > lastScroll && currentScroll > 80) navbar.style.transform = "translateY(-100%)";
-        else navbar.style.transform = "translateY(0)";
+        if (currentScroll > lastScroll && currentScroll > 80) {
+            navbar.style.transform = "translateY(-100%)";
+            // Auto-hide mobile menu on scroll
+            if (mobileMenu.style.display === "flex") {
+                mobileMenu.style.display = "none";
+            }
+        } else {
+            navbar.style.transform = "translateY(0)";
+        }
         lastScroll = currentScroll;
     });
 });
@@ -1650,7 +1633,7 @@ document.addEventListener('click', function(e) {
 
         <div class="footer-subhead">
             <p>To be a trusted partner in delivering exceptional, fast, and reliable customer</p>
-            <p>services to orga5nizations of all sizes - from startups to global enterprises.</p>
+            <p>services to organizations of all sizes - from startups to global enterprises.</p>
         </div>
 
         <div class="footer-columns">
