@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers – Quatrox Solutions</title>
+    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+    <meta name="description" content="Join Quatrox Solutions – Careers in publishing technology, ePub, XML, copy editing, accessibility and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    :root {
+        --ink: #08080f;
+        --ink-mid: #1c1c2e;
+        --ink-light: rgba(8,8,15,0.55);
+        --parchment: #f7f4eb;
+        --parchment-dark: #efe9d8;
+        --violet: #5b4de0;
+        --violet-soft: rgba(91,77,224,0.12);
+        --gold: #c9a84c;
+        --gold-soft: rgba(201,168,76,0.15);
+        --white: #ffffff;
+        --off-white: rgba(255,255,255,0.85);
+        --subtle: rgba(255,255,255,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent !important; outline: none !important; }
+    a, button, div, span, input { -webkit-tap-highlight-color: rgba(0,0,0,0) !important; }
+
+    body { font-family: 'DM Sans', sans-serif; background: var(--parchment); color: var(--ink); }
+
+    /* ── HERO ── */
+    .careers-hero {
+        background: var(--ink);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 140px 8% 100px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Layered atmospheric backgrounds */
+    .careers-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 80% 60% at 70% 20%, rgba(91,77,224,0.18) 0%, transparent 60%),
+            radial-gradient(ellipse 50% 40% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 55%);
+        pointer-events: none;
+    }
+
+    /* Decorative fine lines */
+    .hero-lines {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+    .hero-lines::before {
+        content: '';
+        position: absolute;
+        top: 0; right: 15%; width: 1px; height: 100%;
+        background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.06) 70%, transparent);
+    }
+    .hero-lines::after {
+        content: '';
+        position: absolute;
+        top: 0; right: 38%; width: 1px; height: 100%;
+        background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 70%, transparent);
+    }
+
+    /* Floating orbs */
+    .hero-orb-1 {
+        position: absolute;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(91,77,224,0.15) 0%, transparent 65%);
+        top: -180px; right: -100px;
+        pointer-events: none;
+        animation: floatOrb 8s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+        position: absolute;
+        width: 300px; height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 65%);
+        bottom: -100px; left: 10%;
+        pointer-events: none;
+        animation: floatOrb 11s ease-in-out infinite reverse;
+    }
+    @keyframes floatOrb {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .careers-hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+    }
+
+    .careers-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 32px;
+        opacity: 0;
+        animation: riseIn 0.7s 0.1s forwards;
+    }
+    .careers-eyebrow::before {
+        content: '';
+        display: inline-block;
+        width: 36px; height: 1px;
+        background: var(--gold);
+        opacity: 0.6;
+    }
+
+    .careers-hero h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(44px, 7vw, 88px);
+        font-weight: 600;
+        color: var(--white);
+        line-height: 1.0;
+        letter-spacing: -0.02em;
+        margin-bottom: 28px;
+        max-width: 780px;
+        opacity: 0;
+        animation: riseIn 0.8s 0.25s forwards;
+    }
+    .careers-hero h1 em {
+        font-style: italic;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255,255,255,0.55);
+        background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.4));
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+
+    .careers-hero-desc {
+        font-size: 16px;
+        line-height: 1.85;
+        color: rgba(255,255,255,0.5);
+        max-width: 480px;
+        margin-bottom: 48px;
+        font-weight: 300;
+        opacity: 0;
+        animation: riseIn 0.8s 0.4s forwards;
+    }
+
+    .careers-hero-btns {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: riseIn 0.8s 0.55s forwards;
+    }
+
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--parchment);
+        color: var(--ink);
+        font-weight: 600;
+        font-size: 13px;
+        padding: 16px 34px;
+        border-radius: 2px;
+        text-decoration: none;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+        font-family: 'DM Sans', sans-serif;
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-primary::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--violet);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+        z-index: 0;
+    }
+    .btn-primary span { position: relative; z-index: 1; }
+    .btn-primary:hover::after { transform: scaleX(1); }
+    .btn-primary:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(91,77,224,0.35); }
+
+    .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: transparent;
+        color: rgba(255,255,255,0.6);
+        font-weight: 500;
+        font-size: 13px;
+        padding: 16px 34px;
+        border-radius: 2px;
+        text-decoration: none;
+        border: 1px solid rgba(255,255,255,0.18);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-family: 'DM Sans', sans-serif;
+        transition: border-color 0.25s, color 0.25s, background 0.25s;
+    }
+    .btn-outline:hover {
+        border-color: rgba(255,255,255,0.4);
+        color: #fff;
+        background: rgba(255,255,255,0.05);
+    }
+
+    /* ── STAT ROW ── */
+    .hero-stats {
+        display: flex;
+        gap: 0;
+        margin-top: 80px;
+        border-top: 1px solid rgba(255,255,255,0.07);
+        padding-top: 36px;
+        max-width: 580px;
+        opacity: 0;
+        animation: riseIn 0.8s 0.7s forwards;
+    }
+    .hero-stat {
+        flex: 1;
+        padding-right: 32px;
+        position: relative;
+    }
+    .hero-stat + .hero-stat {
+        padding-left: 32px;
+        border-left: 1px solid rgba(255,255,255,0.07);
+    }
+    .hero-stat-num {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 38px;
+        font-weight: 600;
+        color: var(--white);
+        line-height: 1;
+        margin-bottom: 6px;
+    }
+    .hero-stat-label {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.3);
+        font-weight: 500;
+    }
+
+    @keyframes riseIn {
+        from { opacity: 0; transform: translateY(22px); }
+        to { opacity: 1; transform: none; }
+    }
+
+    /* ── ROLES SECTION ── */
+    .roles-section {
+        background: var(--parchment);
+        padding: 100px 8%;
+        position: relative;
+        overflow: hidden;
+    }
+    .roles-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; height: 1px;
+        background: rgba(8,8,15,0.08);
+    }
+
+    .roles-inner { max-width: 1200px; margin: 0 auto; }
+
+    .roles-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        margin-bottom: 16px;
+        gap: 20px;
+    }
+
+    .roles-section-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--violet);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .roles-section-label::before {
+        content: '';
+        display: inline-block;
+        width: 28px; height: 1px;
+        background: var(--violet);
+    }
+
+    .roles-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(32px, 4vw, 52px);
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+    }
+
+    .roles-count-badge {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: rgba(8,8,15,0.4);
+        background: rgba(8,8,15,0.06);
+        padding: 8px 16px;
+        border-radius: 2px;
+        white-space: nowrap;
+        align-self: center;
+    }
+
+    .roles-divider {
+        height: 1px;
+        background: rgba(8,8,15,0.1);
+        margin: 32px 0 40px;
+    }
+
+    .roles-filters {
+        display: flex;
+        gap: 0;
+        margin-bottom: 50px;
+        border-bottom: 1px solid rgba(8,8,15,0.1);
+    }
+    .filter-btn {
+        background: transparent;
+        border: none;
+        color: rgba(8,8,15,0.4);
+        padding: 12px 24px 14px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        font-family: 'DM Sans', sans-serif;
+        letter-spacing: 0.04em;
+        position: relative;
+        transition: color 0.2s;
+    }
+    .filter-btn::after {
+        content: '';
+        position: absolute;
+        bottom: -1px; left: 0; right: 0; height: 2px;
+        background: var(--ink);
+        transform: scaleX(0);
+        transition: transform 0.25s;
+    }
+    .filter-btn.active, .filter-btn:hover { color: var(--ink); }
+    .filter-btn.active::after { transform: scaleX(1); }
+
+    /* ── ROLE CARDS ── */
+    .roles-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: rgba(8,8,15,0.1);
+        border: 1px solid rgba(8,8,15,0.1);
+    }
+    @media (max-width: 860px) { .roles-list { grid-template-columns: 1fr; } }
+
+    .role-card {
+        background: var(--parchment);
+        padding: 40px 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 28px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.3s;
+    }
+    .role-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--ink);
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+        z-index: 0;
+    }
+    .role-card:hover::before { transform: scaleY(1); }
+    .role-card:hover .role-title,
+    .role-card:hover .role-title-sub,
+    .role-card:hover .role-loc-line { color: rgba(255,255,255,0.9); }
+    .role-card:hover .role-tag { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); background: transparent; }
+    .role-card:hover .role-icon-wrap { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
+    .role-card:hover .role-icon-wrap span { filter: grayscale(0) brightness(1.2); }
+    .role-card:hover .apply-btn { background: var(--parchment); color: var(--ink); }
+
+    .role-card-top, .role-card-bottom { position: relative; z-index: 1; }
+
+    .role-icon-wrap {
+        width: 52px; height: 52px;
+        border-radius: 4px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 22px;
+        background: rgba(8,8,15,0.05);
+        border: 1px solid rgba(8,8,15,0.1);
+        margin-bottom: 24px;
+        transition: background 0.3s, border-color 0.3s;
+    }
+
+    .role-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 14px;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+        transition: color 0.3s;
+    }
+    .role-title-sub {
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        opacity: 0.5;
+        display: block;
+        transition: color 0.3s;
+    }
+
+    .role-tags { display: flex; gap: 7px; flex-wrap: wrap; }
+    .role-tag {
+        font-size: 11px;
+        padding: 4px 12px;
+        border-radius: 2px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(8,8,15,0.5);
+        border: 1px solid rgba(8,8,15,0.15);
+        background: transparent;
+        transition: all 0.3s;
+    }
+    .tag-dept { color: var(--violet); border-color: rgba(91,77,224,0.3); background: var(--violet-soft); }
+    .role-card:hover .tag-dept { color: rgba(180,170,255,0.85); border-color: rgba(180,170,255,0.25); background: rgba(91,77,224,0.15); }
+
+    .role-card-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+    .role-loc-line {
+        font-size: 12px;
+        color: rgba(8,8,15,0.38);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: color 0.3s;
+        letter-spacing: 0.02em;
+    }
+
+    .apply-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 22px;
+        border-radius: 2px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        font-family: 'DM Sans', sans-serif;
+        text-decoration: none;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: 1px solid rgba(8,8,15,0.2);
+        background: transparent;
+        color: var(--ink);
+        transition: all 0.3s;
+    }
+    .apply-btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    /* Override hover within card hover state */
+    .role-card:hover .apply-btn:hover { background: var(--violet); color: #fff; border-color: var(--violet); }
+
+    /* ── APPLY BAND ── */
+    .apply-band { background: var(--parchment); padding: 80px 8%; font-family: 'DM Sans', 'Segoe UI', sans-serif; }
+    .apply-band-inner {
+        max-width: 1200px; margin: 0 auto;
+        background: var(--ink);
+        border-radius: 0;
+        padding: 64px 60px;
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 40px; flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
+    }
+    .apply-band-inner::before {
+        content: '';
+        position: absolute;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(91,77,224,0.18) 0%, transparent 65%);
+        top: -200px; right: -100px;
+        pointer-events: none;
+    }
+    .apply-band-text { position: relative; z-index: 1; }
+    .apply-band-text h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(26px, 3.5vw, 40px);
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+    }
+    .apply-band-text p {
+        font-size: 15px;
+        line-height: 1.75;
+        color: rgba(255,255,255,0.5);
+        max-width: 480px;
+        font-weight: 300;
+    }
+    .apply-band .btn-primary {
+        background: var(--parchment);
+        position: relative;
+        z-index: 1;
+    }
+    .apply-band .btn-primary:hover { color: var(--ink); }
+    .apply-band .btn-primary::after { background: var(--gold); }
+    @media (max-width: 720px) { .apply-band-inner { padding: 40px 30px; } }
+
+    /* ── SCROLL FADE ── */
+    .fade-text { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-text.show { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+        .careers-hero { padding: 120px 6% 80px; }
+        .roles-section { padding: 70px 6%; }
+        .hero-stats { flex-direction: column; gap: 24px; }
+        .hero-stat + .hero-stat { border-left: none; border-top: 1px solid rgba(255,255,255,0.07); padding-left: 0; padding-top: 24px; }
+        .role-card { padding: 28px 22px; }
+    }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav-bar">
+    <div class="nav-content">
+        <img src="Logo.png" class="logo" alt="Logo">
+        <div class="menu desktop-menu">
+            <a href="index.html">Home</a>
+            <a href="index.html#About">About</a>
+            <a href="service.html">Services</a>
+            <a href="careers.html">Careers</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#About">About</a>
+        <a href="service.html">Services</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="careers-hero">
+    <div class="hero-lines"></div>
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
+    <div class="careers-hero-inner">
+        <div class="careers-eyebrow">We're Hiring</div>
+        <h1>Build Your Career<br>at <em>Quatrox Solutions</em></h1>
+        <p class="careers-hero-desc">Join a team of passionate specialists in publishing technology, editorial services, and digital content — working with clients across the globe from Tamil Nadu.</p>
+        <div class="careers-hero-btns">
+            <a href="#open-roles" class="btn-primary"><span>View Open Roles</span> <span>→</span></a>
+            <a href="contact.html" class="btn-outline">Get in Touch</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-num">4+</div>
+                <div class="hero-stat-label">Open Positions</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">2</div>
+                <div class="hero-stat-label">Office Locations</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">∞</div>
+                <div class="hero-stat-label">Room to Grow</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OPEN ROLES -->
+<section class="roles-section" id="open-roles">
+    <div class="roles-inner">
+        <div class="roles-header">
+            <div>
+                <div class="roles-section-label">Current Openings</div>
+                <h2 class="roles-title">Open Positions</h2>
+            </div>
+            <div class="roles-count-badge">4 Roles Available</div>
+        </div>
+        <div class="roles-divider"></div>
+
+        <div class="roles-filters">
+            <button class="filter-btn active" onclick="filterRoles('all', this)">All</button>
+            <button class="filter-btn" onclick="filterRoles('Technical', this)">Technical</button>
+            <button class="filter-btn" onclick="filterRoles('Data', this)">Data</button>
+            <button class="filter-btn" onclick="filterRoles('Voice', this)">Voice &amp; AI</button>
+            <button class="filter-btn" onclick="filterRoles('Media', this)">Media</button>
+        </div>
+
+        <div class="roles-list" id="rolesList">
+
+            <div class="role-card fade-text" data-dept="Technical">
+                <div class="role-card-top">
+                    <div class="role-icon-wrap"><span>📄</span></div>
+                    <div class="role-title">XML &amp; ePub Executive</div>
+                    <div class="role-tags">
+                        <span class="role-tag tag-dept">Technical</span>
+                        <span class="role-tag">Full-time</span>
+                    </div>
+                </div>
+                <div class="role-card-bottom">
+                    <span class="role-loc-line">📍 Thuckalay / Madurai</span>
+                    <a href="contact.html#apply" class="apply-btn">Apply Now →</a>
+                </div>
+            </div>
+
+            <div class="role-card fade-text" data-dept="Data">
+                <div class="role-card-top">
+                    <div class="role-icon-wrap"><span>⚙️</span></div>
+                    <div class="role-title">Data Processing Executive</div>
+                    <div class="role-tags">
+                        <span class="role-tag tag-dept">Data</span>
+                        <span class="role-tag">Full-time</span>
+                    </div>
+                </div>
+                <div class="role-card-bottom">
+                    <span class="role-loc-line">📍 Thuckalay / Madurai</span>
+                    <a href="contact.html#apply" class="apply-btn">Apply Now →</a>
+                </div>
+            </div>
+
+            <div class="role-card fade-text" data-dept="Voice">
+                <div class="role-card-top">
+                    <div class="role-icon-wrap"><span>🎙️</span></div>
+                    <div class="role-title">
+                        AI Data Annotator
+                        <span class="role-title-sub">(Voice &amp; Non-Voice)</span>
+                    </div>
+                    <div class="role-tags">
+                        <span class="role-tag tag-dept">Voice &amp; AI</span>
+                        <span class="role-tag">Full-time</span>
+                    </div>
+                </div>
+                <div class="role-card-bottom">
+                    <span class="role-loc-line">📍 Thuckalay / Madurai</span>
+                    <a href="contact.html#apply" class="apply-btn">Apply Now →</a>
+                </div>
+            </div>
+
+            <div class="role-card fade-text" data-dept="Media">
+                <div class="role-card-top">
+                    <div class="role-icon-wrap"><span>🎬</span></div>
+                    <div class="role-title">Media Localisation Editor</div>
+                    <div class="role-tags">
+                        <span class="role-tag tag-dept">Media</span>
+                        <span class="role-tag">Full-time</span>
+                    </div>
+                </div>
+                <div class="role-card-bottom">
+                    <span class="role-loc-line">📍 Thuckalay / Madurai</span>
+                    <a href="contact.html#apply" class="apply-btn">Apply Now →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- OPEN APPLICATION BAND -->
+<section class="apply-band">
+    <div class="apply-band-inner">
+        <div class="apply-band-text">
+            <h2>Don't see the right role?</h2>
+            <p>Send us your CV and a short note about what you do best. We'll reach out when a matching opportunity opens up at Quatrox Solutions.</p>
+        </div>
+        <a href="contact.html#apply" class="btn-primary"><span>Send Open Application</span> <span>→</span></a>
+    </div>
+</section>
+
+<footer class="footer-section">
+    <div class="footer-container">
+
+        <div class="footer-header">
+            <img src="Logo.png" alt="Logo" class="footer-logo">
+            <p class="footer-title">QUATROX SOLUTIONS PRIVATE LIMITED</p>
+        </div>
+
+        <div class="footer-subhead">
+            <p>To be a trusted partner in delivering exceptional, fast, and reliable customer</p>
+            <p>services to organizations of all sizes - from startups to global enterprises.</p>
+        </div>
+
+        <div class="footer-columns">
+
+            <div class="footer-col">
+                <a href="mailto:Contact@quatroxsolutions.com?subject=Enquiry%20from%20Website&body=Hello%20Quatrox%20Solutions%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20services."
+                   style="color:#000;text-decoration:none;display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                    </svg>
+                    Contact@quatroxsolutions.com
+                </a>
+                <a href="tel:+917200801765" style="color:#000;text-decoration:none;display:flex;align-items:center;gap:8px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z"/>
+                    </svg>
+                    +91 7200801765
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <a href="https://maps.google.com/?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175"
+                   target="_blank" style="color:#000;text-decoration:none;display:block;line-height:1.8;">
+                    📍 16-74A, HMP Towers Market Rd,<br>Thuckalay, Tamilnadu - 629175
+                </a>
+            </div>
+
+            <div class="footer-col">
+                <a href="https://maps.google.com/?q=Meenakshi+Street+Thirunagar+Madurai+Tamil+Nadu+625006"
+                   target="_blank" style="color:#000;text-decoration:none;display:block;line-height:1.8;">
+                    📍 66 5-5/9 Meenakshi street,<br>Thirunagar, Madurai - 625006
+                </a>
+            </div>
+
+            <div class="footer-col footer-links">
+                <a href="https://www.instagram.com/quatrox_solutions?igsh=MWl2MjAwa3Z4ZmFoag==" target="_blank"
+                   style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;margin-bottom:10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm.003 1.44c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                    </svg>
+                    Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/quatrox-data-solutions-a29792378" target="_blank"
+                   style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;margin-bottom:10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+                <a href="https://wa.me/917200801765" target="_blank"
+                   style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                    </svg>
+                    Whatsapp
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-map">
+            <iframe
+                src="https://maps.google.com/maps?q=Tamil+Nadu,India&output=embed&z=7"
+                width="100%" height="250"
+                style="border:0;border-radius:12px;display:block;"
+                allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div style="display:flex;gap:20px;margin-top:10px;flex-wrap:wrap;">
+                <a href="https://maps.google.com/?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175"
+                   target="_blank" style="color:#000;font-size:13px;text-decoration:underline;">
+                    📍 View Thuckalay Office
+                </a>
+                <a href="https://maps.google.com/?q=Meenakshi+Street+Thirunagar+Madurai+Tamil+Nadu+625006"
+                   target="_blank" style="color:#000;font-size:13px;text-decoration:underline;">
+                    📍 View Madurai Office
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+            <p>Quatrox Solutions Private Limited © 2026 All Rights Reserved</p>
+        </div>
+
+    </div>
+</footer>
+
+<!-- CHATBOT -->
+<div id="chatbot-button">💭</div>
+<div id="chatbot-window">
+    <div id="chatbot-header">
+        <span>Quatrox solution's Assistant</span>
+        <span id="chatbot-close">✕</span>
+    </div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input-area">
+        <input type="text" id="chatbot-input" placeholder="Ask something..." />
+        <button id="chatbot-send">Send</button>
+    </div>
+</div>
+
+<style>
+#chatbot-button{position:fixed!important;bottom:25px!important;right:25px!important;background:#08080f;color:white;font-size:24px;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9999!important;box-shadow:0 4px 20px rgba(8,8,15,0.35);transition:transform 0.2s ease;-webkit-tap-highlight-color:transparent!important;user-select:none;}
+#chatbot-button:hover{transform:scale(1.1);}
+#chatbot-window{position:fixed!important;right:25px!important;bottom:100px!important;width:320px;height:420px;max-height:calc(100vh - 140px);background:white;border-radius:4px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.18);transition:transform 0.3s ease,opacity 0.3s ease;transform:translateY(20px);opacity:0;z-index:9998!important;}
+#chatbot-window.open{display:flex;transform:translateY(0);opacity:1;}
+#chatbot-header{background:#08080f;color:white;padding:15px;font-weight:600;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;font-family:'DM Sans',sans-serif;font-size:14px;letter-spacing:0.02em;}
+#chatbot-close{cursor:pointer;font-size:18px;opacity:0.6;transition:opacity 0.2s;}
+#chatbot-close:hover{opacity:1;}
+#chatbot-messages{flex:1;min-height:0;padding:12px;overflow-y:auto;font-family:'DM Sans',sans-serif;}
+#chatbot-input-area{display:flex;border-top:1px solid #eee;flex-shrink:0;}
+#chatbot-input{flex:1;padding:12px;border:none;outline:none;font-size:14px;font-family:'DM Sans',sans-serif;}
+#chatbot-input-area button{background:#08080f;color:white;border:none;padding:12px 18px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.04em;}
+#chatbot-input-area button:hover{background:#1c1c2e;}
+@media(max-width:600px){#chatbot-button{bottom:20px!important;right:20px!important;width:48px!important;height:48px!important;font-size:18px!important;}#chatbot-window{position:fixed!important;bottom:80px!important;left:10px!important;right:10px!important;width:calc(100% - 20px)!important;height:340px!important;}}
+</style>
+
+<script>
+    const fadeTexts = document.querySelectorAll(".fade-text");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add("show"), i * 100);
+            } else {
+                entry.target.classList.remove("show");
+            }
+        });
+    }, { threshold: 0.1 });
+    fadeTexts.forEach(text => observer.observe(text));
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const hamburger = document.querySelector(".hamburger");
+        const navbar = document.querySelector(".nav-bar");
+        if (hamburger) {
+            hamburger.addEventListener("click", (e) => {
+                e.stopPropagation();
+                mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
+            });
+        }
+        document.querySelectorAll(".mobile-menu a").forEach(link => {
+            link.addEventListener("click", () => { mobileMenu.style.display = "none"; });
+        });
+        document.addEventListener("click", (e) => {
+            if (mobileMenu && mobileMenu.style.display === "flex" && !mobileMenu.contains(e.target) && !hamburger.contains(e.target))
+                mobileMenu.style.display = "none";
+        });
+        let lastScroll = 0;
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+            if (navbar) navbar.style.transform = (currentScroll > lastScroll && currentScroll > 80) ? "translateY(-100%)" : "translateY(0)";
+            lastScroll = currentScroll;
+        });
+    });
+
+    function filterRoles(dept, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cards = document.querySelectorAll('.role-card');
+        let visible = 0;
+        cards.forEach(card => {
+            const show = dept === 'all' || card.dataset.dept === dept;
+            card.style.display = show ? 'flex' : 'none';
+            if (show) visible++;
+        });
+        document.querySelector('.roles-count-badge').textContent = visible + (visible === 1 ? ' Role Available' : ' Roles Available');
+    }
+
+    const chatbotButton = document.getElementById("chatbot-button");
+    const chatbotWindow = document.getElementById("chatbot-window");
+    const chatbotInput = document.getElementById("chatbot-input");
+    const sendBtn = document.getElementById("chatbot-send");
+    const messages = document.getElementById("chatbot-messages");
+    let autoCloseTimer;
+    function openChatbot() {
+        chatbotWindow.classList.add("open"); chatbotButton.style.display = "none";
+        if (autoCloseTimer) clearTimeout(autoCloseTimer);
+        autoCloseTimer = setTimeout(() => { chatbotWindow.classList.remove("open"); chatbotButton.style.display = "flex"; }, 30000);
+    }
+    document.getElementById("chatbot-close").addEventListener("click", (e) => { e.stopPropagation(); chatbotWindow.classList.remove("open"); chatbotButton.style.display = "flex"; clearTimeout(autoCloseTimer); });
+    chatbotButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (chatbotWindow.classList.contains("open")) { chatbotWindow.classList.remove("open"); clearTimeout(autoCloseTimer); }
+        else {
+            openChatbot(); chatbotInput.focus();
+            if (messages.children.length === 0) {
+                setTimeout(() => { const w = document.createElement('div'); w.style.cssText='margin:8px 0;padding:10px 14px;background:#08080f;color:white;border-radius:4px;max-width:80%;font-size:13px;line-height:1.5;'; w.innerHTML='<b>Quatro:</b> Hello! 👋 Interested in joining Quatrox Solutions? Ask me about our open roles or how to apply!'; messages.appendChild(w); }, 500);
+            }
+        }
+    });
+    document.addEventListener("click", (e) => { if (chatbotWindow.classList.contains("open") && !chatbotWindow.contains(e.target) && !chatbotButton.contains(e.target)) { chatbotWindow.classList.remove("open"); chatbotButton.style.display = "flex"; clearTimeout(autoCloseTimer); } });
+    chatbotWindow.addEventListener("click", (e) => e.stopPropagation());
+    async function getAIResponse(msg) {
+        const m = msg.toLowerCase();
+        if (m.includes("xml") || m.includes("epub")) return "Our XML & ePub Executive role focuses on digital publishing formats and conversion workflows. Click Apply Now to go to the application form!";
+        if (m.includes("data processing")) return "Our Data Processing Executive handles structured data workflows and quality checks. Click Apply Now to apply!";
+        if (m.includes("annotate") || m.includes("ai data") || m.includes("voice")) return "Our AI Data Annotator role covers both voice and non-voice annotation tasks for AI training datasets. Click Apply Now!";
+        if (m.includes("media") || m.includes("localisation") || m.includes("localization")) return "Our Media Localisation Editor role involves adapting media content across languages and formats. Click Apply Now!";
+        if (m.includes("apply") || m.includes("job") || m.includes("role") || m.includes("position")) return "We have openings in Technical, Data, Voice & AI, and Media. Click 'Apply Now' on any role to go straight to the application form!";
+        if (m.includes("location") || m.includes("office") || m.includes("where")) return "We have offices in Thuckalay and Madurai, Tamil Nadu, India.";
+        if (m.includes("contact") || m.includes("email") || m.includes("phone")) return "Email: <a href='mailto:Contact@quatroxsolutions.com' style='color:#a0b4ff'>Contact@quatroxsolutions.com</a> | Phone: <a href='tel:+917200801765' style='color:#a0b4ff'>+91 7200801765</a>";
+        if (m.includes("hello") || m.includes("hi") || m.includes("hey")) return "Hi! 👋 I'm Quatro. Ask me about open roles, how to apply, or anything about Quatrox Solutions!";
+        if (m.includes("thank")) return "You're welcome! Good luck with your application! 😊";
+        return "I can help with information about our open roles, how to apply, or general info about Quatrox Solutions. What would you like to know?";
+    }
+    async function handleSendMessage() {
+        const message = chatbotInput.value.trim(); if (!message) return;
+        const u = document.createElement('div'); u.style.cssText='margin:8px 0;padding:10px 14px;background:#f0f0f0;border-radius:4px;max-width:75%;word-wrap:break-word;font-size:13px;line-height:1.5;'; u.innerHTML=`<b>You:</b> ${message}`; messages.appendChild(u); chatbotInput.value=""; messages.scrollTop=messages.scrollHeight;
+        const t = document.createElement('div'); t.id='typing-indicator'; t.style.cssText='margin:8px 0;padding:10px 14px;background:#08080f;color:white;border-radius:4px;max-width:60px;font-size:13px;'; t.textContent='...'; messages.appendChild(t); messages.scrollTop=messages.scrollHeight;
+        setTimeout(async () => { const ti=document.getElementById('typing-indicator'); if(ti) ti.remove(); const reply=await getAIResponse(message); const b=document.createElement('div'); b.style.cssText='margin:8px 0;padding:10px 14px;background:#08080f;color:white;border-radius:4px;max-width:75%;word-wrap:break-word;font-size:13px;line-height:1.5;'; b.innerHTML=`<b>Quatro:</b> ${reply}`; messages.appendChild(b); messages.scrollTop=messages.scrollHeight; }, 800);
+    }
+    sendBtn.addEventListener("mousedown", (e) => e.preventDefault());
+    sendBtn.addEventListener("click", () => { handleSendMessage(); setTimeout(() => chatbotInput.focus(), 50); });
+    chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handleSendMessage(); });
+</script>
+
+</body>
+</html>
