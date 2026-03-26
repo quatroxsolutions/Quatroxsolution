@@ -105,6 +105,24 @@ a, button, div, span{
         <a href="tel:+917200801765" class="cta-btn">Schedule a Call</a>
     </div>
 </section>
+
+<!-- APPLY FORM WITH ANCHOR -->
+<section id="apply" class="contact-apply-section" style="background:#f7f4eb;padding:60px 8%;">
+    <div style="max-width:800px;margin:0 auto;background:#ffffff;border:1px solid rgba(13,13,41,0.14);border-radius:12px;padding:32px;">
+        <h2 style="font-family:'Cormorant Garamond', serif;font-size:30px;margin-bottom:14px;">Submit Your Application</h2>
+        <p style="color:#555;margin-bottom:24px;">Fill this quick form and our hiring team will contact you within 2-3 business days.</p>
+        <form id="contactApplyForm" onsubmit="event.preventDefault(); alert('Application submitted (contact)?');">
+            <label style="display:block;margin-bottom:8px;font-weight:600;">Name</label>
+            <input type="text" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:14px;">
+            <label style="display:block;margin-bottom:8px;font-weight:600;">Email</label>
+            <input type="email" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:14px;">
+            <label style="display:block;margin-bottom:8px;font-weight:600;">Message</label>
+            <textarea required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px;margin-bottom:16px;" rows="5"></textarea>
+            <button type="submit" style="background:#0d0d29;color:#f7f4eb;border:none;padding:12px 20px;border-radius:6px;cursor:pointer;">Send Application</button>
+        </form>
+    </div>
+</section>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -155,6 +173,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
+<script>
+// Disable right-click, drag, and click on images
+document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+document.addEventListener('click', function(e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+</script>
+
 <footer class="footer-section">
     <div class="footer-container">
 
@@ -262,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         <!-- Copyright -->
         <div class="footer-copy">
-            <p>Quatrox Solutions Private Limited © 2026 All Rights Reserved</p>
+            <p>Quatrox Solutions Pvt Ltd © 2025 All Rights Reserved</p>
         </div>
 
     </div>
