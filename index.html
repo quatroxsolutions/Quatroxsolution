@@ -55,6 +55,7 @@
             <a href="index.html">Home</a>
             <a href="#About">About</a>
             <a href="service.html">Services</a>
+            <a href="careers.html">Careers</a>
             <a href="contact.html">Contact Us</a>
         </div>
         <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
@@ -63,6 +64,7 @@
         <a href="index.html">Home</a>
         <a href="#About">About</a>
         <a href="service.html">Services</a>
+        <a href="careers.html">Careers</a>
         <a href="contact.html">Contact Us</a>
     </div>
 </nav>
@@ -1092,6 +1094,124 @@
         </div>
 
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     LEADERSHIP SECTION  ← NEW
+════════════════════════════════════════ -->
+<style>
+  .qs-leadership {
+    background: #f7f4eb;
+    padding: 90px 5% 80px;
+    font-family: 'Geist', 'Segoe UI', sans-serif;
+  }
+  .qs-leadership-inner { max-width: 1200px; margin: 0 auto; }
+
+  .qs-leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .qs-leaders-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 580px) { .qs-leaders-grid { grid-template-columns: 1fr; } }
+
+  .qs-leader-card {
+    background: #f7f4eb;
+    border: 1px solid #e8e8f4;
+    border-radius: 18px;
+    padding: 36px 28px;
+    border-top: 4px solid transparent;
+    transition: border-top-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .qs-leader-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0D0D29, #9898cc);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+    border-radius: 18px 18px 0 0;
+  }
+  .qs-leader-card:hover::before { transform: scaleX(1); }
+  .qs-leader-card:hover {
+    box-shadow: 0 12px 40px rgba(13,13,41,0.1);
+    transform: translateY(-4px);
+  }
+  .qs-leader-avatar {
+    width: 62px; height: 62px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0D0D29 0%, #4a4a8a 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+    font-family: 'Geist', sans-serif;
+  }
+  .qs-leader-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: #0D0D29;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .qs-leader-role {
+    display: inline-flex;
+    align-items: center;
+    background: #f0f0fa;
+    border: 1px solid #d4d4f0;
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0D0D29;
+    margin-bottom: 18px;
+  }
+  .qs-leader-bio {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #555;
+  }
+</style>
+
+<section id="Leadership" class="qs-leadership">
+  <div class="qs-leadership-inner">
+    <div class="qs-section-header">
+      <h2 class="qs-section-title">Our Leadership</h2>
+      <span class="qs-section-eyebrow">The Team</span>
+    </div>
+    <div class="qs-leaders-grid">
+
+      <div class="qs-leader-card fade-text">
+        <div class="qs-leader-avatar">CEO</div>
+        <div class="qs-leader-name">Founder & CEO</div>
+        <div class="qs-leader-role">Chief Executive Officer</div>
+        <div class="qs-leader-bio">Visionary leader who established Quatrox Solutions in 2025 with a mission to deliver world-class document transformation services from India to the globe. Brings deep expertise across publishing, BPO, digital content, and localisation strategy.</div>
+      </div>
+
+      <div class="qs-leader-card fade-text">
+        <div class="qs-leader-avatar">VP</div>
+        <div class="qs-leader-name">Co-Founder</div>
+        <div class="qs-leader-role">Vice President</div>
+        <div class="qs-leader-bio">Co-architect of Quatrox's growth strategy and business vision. As Vice President, oversees client relationships, operations, and the company's expansion into international markets — ensuring Quatrox delivers excellence at every touchpoint.</div>
+      </div>
+
+      <div class="qs-leader-card fade-text">
+        <div class="qs-leader-avatar">VTL</div>
+        <div class="qs-leader-name">Voice Processing Team Lead</div>
+        <div class="qs-leader-role">Head of Voice & International</div>
+        <div class="qs-leader-bio">Leads Quatrox's voice internationalisation division — managing multilingual voice-over production, SRT captioning, and audio localisation workflows. Brings specialist expertise in voice processing and international content delivery for global clients.</div>
+      </div>
+
     </div>
   </div>
 </section>
