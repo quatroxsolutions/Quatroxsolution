@@ -1,288 +1,1087 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Services | Quatrox Solutions</title>
-
-<!-- Favicon -->
+<title>Case Studies | Quatrox Solutions</title>
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
 <link rel="shortcut icon" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
-
-<!-- SEO -->
-<meta name="description" content="Explore Quatrox Solutions services including ePub conversion, XML conversion, copy editing, accessibility, typesetting, and publishing technology solutions.">
+<meta name="description" content="Quatrox Solutions case studies — EPUB conversion, PDF to Word, SRT subtitle editing.">
 <meta name="robots" content="index, follow">
-
 <link rel="canonical" href="https://www.quatroxsolutions.com/services/">
-
-<link rel="stylesheet" href="https://unpkg.com/geist-font@latest/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="global.css">
 <link rel="stylesheet" href="service.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init("YOUR_PUBLIC_KEY");</script>
 
 <style>
-*{
--webkit-tap-highlight-color: transparent !important;
--webkit-touch-callout: none !important;
-outline: none !important;
+/* ── BASE RESETS ── */
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent!important;outline:none!important}
+a,button,div,span{-webkit-tap-highlight-color:rgba(0,0,0,0)!important}
+
+/* ── TOKENS ── */
+:root{
+  --eclerx-navy:#1a2b4a;
+  --eclerx-blue:#0066b3;
+  --eclerx-teal:#00a99d;
+  --eclerx-light:#f5f7fa;
+  --eclerx-border:#e0e5ee;
+  --eclerx-text:#1a2b4a;
+  --eclerx-muted:#5a6a82;
+  --eclerx-faint:#8d9db5;
+  --eclerx-white:#ffffff;
+  --font:'Inter',sans-serif;
+}
+body{font-family:var(--font);color:var(--eclerx-text);background:#fff}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+.reveal-delay-4{transition-delay:.32s}
+
+/* ══════════════════════════════════════
+   CASE STUDIES  —  eCLERX EXACT STYLE
+══════════════════════════════════════ */
+
+/* ── PAGE HERO (breadcrumb + title) ── */
+.cs-page-hero{
+  background:#f7f4ea;
+  padding:56px 80px 52px;
+}
+.cs-page-hero-inner{max-width:1200px;margin:0 auto}
+.cs-breadcrumb{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;color:rgba(255,255,255,0.5);
+  margin-bottom:24px;letter-spacing:.02em;
+}
+.cs-breadcrumb a{color:rgba(255,255,255,0.5);text-decoration:none}
+.cs-breadcrumb a:hover{color:rgba(255,255,255,0.85)}
+.cs-breadcrumb span{color:rgba(255,255,255,0.3)}
+.cs-page-title{
+  font-size:42px;font-weight:700;
+  color:#000;margin:0 0 10px;line-height:1.1;
+  letter-spacing:-.5px;
+}
+.cs-page-subtitle{
+  font-size:16px;color:black;
+  margin:0;line-height:1.6;max-width:540px;
 }
 
-a, button, div, span{
--webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+/* ── FILTER ROW (eClerx-style dropdowns) ── */
+.cs-filter-section{
+  background:#0D0D29;
+  border-bottom:1px solid var(--eclerx-border);
+  padding:0 80px;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 1px 0 var(--eclerx-border);
+}
+.cs-filter-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;gap:0;
+  border-bottom:none;
+}
+.cs-filter-tab{
+  font-size:13.5px;font-weight:500;
+  color:var(--eclerx-muted);
+  padding:18px 22px;
+  border:none;background:none;cursor:pointer;
+  border-bottom:3px solid transparent;
+  margin-bottom:-1px;
+  white-space:nowrap;
+  transition:color .2s,border-color .2s;
+  letter-spacing:.01em;
+}
+.cs-filter-tab:hover{color:var(--eclerx-blue)}
+.cs-filter-tab.active{
+  color:var(--eclerx-blue);
+  border-bottom-color:var(--eclerx-blue);
+  font-weight:600;
+}
+.cs-filter-divider{width:1px;height:20px;background:var(--eclerx-border);margin:0 4px}
+
+/* ── MAIN CONTENT AREA ── */
+.cs-main{
+  background: #f2efe3;
+  padding:48px 80px 72px;
+  min-height:400px;
+}
+.cs-main-inner{max-width:1200px;margin:0 auto}
+
+.cs-section-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:28px;flex-wrap:wrap;gap:12px;
+}
+.cs-section-label{
+  font-size:21px;font-weight:700;color:var(--eclerx-navy);
+  letter-spacing:-.2px;
+}
+.cs-count-label{
+  font-size:13px;color:var(--eclerx-faint);
+}
+.cs-count-label strong{color:var(--eclerx-muted);font-weight:600}
+
+/* ── CARD GRID ── */
+.cs-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+/* ── SINGLE CARD ── */
+.cs-card{
+  background:#0D0D29;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column; /* ALWAYS vertical — thumb on top, content below */
+  cursor:pointer;
+  transition:box-shadow .3s ease, transform .3s ease, border-color .3s ease;
+  text-decoration:none;
+  color:inherit;
+  min-width:0; /* prevents grid blowout */
+}
+.cs-card:hover{
+  box-shadow:0 16px 48px rgba(0,0,0,0.35);
+  transform:translateY(-5px);
+  border-color:rgba(255,255,255,0.18);
+}
+
+/* ── Card thumbnail — ALWAYS full-width image on top ── */
+.cs-card-thumb{
+  position:relative;
+  width:100%;           /* spans full card width always */
+  height:220px;
+  overflow:hidden;
+  background:#0a1428;
+  flex:0 0 auto;        /* never grows or shrinks — fixed height */
+  display:block;
+}
+/* Overlay gradient so overlaid text/tags stay readable */
+.cs-card-thumb::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.08) 0%,
+    rgba(0,0,0,0.0)  40%,
+    rgba(5,10,25,0.55) 100%
+  );
+  pointer-events:none;
+  z-index:1;
+}
+/* The actual image — always covers full thumb area */
+.cs-card-thumb img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  transition:transform .5s ease;
+}
+.cs-card:hover .cs-card-thumb img{
+  transform:scale(1.05);
+}
+
+.cs-thumb-pattern{
+  position:absolute;inset:0;
+  opacity:.18;
+  z-index:0;
+}
+.cs-thumb-icon{
+  position:absolute;bottom:18px;left:20px;
+  width:44px;height:44px;
+  background:rgba(255,255,255,0.13);
+  backdrop-filter:blur(6px);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  z-index:2;
+}
+.cs-thumb-icon svg{width:22px;height:22px;fill:#fff;opacity:.9}
+.cs-thumb-tag{
+  position:absolute;top:14px;left:14px;
+  font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:5px 12px;border-radius:20px;
+  color:#fff;
+  z-index:2;
+}
+.cs-thumb-tag-blue{background:rgba(0,102,179,.80);backdrop-filter:blur(4px)}
+.cs-thumb-stat{
+  position:absolute;top:14px;right:14px;
+  text-align:right;
+  z-index:2;
+}
+.cs-thumb-stat-val{
+  font-size:28px;font-weight:800;color:#fff;
+  line-height:1;letter-spacing:-1px;
+  text-shadow:0 2px 12px rgba(0,0,0,.5);
+}
+.cs-thumb-stat-lbl{
+  font-size:9px;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.75);margin-top:2px;
+}
+
+/* Card body */
+.cs-card-body{
+  padding:22px 22px 14px;
+  flex:1;display:flex;flex-direction:column;
+  min-width:0;
+}
+.cs-card-service{
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--eclerx-teal);margin-bottom:10px;
+}
+.cs-card-title{
+  font-size:16px;font-weight:700;line-height:1.35;
+  color:#f0ede4;margin:0 0 10px;
+}
+.cs-card-desc{
+  font-size:13px;color:rgba(255,255,255,0.6);
+  line-height:1.7;margin:0;flex:1;
+}
+
+/* Card footer */
+.cs-card-foot{
+  padding:14px 22px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:14px;
+}
+.cs-card-type{
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);font-weight:600;
+  display:flex;align-items:center;gap:7px;
+}
+.cs-card-type::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--eclerx-teal);display:inline-block;flex-shrink:0;
+}
+.cs-card-cta{
+  font-size:12.5px;font-weight:600;color:#4ea8de;
+  display:flex;align-items:center;gap:5px;
+  transition:gap .2s, color .2s;
+}
+.cs-card:hover .cs-card-cta{gap:9px;color:#7ec8f5}
+.cs-card-cta svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ══════════════════════════════════════
+   DETAIL PAGE  — full-page slide-over
+══════════════════════════════════════ */
+.cs-detail{
+  position:fixed;inset:0;z-index:9000;
+  display:flex;
+  visibility:hidden;
+  pointer-events:none;
+}
+.cs-detail.open{visibility:visible;pointer-events:all}
+.cs-detail-scrim{
+  position:absolute;inset:0;
+  background:rgba(10,20,40,.55);
+  backdrop-filter:blur(3px);
+  opacity:0;transition:opacity .35s ease;
+}
+.cs-detail.open .cs-detail-scrim{opacity:1}
+
+.cs-detail-panel{
+  position:relative;z-index:1;
+  margin-left:auto;
+  width:min(780px,100vw);
+  background:#fff;
+  display:flex;flex-direction:column;
+  overflow-y:auto;
+  transform:translateX(105%);
+  transition:transform .42s cubic-bezier(.22,1,.36,1);
+  height:100vh;
+}
+.cs-detail.open .cs-detail-panel{transform:translateX(0)}
+
+/* ── Detail header — IMAGE VERSION ── */
+.cs-detail-head{
+  padding:0;
+  flex-shrink:0;
+  position:relative;
+  height:240px;
+  overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+
+/* The background image layer */
+.cs-detail-head-bg{
+  position:absolute;inset:0;
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  /* zoom-in subtle animation */
+  transition:transform .6s ease;
+}
+.cs-detail.open .cs-detail-head-bg{
+  transform:scale(1.03);
+}
+
+/* Dark gradient overlay so text stays legible */
+.cs-detail-head-bg::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(5,12,30,0.82) 0%,
+    rgba(5,12,30,0.50) 45%,
+    rgba(5,12,30,0.20) 100%
+  );
+}
+
+.cs-detail-head-content{
+  position:relative;z-index:1;
+  padding:28px 40px 32px;
+}
+.cs-detail-close{
+  position:absolute;top:18px;right:20px;z-index:2;
+  width:36px;height:36px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.45);
+  background:rgba(0,0,0,.25);
+  backdrop-filter:blur(6px);
+  color:#fff;font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .25s;
+}
+.cs-detail-close:hover{background:rgba(255,255,255,.25);transform:rotate(90deg)}
+.cs-detail-service-tag{
+  font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.82);margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.cs-detail-service-tag::before{content:'';width:20px;height:2px;background:rgba(255,255,255,.55)}
+.cs-detail-title{
+  font-size:24px;font-weight:700;color:#fff;
+  margin:0;line-height:1.25;letter-spacing:-.3px;
+  text-shadow:0 1px 6px rgba(0,0,0,.4);
+}
+
+/* Stats strip */
+.cs-detail-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid var(--eclerx-border);
+  flex-shrink:0;
+  background:#fff;
+}
+.cs-ds{
+  padding:20px 20px;
+  border-right:1px solid var(--eclerx-border);
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.cs-ds:last-child{border-right:none}
+.cs-ds-val{
+  font-size:26px;font-weight:800;color:var(--eclerx-navy);
+  line-height:1;letter-spacing:-.5px;margin-bottom:4px;
+}
+.cs-ds-lbl{
+  font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--eclerx-faint);line-height:1.3;
+}
+
+/* Detail body */
+.cs-detail-body{
+  padding:36px 40px 48px;
+  flex:1;
+}
+.cs-detail-lead{
+  font-size:15px;color:var(--eclerx-muted);
+  line-height:1.75;margin:0 0 36px;
+  border-left:3px solid var(--eclerx-teal);
+  padding-left:16px;
+}
+
+.cs-section{margin-bottom:32px}
+.cs-section-title{
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--eclerx-blue);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.cs-section-title::after{content:'';flex:1;height:1px;background:var(--eclerx-border)}
+
+.cs-section ul{margin:0;padding:0;list-style:none}
+.cs-section ul li{
+  font-size:14px;color:var(--eclerx-muted);
+  line-height:1.7;padding:9px 0 9px 18px;
+  border-bottom:1px solid #f0f2f6;
+  position:relative;
+}
+.cs-section ul li:last-child{border-bottom:none}
+.cs-section ul li::before{
+  content:'';
+  position:absolute;left:0;top:18px;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--eclerx-teal);
+}
+
+/* Tools chips */
+.cs-tools{display:flex;flex-wrap:wrap;gap:8px}
+.cs-tool{
+  font-size:12px;font-weight:500;
+  padding:6px 14px;border-radius:4px;
+  background:var(--eclerx-light);
+  color:var(--eclerx-navy);
+  border:1px solid var(--eclerx-border);
+}
+
+/* Outcome box */
+.cs-outcome-box{
+  background:var(--eclerx-navy);
+  border-radius:6px;padding:24px 28px;margin-top:28px;
+}
+.cs-outcome-box p{
+  font-size:14.5px;color:rgba(255,255,255,.8);
+  line-height:1.75;margin:0;
+}
+.cs-outcome-box strong{color:#fff}
+
+/* ── PROJECTS SECTION ── */
+.projects-section{padding:80px 80px;background:#0D0D29;color:#fff}
+.projects-inner{max-width:1200px;margin:0 auto}
+.projects-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:16px}
+.projects-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
+.projects-title{font-size:32px;font-weight:700;line-height:1.15;margin:0;color:#fff}
+.projects-count{font-size:64px;font-weight:800;color:rgba(255,255,255,.05);font-family:Georgia,serif;letter-spacing:-3px;line-height:1;user-select:none}
+.proj-list{border-top:1px solid rgba(255,255,255,.1)}
+.proj-item{border-bottom:1px solid rgba(255,255,255,.1)}
+.proj-trigger{width:100%;background:none;border:none;padding:28px 0;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:24px;transition:opacity .2s}
+.proj-trigger:hover{opacity:.7}
+.proj-trigger:hover .proj-arrow{transform:translateX(6px)}
+.proj-left{display:flex;align-items:center;gap:24px;flex:1;min-width:0}
+.proj-num{font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.25);flex-shrink:0}
+.proj-title-txt{font-size:22px;font-weight:700;color:#fff;margin:0;text-align:left;line-height:1.2}
+.proj-brief{font-size:13px;color:rgba(255,255,255,.4);margin:5px 0 0;text-align:left;line-height:1.5}
+.proj-arrow{font-size:20px;color:rgba(255,255,255,.35);flex-shrink:0;transition:transform .25s ease}
+.proj-overlay{position:fixed;inset:0;background:#0D0D29;z-index:9999;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .4s ease}
+.proj-overlay.active{opacity:1;pointer-events:all}
+.proj-overlay-inner{flex:1;overflow-y:auto;padding:100px 80px 80px;max-width:820px;margin:0 auto;width:100%}
+.p-overlay-close{position:fixed;top:28px;right:36px;background:none;border:1px solid rgba(255,255,255,.2);color:#fff;width:44px;height:44px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .25s;z-index:10000}
+.p-overlay-close:hover{background:rgba(255,255,255,.1);transform:rotate(90deg)}
+.p-overlay-num{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:28px;display:block}
+.p-overlay-title{font-size:42px;font-weight:800;color:#fff;margin:0 0 28px;line-height:1.05;letter-spacing:-1px}
+.p-overlay-divider{width:48px;height:2px;background:rgba(255,255,255,.18);margin-bottom:36px}
+.p-overlay-body{font-size:16px;line-height:1.9;color:rgba(255,255,255,.6);margin:0 0 48px;white-space:pre-line}
+.p-overlay-tag{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.35)}
+
+/* ── CTA ── */
+.cta-banner{padding:64px 80px;border-top:1px solid rgba(255,255,255,.06);text-align:center;background:#0D0D29}
+.cta-inner{max-width:560px;margin:0 auto}
+.cta-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+.cta-heading{font-size:30px;font-weight:700;line-height:1.2;margin:0 0 12px;color:#fff}
+.cta-sub{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;margin:0 0 32px}
+.cta-btn{display:inline-block;padding:14px 36px;background:#fff;color:#0D0D29;font-size:13px;font-weight:600;letter-spacing:.05em;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .1s}
+.cta-btn:hover{opacity:.88}.cta-btn:active{transform:scale(.98)}
+
+/* ── CONTACT ── */
+.contact-section{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(0,0,0,.1);align-items:stretch}
+.contact-left{padding:64px 56px;display:flex;flex-direction:column;justify-content:space-between}
+.contact-meta{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.5;margin-bottom:40px}
+.contact-big-letter{font-size:110px;font-weight:800;line-height:1;font-family:Georgia,serif;margin-bottom:4px;letter-spacing:-4px}
+.contact-eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.5;margin-bottom:14px}
+.contact-headline{font-size:36px;font-weight:700;line-height:1.15;margin:0 0 18px}
+.contact-desc{font-size:14px;line-height:1.7;max-width:320px;opacity:.65;margin-bottom:48px}
+.contact-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;border-top:1px solid rgba(0,0,0,.12);padding-top:28px}
+.contact-info-item .ci-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.45;margin-bottom:4px}
+.contact-info-item .ci-value{font-size:13px;font-weight:500}
+.contact-right{padding:64px 56px;display:flex;flex-direction:column;justify-content:center;background:#fff;border-left:1px solid rgba(0,0,0,.08)}
+.contact-right h3{font-size:16px;font-weight:600;margin:0 0 36px;line-height:1.4;color:#1a1a2e;letter-spacing:.05em}
+.contact-right form{display:flex;flex-direction:column}
+.form-row{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;margin-bottom:28px}
+.form-row .form-field{margin-bottom:0}
+.form-field{display:flex;flex-direction:column;margin-bottom:28px}
+.form-field:last-of-type{margin-bottom:0}
+.form-field label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#1a1a2e;font-weight:600;opacity:.6;margin-bottom:10px}
+.form-field input,.form-field textarea{width:100%;border:none;border-bottom:2px solid rgba(0,0,0,.15);background:rgba(26,26,46,.02);font-family:var(--font);font-size:14px;padding:10px 0 12px;color:#1a1a2e;transition:background .3s,border-color .3s;display:block}
+.form-field input::placeholder,.form-field textarea::placeholder{opacity:.4;color:inherit}
+.form-field input:hover,.form-field textarea:hover{background:rgba(26,26,46,.05);border-bottom-color:rgba(0,0,0,.25)}
+.form-field input:focus,.form-field textarea:focus{outline:none;background:rgba(26,26,46,.06);border-bottom-color:#1a1a2e}
+.form-field textarea{resize:none;height:108px;line-height:1.6}
+.form-footer{display:flex;align-items:center;justify-content:space-between;margin-top:32px;gap:16px;flex-wrap:wrap}
+.form-footer .no-spam{font-size:11px;opacity:.45;color:#1a1a2e;font-weight:500;letter-spacing:.05em}
+.send-btn{padding:14px 40px;font-size:13px;font-weight:600;letter-spacing:.08em;cursor:pointer;font-family:var(--font);border:none;background:#1a1a2e;color:#fff;transition:all .3s;display:flex;align-items:center;justify-content:center;white-space:nowrap;border-radius:4px;box-shadow:0 2px 8px rgba(26,26,46,.12)}
+.send-btn:hover{background:#252545;transform:translateY(-2px)}.send-btn:active{transform:translateY(0)}.send-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.form-success{display:none;text-align:center;padding:48px 24px;background:rgba(34,197,94,.05);border-radius:8px;border:1px solid rgba(34,197,94,.2)}
+.form-success .success-check{font-size:44px;margin-bottom:16px;color:#22c55e}
+.form-success .success-title{font-size:16px;font-weight:600;margin-bottom:8px;color:#1a1a2e}
+.form-success .success-sub{font-size:14px;opacity:.6;color:#1a1a2e}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — tablet → mobile
+══════════════════════════════════════ */
+
+/* Tablet: 2-column cards */
+@media(max-width:1100px){
+  .cs-page-hero,.cs-filter-section,.cs-main{padding-left:40px;padding-right:40px}
+  .projects-section,.cta-banner{padding-left:40px;padding-right:40px}
+  .cs-cards{grid-template-columns:1fr 1fr; gap:20px}
+  .cs-detail-stats{grid-template-columns:repeat(2,1fr)}
+  .cs-ds:nth-child(2){border-right:none}
+  .cs-ds:nth-child(3){border-top:1px solid var(--eclerx-border)}
+  .cs-ds:nth-child(4){border-top:1px solid var(--eclerx-border)}
+}
+
+/* Mobile: single-column, full elegance */
+@media(max-width:700px){
+  /* ── Layout spacing ── */
+  .cs-page-hero,.cs-main{padding-left:16px;padding-right:16px;padding-top:36px;padding-bottom:36px}
+  .cs-page-title{font-size:26px;letter-spacing:-.3px}
+  .cs-page-subtitle{font-size:14px}
+
+  /* ── Filter bar scrollable ── */
+  .cs-filter-section{
+    padding:0;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .cs-filter-section::-webkit-scrollbar{display:none}
+  .cs-filter-inner{
+    min-width:max-content;
+    padding:0 16px;
+    gap:0;
+  }
+  .cs-filter-tab{font-size:12px;padding:14px 14px;letter-spacing:.01em}
+
+  /* ── Cards: 1-col, elegant ── */
+  .cs-cards{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  /* Card always stacks vertically — image full-width on top */
+  .cs-card{
+    flex-direction:column !important;
+    border-radius:16px;
+  }
+
+  /* Thumbnail: full width, taller on mobile for impact */
+  .cs-card-thumb{
+    width:100% !important;
+    height:200px !important;
+    min-width:0 !important;
+    flex:0 0 auto !important;
+    display:block !important;
+  }
+  .cs-card-thumb img{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center !important;
+  }
+
+  /* Stat value slightly smaller on narrow screens */
+  .cs-thumb-stat-val{font-size:22px}
+
+  /* Card body padding */
+  .cs-card-body{padding:18px 18px 12px}
+  .cs-card-title{font-size:15px}
+  .cs-card-desc{font-size:12.5px}
+  .cs-card-foot{padding:12px 18px}
+
+  /* ── Detail panel ── */
+  .cs-detail-panel{width:100vw}
+  .cs-detail-head{height:195px}
+  .cs-detail-head-content{padding:18px 16px 22px}
+  .cs-detail-title{font-size:17px;line-height:1.3}
+  .cs-detail-service-tag{font-size:9px;margin-bottom:7px}
+  .cs-detail-close{top:12px;right:12px;width:32px;height:32px;font-size:14px}
+
+  /* Stats 2x2 */
+  .cs-detail-stats{grid-template-columns:1fr 1fr}
+  .cs-ds{padding:14px 10px}
+  .cs-ds-val{font-size:20px}
+  .cs-ds-lbl{font-size:9px}
+
+  /* Detail body */
+  .cs-detail-body{padding:20px 16px 40px}
+  .cs-detail-lead{font-size:13.5px;margin-bottom:24px}
+  .cs-section ul li{font-size:13px}
+  .cs-outcome-box{padding:18px 20px}
+  .cs-outcome-box p{font-size:13px}
+
+  /* ── Projects ── */
+  .projects-section,.cta-banner{padding-left:20px;padding-right:20px}
+  .proj-title-txt{font-size:18px}
+  .proj-overlay-inner{padding:80px 20px 60px}
+  .p-overlay-title{font-size:26px}
+  .p-overlay-close{top:16px;right:16px}
+
+  /* ── Contact ── */
+  .contact-section{grid-template-columns:1fr}
+  .contact-left,.contact-right{padding:40px 20px}
+  .contact-big-letter{font-size:72px}
+  .contact-headline{font-size:24px}
+  .contact-right{border-left:none;border-top:1px solid rgba(0,0,0,.08)}
+  .form-row{grid-template-columns:1fr;column-gap:0;margin-bottom:0}
+  .form-row .form-field{margin-bottom:24px}
+  .form-field{margin-bottom:24px}
+  .send-btn{width:100%}
+  .form-footer{flex-direction:column;align-items:stretch;text-align:center}
+
+  /* ── Section head ── */
+  .cs-section-label{font-size:18px}
 }
 </style>
-
 </head>
 <body>
 
-     <!-- NAVIGATION BAR -->
-   <nav class="nav-bar"> 
-    <div class="nav-content">
-        <img src="Logo.png" alt="Logo" class="logo" />
-
-        <!-- DESKTOP MENU -->
-        <div class="menu desktop-menu">
-            <a href="index.html">Home</a>
-            <a href="index.html#about">About</a>
-            <a href="service.html">Services</a>
-            <a href="careers.html">Careers</a>
-            <a href="contact.html">Contact Us</a>
-        </div>
-
-        <!-- MOBILE MENU BUTTON -->
-        <div class="hamburger" onclick="toggleMenu()">
-            &#9776;
-        </div>
+<!-- NAV -->
+<nav class="nav-bar">
+  <div class="nav-content">
+    <img src="Logo.png" alt="Quatrox Solutions logo" class="logo"/>
+    <div class="menu desktop-menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="service.html">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact Us</a>
     </div>
-
-    <!-- MOBILE SLIDE MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="service.html">Services</a>
-        <a href="careers.html">Careers</a>
-        <a href="contact.html">Contact Us</a>
-    </div>
+    <div class="hamburger" id="hamburgerBtn">&#9776;</div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="service.html">Services</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
 </nav>
 
-    <!-- SERVICE IMAGE SECTION -->
-    <div class="service-image">
-        <img src="service home.png" alt="Service Image">
+<!-- SERVICE BANNER IMAGE -->
+<div class="service-image">
+  <img src="service home.png" alt="Quatrox Solutions digital publishing services"/>
+</div>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="projects-inner">
+    <div class="projects-header reveal">
+      <div><div class="projects-label">Our work</div><h2 class="projects-title">Projects We've<br>Delivered</h2></div>
+      <div class="projects-count">04</div>
+    </div>
+    <div class="proj-list">
+      <div class="proj-item reveal reveal-delay-1">
+        <button class="proj-trigger" data-project="0">
+          <div class="proj-left"><span class="proj-num">01</span><div><h3 class="proj-title-txt">Document Conversion</h3><p class="proj-brief">Transforming documents into fully editable formats with precision.</p></div></div>
+          <span class="proj-arrow">&#8594;</span>
+        </button>
+      </div>
+      <div class="proj-item reveal reveal-delay-2">
+        <button class="proj-trigger" data-project="1">
+          <div class="proj-left"><span class="proj-num">02</span><div><h3 class="proj-title-txt">Data Extraction</h3><p class="proj-brief">Turning image-based and handwritten records into structured data.</p></div></div>
+          <span class="proj-arrow">&#8594;</span>
+        </button>
+      </div>
+      <div class="proj-item reveal reveal-delay-3">
+        <button class="proj-trigger" data-project="2">
+          <div class="proj-left"><span class="proj-num">03</span><div><h3 class="proj-title-txt">Media Localisation</h3><p class="proj-brief">Translating subtitle files across languages for global audiences.</p></div></div>
+          <span class="proj-arrow">&#8594;</span>
+        </button>
+      </div>
+      <div class="proj-item reveal reveal-delay-4">
+        <button class="proj-trigger" data-project="3">
+          <div class="proj-left"><span class="proj-num">04</span><div><h3 class="proj-title-txt">Media Services</h3><p class="proj-brief">Transcribing audio and video into accurate, timestamped subtitles.</p></div></div>
+          <span class="proj-arrow">&#8594;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     CASE STUDIES  —  eCLERX LAYOUT
+════════════════════════════════════ -->
+
+<!-- Page Hero -->
+<section class="cs-page-hero">
+  <div class="cs-page-hero-inner reveal">
+    <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>&#8250;</span>
+      <span>Case Studies</span>
+    </nav>
+    <h1 class="cs-page-title">Customer Stories</h1>
+    <p class="cs-page-subtitle">Discover how Quatrox Solutions delivers measurable results for our clients — from EPUB conversion to AI-assisted media workflows.</p>
+  </div>
+</section>
+
+<!-- Filter Tabs -->
+<div class="cs-filter-section">
+  <div class="cs-filter-inner">
+    <button class="cs-filter-tab active" data-filter="all">All Stories</button>
+    <div class="cs-filter-divider"></div>
+    <button class="cs-filter-tab" data-filter="epub">EPUB Conversion</button>
+    <div class="cs-filter-divider"></div>
+    <button class="cs-filter-tab" data-filter="pdf">Document Conversion</button>
+    <div class="cs-filter-divider"></div>
+    <button class="cs-filter-tab" data-filter="srt">Media &amp; Subtitles</button>
+  </div>
+</div>
+
+<!-- Cards Grid -->
+<section class="cs-main">
+  <div class="cs-main-inner">
+
+    <div class="cs-section-head reveal">
+      <span class="cs-section-label">Discover all customer stories</span>
+      <span class="cs-count-label" id="csCount"><strong>3</strong> stories</span>
     </div>
 
-<!-- OUR SERVICES SECTION -->
-<section class="our-services-section">
-    <div class="services-container">
+    <div class="cs-cards">
 
-        <h2 class="services-heading">
-            Navigating complex data challenges? <br /> 
-            We Can Help.
-        </h2>
-
-        <div class="services-list">
-
-            <div class="service-box">
-                <h3>EPUB CONVERSION</h3>
-                <p>The concept of electronic book (e-Book) is Enhancing the reading habits of people worldwide. E-Book publishing is the next (r) evolution in digital publishing.</p>
-            </div>
-
-            <div class="service-box">
-                <h3>XML CONVERSION</h3>
-                <p>XML is one of the EPUB modes to offer publishers through defining the structure of the eBook, specifying exact meta data, managing navigability and controlled presentation. These effect in Open packaging formatting.</p>
-            </div>
-
-            <div class="service-box">
-                <h3>COPY EDITING</h3>
-                <p>Our copyediting process ensures every document is accurate, consistent, and ready far publication. We focus on enhancing clarity and readability while maintaining the author's intent.</p>
-            </div>
-
-            <div class="service-box">
-                <h3>ACCESSIBILITY SERVICES</h3>
-                <p>We through our document accessibility offer cost—efficient and high quality ADA compliant solution sets. We through our WCAG guidelines offer tagging services automated by section 508 and ADA compliance based on USA suitable for multiple countries guidelines.</p>
-            </div>
-
-            <div class="service-box">
-                <h3>TYPESETTING</h3>
-                <p>Type setting process involves the formatting through arrangement of contents thereby making it visually presentable and appealing. Typesetting involves adjustments, line spacings, graphics positioning and table placements for the improvised publishing experience.</p>
-            </div>
-
+      <!-- CARD 1: EPUB -->
+      <div class="cs-card reveal reveal-delay-1" data-category="epub" data-id="0" tabindex="0" role="button" aria-label="Read EPUB Conversion case study">
+        <div class="cs-card-thumb cs-card-thumb-epub">
+          <img src="epub.jpeg" alt="">
+          <span class="cs-thumb-tag cs-thumb-tag-blue">Case Study</span>
+          <div class="cs-thumb-stat">
+            <div class="cs-thumb-stat-val">30%</div>
+            <div class="cs-thumb-stat-lbl">efficiency gain</div>
+          </div>
+          <div class="cs-thumb-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 13h8v1H8v-1zm0 3h8v1H8v-1zm0-6h5v1H8v-1z"/></svg>
+          </div>
         </div>
+        <div class="cs-card-body">
+          <div class="cs-card-service">Digital Publishing</div>
+          <h3 class="cs-card-title">EPUB Conversion at Scale for a Global Academic Publisher</h3>
+          <p class="cs-card-desc">Transforming a large repository of print content into standards-compliant EPUB 2 &amp; 3 formats — fully accessible across Kindle, iBooks, and Android, with WCAG compliance.</p>
+        </div>
+        <div class="cs-card-foot">
+          <span class="cs-card-type">Case Study</span>
+          <span class="cs-card-cta">Read story <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+
+      <!-- CARD 2: PDF -->
+      <div class="cs-card reveal reveal-delay-2" data-category="pdf" data-id="1" tabindex="0" role="button" aria-label="Read PDF to Word case study">
+        <div class="cs-card-thumb cs-card-thumb-pdf">
+          <img src="pdf.jpeg" alt="">
+          <span class="cs-thumb-tag cs-thumb-tag-blue">Case Study</span>
+          <div class="cs-thumb-stat">
+            <div class="cs-thumb-stat-val">1,200+</div>
+            <div class="cs-thumb-stat-lbl">pages / day</div>
+          </div>
+          <div class="cs-thumb-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-card-service">Document Services</div>
+          <h3 class="cs-card-title">PDF to Word Conversion — Zero Layout Loss at High Volume</h3>
+          <p class="cs-card-desc">Converting complex PDFs into fully editable Word documents at 1,200+ pages per day — every table, heading, and font faithfully reproduced with multi-pass quality assurance.</p>
+        </div>
+        <div class="cs-card-foot">
+          <span class="cs-card-type">Case Study</span>
+          <span class="cs-card-cta">Read story <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+
+      <!-- CARD 3: SRT -->
+      <div class="cs-card reveal reveal-delay-3" data-category="srt" data-id="2" tabindex="0" role="button" aria-label="Read SRT subtitle case study">
+        <div class="cs-card-thumb cs-card-thumb-srt">
+          <img src="srt.jpeg" alt="">
+          <span class="cs-thumb-tag cs-thumb-tag-blue">Case Study</span>
+          <div class="cs-thumb-stat">
+            <div class="cs-thumb-stat-val">50%</div>
+            <div class="cs-thumb-stat-lbl">faster delivery</div>
+          </div>
+          <div class="cs-thumb-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3l-4 4z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-card-service">Media Services</div>
+          <h3 class="cs-card-title">AI-Assisted SRT Subtitle Workflow Optimisation</h3>
+          <p class="cs-card-desc">Redesigning a slow manual subtitle pipeline into an AI-human hybrid model — cutting turnaround by up to 50% while raising accuracy and consistency across bulk media files.</p>
+        </div>
+        <div class="cs-card-foot">
+          <span class="cs-card-type">Case Study</span>
+          <span class="cs-card-cta">Read story <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </div>
+
+    </div><!-- /cs-cards -->
+  </div>
+</section>
+
+<!-- ══ DETAIL SLIDE-OVER PANEL ══ -->
+<div class="cs-detail" id="csDetail" role="dialog" aria-modal="true">
+  <div class="cs-detail-scrim" id="csScrim"></div>
+  <div class="cs-detail-panel" id="csPanel">
+    <div class="cs-detail-head" id="detailHead">
+      <div class="cs-detail-head-bg" id="detailBg"></div>
+      <button class="cs-detail-close" id="csClose" aria-label="Close">&#10005;</button>
+      <div class="cs-detail-head-content">
+        <div class="cs-detail-service-tag" id="detailService"></div>
+        <h2 class="cs-detail-title" id="detailTitle"></h2>
+      </div>
     </div>
+    <div class="cs-detail-stats" id="detailStats"></div>
+    <div class="cs-detail-body" id="detailBody"></div>
+  </div>
+</div>
 
+<!-- PROJECTS OVERLAY -->
+<div class="proj-overlay" id="projOverlay" role="dialog" aria-modal="true">
+  <button class="p-overlay-close" id="projClose" aria-label="Close">&#10005;</button>
+  <div class="proj-overlay-inner">
+    <span class="p-overlay-num" id="pNum"></span>
+    <h2 class="p-overlay-title" id="pTitle"></h2>
+    <div class="p-overlay-divider"></div>
+    <p class="p-overlay-body" id="pBody"></p>
+    <span class="p-overlay-tag" id="pTag"></span>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-banner reveal">
+  <div class="cta-inner">
+    <div class="cta-label">Ready to start?</div>
+    <h2 class="cta-heading">Have a project in mind?<br>Let's talk.</h2>
+    <p class="cta-sub">From a single document to a full catalogue — our team is ready to help you deliver faster, cleaner, and more accessibly.</p>
+    <a href="contact.html#contact-form" class="cta-btn">Get in Touch &rarr;</a>
+  </div>
 </section>
-<!-- SERVICE BANNER IMAGE SECTION -->
-<section class="service-banner">
-    <img src="service footer.png" alt="Service Banner" />
-</section>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const mobileMenu = document.querySelector(".mobile-menu");
-    const hamburger = document.querySelector(".hamburger");
 
-    // Toggle menu when clicking the hamburger
-    hamburger.addEventListener("click", (e) => {
-        e.stopPropagation(); // prevent event from reaching document
-        mobileMenu.style.display =
-            mobileMenu.style.display === "flex" ? "none" : "flex";
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ══ DATA ══ */
+var CS = [
+  {
+    service:"Digital Publishing · EPUB",
+    title:"EPUB Conversion at Scale for a Global Academic Publisher",
+    lead:"Quatrox Solutions partnered with a leading international publisher to transition their entire print catalogue to modern EPUB 2 & 3 formats — WCAG-compliant, device-ready, and delivered on time.",
+    bgClass:"cs-card-thumb-epub",
+    /* ── IMAGE used in detail panel header ── */
+    bgImage:"epub.jpeg",
+    stats:[
+      {val:"100%",lbl:"EPUB Standards\nCompliance"},
+      {val:"30%", lbl:"Production\nEfficiency Gain"},
+      {val:"2–3d",lbl:"Avg. Turnaround\nPer Title"},
+      {val:"30",  lbl:"Team\nMembers"}
+    ],
+    requirements:["Convert print-ready PDFs and Word manuscripts into EPUB 2 and EPUB 3","Support reflowable and fixed-layout EPUB formats","Compatibility across Kindle, Apple iBooks, and Android devices","Accurate rendering of tables, figures, footnotes, and equations","WCAG accessibility compliance with full semantic tagging","Publisher-specific styling and branding guidelines maintained"],
+    challenges:["Multi-column and design-heavy pages required precise XML structuring","Inconsistent formatting across manuscripts increased preprocessing effort","High-volume delivery under tight deadlines demanded scalable workflows","Ensuring uniform rendering across Kindle, iOS, and Android platforms","Near-zero error tolerance across thousands of pages"],
+    approach:["Implemented an XML-first workflow for structured, reusable content","Developed custom EPUB templates aligned to publisher brand guidelines","Deployed a hybrid automation + manual intervention pipeline","Dedicated XML, EPUB development, copy editing, and QA/QC teams","Applied semantic tagging and ARIA roles for full accessibility","Extensive cross-platform testing on real devices before delivery"],
+    tools:["Oxygen XML Editor","Sigil EPUB Editor","HTML5 & CSS3","EPUBCheck","Ace by DAISY","Version Control"],
+    outcome:"Delivered <strong>zero critical errors</strong> across all titles, seamless performance on every major platform, and a 30% improvement in production efficiency — accelerating the client's digital transformation journey within a 10–12 week engagement."
+  },
+  {
+    service:"Document Services · Conversion",
+    title:"PDF to Word Conversion — Zero Layout Loss at High Volume",
+    lead:"A client required accurate, large-scale conversion of complex PDF documents into fully editable Word files. Quatrox Solutions delivered at over 1,200 pages per day with multi-pass quality assurance.",
+    bgClass:"cs-card-thumb-pdf",
+    bgImage:"pdf.jpeg",
+    stats:[
+      {val:"1,200+",lbl:"Pages Processed\nPer Day"},
+      {val:"5–10", lbl:"Team Members\nDeployed"},
+      {val:"100%", lbl:"Client Spec\nCompliance"},
+      {val:"Multi",lbl:"QA Review\nPasses"}
+    ],
+    requirements:["Accurate conversion of PDF content into fully editable Word format","Original structure, headings, tables, and alignment retained throughout","Fonts, images, and spacing faithfully reproduced from source","Output ready for immediate editing and distribution by the client"],
+    challenges:["Complex multi-column formatting caused layout drift during conversion","Text misalignment and spacing inconsistencies appeared post-conversion","Accurate extraction of dense, nested tables from structured PDFs","Font and layout inconsistencies across different source documents"],
+    approach:["Combined reliable automated conversion tools with detailed manual editing","Systematic formatting review and correction pass applied to every file","Tables manually reconstructed where automated tools fell short","Multiple QA rounds conducted before final delivery to the client"],
+    tools:["MS Word","ABBYY FineReader","Adobe Acrobat","Manual Formatting & Editing"],
+    outcome:"Delivered a <strong>professionally formatted, fully editable Word document</strong> meeting every client specification — layout intact, tables accurate, fonts correct, and content ready to use from day one at 1,200+ pages per day throughput."
+  },
+  {
+    service:"Media Services · SRT & Subtitles",
+    title:"AI-Assisted SRT Subtitle Workflow Optimisation",
+    lead:"Quatrox Solutions redesigned a slow, error-prone manual subtitle editing pipeline into a high-efficiency AI-human hybrid operation — achieving 30–50% faster turnaround without sacrificing accuracy.",
+    bgClass:"cs-card-thumb-srt",
+    bgImage:"srt.jpeg",
+    stats:[
+      {val:"30–50%",lbl:"Faster Turnaround\nvs. Manual"},
+      {val:"5",    lbl:"Team Members\n(Editors + QA)"},
+      {val:"↑",   lbl:"Accuracy &\nConsistency"},
+      {val:"Bulk", lbl:"Projects\nOn Schedule"}
+    ],
+    requirements:["Accurate SRT subtitle editing and consistent formatting across all files","Precise timestamp synchronisation with source audio and video content","Grammar, punctuation, and readability improvements throughout","Faster turnaround for high-volume subtitle batches without quality loss","Uniform subtitle standards enforced across every file in the batch"],
+    challenges:["Manual SRT editing consumed disproportionate team resource and time","Inconsistent formatting styles appeared across different source files","Maintaining accuracy at scale introduced human error risks","Tight client deadlines left little margin for rework or iteration","Timing errors and grammar inconsistencies were frequent in manual workflows"],
+    approach:["AI tools (ChatGPT, Gemini) deployed for grammar correction and sentence structuring","SRT editing tools used for precise timing correction and sync validation","Automated consistency checks applied uniformly across all subtitle files","Intelligent AI suggestions significantly reduced manual effort per file","Human QA reviewer maintained as the final quality gate before every delivery"],
+    tools:["Subtitle Edit","Aegisub","VEED.IO","Turboscribe","ChatGPT","Gemini"],
+    outcome:"The AI-human hybrid workflow achieved <strong>30–50% faster turnaround</strong> compared to fully manual processes, with improved accuracy, consistent formatting, and reduced team workload — establishing a scalable, repeatable model for all future media projects."
+  }
+];
+
+var PROJECTS=[
+  {num:"Project — 01",title:"Document Conversion",tag:"PDF · Word · Excel · Formats",body:"We accurately convert large volumes of PDF documents into fully editable Microsoft Word files, preserving original formatting, tables, fonts, and layout structure for seamless client use.\n\nOur process handles everything from single-page forms to multi-hundred-page technical manuals — maintaining headers, footers, footnotes, and complex table arrangements exactly as they appear in the source.\n\nTurnaround is fast, quality is consistent, and every file is reviewed before delivery."},
+  {num:"Project — 02",title:"Data Extraction",tag:"Scanned · Handwritten · Excel",body:"We extract structured data from scanned image-based documents and handwritten records, delivering clean, well-formatted Microsoft Excel spreadsheets ready for analysis and reporting.\n\nThis includes invoices, survey forms, ledgers, and archival records — even low-quality scans and mixed-language documents. Our team combines automated OCR with manual verification.\n\nThe result is clean, analysis-ready data that saves clients hours of manual entry."},
+  {num:"Project — 03",title:"Media Localisation",tag:"SRT · Multilingual · Subtitles",body:"We translate subtitle files (SRT format) across multiple languages with precision, maintaining accurate timing synchronisation, natural phrasing, and cultural relevance for global audiences.\n\nWhether you need a single language pair or a full multi-language rollout, our linguists ensure dialogue reads naturally — not just word-for-word.\n\nFrom corporate training content to entertainment media, we deliver localised subtitles that connect with audiences on their own terms."},
+  {num:"Project — 04",title:"Media Services",tag:"Transcription · SRT · Accessibility",body:"We transcribe audio and video content into timestamped SRT subtitle files with high accuracy, supporting accessibility requirements, content localisation, and searchable media archives.\n\nFrom corporate training videos to podcasts and broadcast content, our transcriptionists produce clean verbatim or edited transcripts with precise time codes.\n\nEvery transcript goes through a quality check before delivery."}
+];
+
+document.addEventListener("DOMContentLoaded",function(){
+
+  /* NAV */
+  var mm=document.getElementById("mobileMenu"),hb=document.getElementById("hamburgerBtn");
+  mm.style.display="none";
+  hb.addEventListener("click",function(e){e.stopPropagation();mm.style.display=mm.style.display==="flex"?"none":"flex";});
+  document.querySelectorAll(".mobile-menu a").forEach(function(l){l.addEventListener("click",function(){mm.style.display="none";});});
+  document.addEventListener("click",function(e){if(mm.style.display==="flex"&&!mm.contains(e.target)&&!hb.contains(e.target))mm.style.display="none";});
+
+  /* NAVBAR SCROLL */
+  var nb=document.querySelector(".nav-bar"),ls=0,tk=false;
+  window.addEventListener("scroll",function(){if(!tk){requestAnimationFrame(function(){var cs=window.pageYOffset;mm.style.display="none";nb.style.transform=(cs>ls&&cs>80)?"translateY(-100%)":"translateY(0)";ls=cs;tk=false;});tk=true;}});
+
+  /* SCROLL REVEAL */
+  var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target);}});},{threshold:.08});
+  document.querySelectorAll(".reveal").forEach(function(el){ro.observe(el);});
+
+  /* SMOOTH SCROLL */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener("click",function(e){var t=document.querySelector(this.getAttribute("href"));if(t){e.preventDefault();t.scrollIntoView({behavior:"smooth",block:"start"});}});});
+
+  /* FILTER TABS */
+  document.querySelectorAll(".cs-filter-tab").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      document.querySelectorAll(".cs-filter-tab").forEach(function(b){b.classList.remove("active");});
+      btn.classList.add("active");
+      var f=btn.getAttribute("data-filter");
+      var visible=0;
+      document.querySelectorAll(".cs-card").forEach(function(c){
+        var show=(f==="all"||c.getAttribute("data-category")===f);
+        c.style.display=show?"flex":"none";
+        if(show)visible++;
+      });
+      document.getElementById("csCount").innerHTML="<strong>"+visible+"</strong> "+(visible===1?"story":"stories");
     });
+  });
 
-    // Auto-hide menu when clicking any link
-    const links = document.querySelectorAll(".mobile-menu a");
-    links.forEach(link => {
-        link.addEventListener("click", () => {
-            mobileMenu.style.display = "none";
-        });
-    });
+  /* CASE STUDY DETAIL */
+  var detail=document.getElementById("csDetail");
+  var scrim=document.getElementById("csScrim");
+  var closeBtn=document.getElementById("csClose");
+  var detailBg=document.getElementById("detailBg");
+  var detailService=document.getElementById("detailService");
+  var detailTitle=document.getElementById("detailTitle");
+  var detailStats=document.getElementById("detailStats");
+  var detailBody=document.getElementById("detailBody");
+  var panel=document.getElementById("csPanel");
 
-    // Hide menu when clicking outside
-    document.addEventListener("click", (e) => {
-        if (mobileMenu.style.display === "flex" && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-            mobileMenu.style.display = "none";
-        }
-    });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+  function openDetail(id){
+    var d=CS[id];
 
-    const navbar = document.querySelector(".nav-bar");
-    const mobileMenu = document.querySelector(".mobile-menu");
+    /* ── SET BACKGROUND IMAGE for the header ── */
+    detailBg.style.backgroundImage = "url('" + d.bgImage + "')";
+    detailBg.style.backgroundSize = "cover";
+    detailBg.style.backgroundPosition = "center center";
+    detailBg.style.backgroundRepeat = "no-repeat";
+    /* Remove any previously set background color */
+    detailBg.style.backgroundColor = "transparent";
 
-    let lastScroll = 0;
+    detailService.textContent=d.service;
+    detailTitle.textContent=d.title;
+    detailStats.innerHTML=d.stats.map(function(s){
+      return'<div class="cs-ds"><div class="cs-ds-val">'+s.val+'</div><div class="cs-ds-lbl">'+s.lbl.replace(/\n/g,"<br>")+'</div></div>';
+    }).join("");
+    detailBody.innerHTML=
+      '<p class="cs-detail-lead">'+d.lead+'</p>'+
+      '<div class="cs-section"><div class="cs-section-title">Client Requirements</div><ul>'+d.requirements.map(function(r){return'<li>'+r+'</li>';}).join("")+'</ul></div>'+
+      '<div class="cs-section"><div class="cs-section-title">Key Challenges</div><ul>'+d.challenges.map(function(c){return'<li>'+c+'</li>';}).join("")+'</ul></div>'+
+      '<div class="cs-section"><div class="cs-section-title">Our Approach</div><ul>'+d.approach.map(function(a){return'<li>'+a+'</li>';}).join("")+'</ul></div>'+
+      '<div class="cs-section"><div class="cs-section-title">Tools Used</div><div class="cs-tools">'+d.tools.map(function(t){return'<span class="cs-tool">'+t+'</span>';}).join("")+'</div></div>'+
+      '<div class="cs-outcome-box"><p>'+d.outcome+'</p></div>';
+    panel.scrollTop=0;
+    detail.classList.add("open");
+    document.body.style.overflow="hidden";
+  }
+  function closeDetail(){detail.classList.remove("open");document.body.style.overflow="";}
 
-    window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
+  document.querySelectorAll(".cs-card").forEach(function(card){
+    function act(){openDetail(parseInt(card.getAttribute("data-id")));}
+    card.addEventListener("click",act);
+    card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();act();}});
+  });
+  closeBtn.addEventListener("click",closeDetail);
+  scrim.addEventListener("click",closeDetail);
 
-        /* ⭐ CLOSE MOBILE MENU WHEN USER SCROLLS */
-        mobileMenu.style.display = "none";
+  /* PROJECTS OVERLAY */
+  var po=document.getElementById("projOverlay");
+  var pc=document.getElementById("projClose");
+  function openP(i){var p=PROJECTS[i];document.getElementById("pNum").textContent=p.num;document.getElementById("pTitle").textContent=p.title;document.getElementById("pBody").textContent=p.body;document.getElementById("pTag").textContent=p.tag;po.classList.add("active");document.body.style.overflow="hidden";}
+  function closeP(){po.classList.remove("active");document.body.style.overflow="";}
+  document.querySelectorAll(".proj-trigger").forEach(function(b){b.addEventListener("click",function(){openP(parseInt(b.getAttribute("data-project")));});});
+  pc.addEventListener("click",closeP);
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeDetail();closeP();}});
 
-        if (currentScroll > lastScroll && currentScroll > 80) {
-            // scrolling DOWN → hide navbar
-            navbar.style.transform = "translateY(-100%)";
-        } else {
-            // scrolling UP → show navbar
-            navbar.style.transform = "translateY(0)";
-        }
-
-        lastScroll = currentScroll;
-    });
-
+  /* EMAILJS */
+  var EMAILJS_SERVICE_ID="service_qoouqes",EMAILJS_TEMPLATE_ID="template_k6owjpy";
+  var form=document.getElementById("contactForm"),sm=document.getElementById("formSuccess");
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var name=document.getElementById("cf-name").value.trim(),email=document.getElementById("cf-email").value.trim(),msg=document.getElementById("cf-message").value.trim();
+    if(!name||!email||!msg){alert("Please fill in your name, email, and message.");return;}
+    var btn=form.querySelector(".send-btn");btn.textContent="Sending...";btn.disabled=true;
+    emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{name:name,email:email,phone:document.getElementById("cf-phone").value.trim(),subject:document.getElementById("cf-subject").value.trim(),message:msg})
+    .then(function(){form.style.display="none";sm.style.display="block";})
+    .catch(function(err){console.error(err);btn.textContent="SEND →";btn.disabled=false;alert("Something went wrong. Please email us at Contact@quatroxsolutions.com");});
+  });
 });
 </script>
 </body>
+
 <footer class="footer-section">
-    <div class="footer-container">
-
-        <!-- Logo + Company Name -->
-        <div class="footer-header">
-            <img src="Logo.png" alt="Logo" class="footer-logo">
-            <p class="footer-title">QUATROX SOLUTIONS PRIVATE LIMITED</p>
-        </div>
-
-        <!-- Description -->
-        <div class="footer-subhead">
-            <p>To be a trusted partner in delivering exceptional, fast, and reliable customer</p>
-            <p>services to organizations of all sizes - from startups to global enterprises.</p>
-        </div>
-
-        <!-- Contact Columns -->
-        <div class="footer-columns">
-
-            <!-- Email + Phone with Icons -->
-            <div class="footer-col">
-                <a href="mailto:Contact@quatroxsolutions.com?subject=Enquiry%20from%20Website&body=Hello%20Quatrox%20Solutions%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20services."
-                   style="color:#000;text-decoration:none;display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
-                    </svg>
-                    Contact@quatroxsolutions.com
-                </a>
-                <a href="tel:+917200801765"
-                   style="color:#000;text-decoration:none;display:flex;align-items:center;gap:8px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z"/>
-                    </svg>
-                    +91 7200801765
-                </a>
-            </div>
-
-            <!-- Thuckalay Address -->
-            <div class="footer-col">
-                <a href="https://maps.google.com/?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175"
-                   target="_blank"
-                   style="color:#000;text-decoration:none;display:block;line-height:1.8;">
-                    📍 16-74A, HMP Towers Market Rd,<br>
-                    Thuckalay, Tamilnadu - 629175
-                </a>
-            </div>
-
-            <!-- Madurai Address -->
-            <div class="footer-col">
-                <a href="https://maps.google.com/?q=Meenakshi+Street+Thirunagar+Madurai+Tamil+Nadu+625006"
-                   target="_blank"
-                   style="color:#000;text-decoration:none;display:block;line-height:1.8;">
-                    📍 66 5-5/9 Meenakshi street,<br>
-                    Thirunagar, Madurai - 625006
-                </a>
-            </div>
-
-            <!-- Social Links with Icons -->
-            <div class="footer-col footer-links">
-                <a href="https://www.instagram.com/quatrox_solutions?igsh=MWl2MjAwa3Z4ZmFoag==" target="_blank"
-                   style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;margin-bottom:10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm.003 1.44c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
-                    </svg>
-                    Instagram
-                </a>
-                <a href="https://www.linkedin.com/in/quatrox-data-solutions-a29792378" target="_blank"
-                   style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;margin-bottom:10px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-                <a href="https://wa.me/917200801765" target="_blank"
-                   style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
-                    </svg>
-                    Whatsapp
-                </a>
-            </div>
-        </div>
-
-        <!-- ONE MAP SHOWING BOTH LOCATIONS -->
-        <div class="footer-map">
-            <iframe
-                src="https://maps.google.com/maps?q=Tamil+Nadu,India&output=embed&z=7"
-                width="100%"
-                height="250"
-                style="border:0;border-radius:12px;display:block;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            <div style="display:flex;gap:20px;margin-top:10px;flex-wrap:wrap;">
-                <a href="https://maps.google.com/?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175"
-                   target="_blank" style="color:#000;font-size:13px;text-decoration:underline;">
-                    📍 View Thuckalay Office
-                </a>
-                <a href="https://maps.google.com/?q=Meenakshi+Street+Thirunagar+Madurai+Tamil+Nadu+625006"
-                   target="_blank" style="color:#000;font-size:13px;text-decoration:underline;">
-                    📍 View Madurai Office
-                </a>
-            </div>
-        </div>
-
-        <!-- Copyright -->
-        <div class="footer-copy">
-            <p>Quatrox Solutions Private Limited © 2026 All Rights Reserved</p>
-        </div>
-
+  <div class="footer-container">
+    <div class="footer-header">
+      <img src="Logo.png" alt="Quatrox Solutions logo" class="footer-logo">
+      <p class="footer-title">QUATROX SOLUTIONS PRIVATE LIMITED</p>
     </div>
+    <div class="footer-subhead">
+      <p>To be a trusted partner in delivering exceptional, fast, and reliable customer</p>
+      <p>services to organizations of all sizes - from startups to global enterprises.</p>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <a href="mailto:Contact@quatroxsolutions.com?subject=Enquiry%20from%20Website&body=Hello%20Quatrox%20Solutions%2C%0A%0AI%20would%20like%20to%20enquire%20about%20your%20services." style="color:#000;text-decoration:none;display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/></svg>
+          Contact@quatroxsolutions.com
+        </a>
+        <a href="tel:+917200801765" style="color:#000;text-decoration:none;display:flex;align-items:center;gap:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z"/></svg>
+          +91 7200801765
+        </a>
+      </div>
+      <div class="footer-col">
+        <a href="https://maps.google.com/?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175" target="_blank" style="color:#000;text-decoration:none;display:block;line-height:1.8;">&#128205; 16-74A, HMP Towers Market Rd,<br>Thuckalay, Tamilnadu - 629175</a>
+      </div>
+      <div class="footer-col">
+        <a href="https://maps.google.com/?q=Meenakshi+Street+Thirunagar+Madurai+Tamil+Nadu+625006" target="_blank" style="color:#000;text-decoration:none;display:block;line-height:1.8;">&#128205; 66 5-5/9 Meenakshi street,<br>Thirunagar, Madurai - 625006</a>
+      </div>
+      <div class="footer-col footer-links">
+        <a href="https://www.instagram.com/quatrox_solutions?igsh=MWl2MjAwa3Z4ZmFoag==" target="_blank" style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;margin-bottom:10px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm.003 1.44c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg>Instagram
+        </a>
+        <a href="https://www.linkedin.com/in/quatrox-data-solutions-a29792378" target="_blank" style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;margin-bottom:10px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>LinkedIn
+        </a>
+        <a href="https://wa.me/917200801765" target="_blank" style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.6 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>Whatsapp
+        </a>
+      </div>
+    </div>
+    <div class="footer-map">
+      <iframe src="https://maps.google.com/maps?q=Tamil+Nadu,India&output=embed&z=7" width="100%" height="250" style="border:0;border-radius:12px;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div style="display:flex;gap:20px;margin-top:10px;flex-wrap:wrap;">
+        <a href="https://maps.google.com/?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175" target="_blank" style="color:#000;font-size:13px;text-decoration:underline;">&#128205; View Thuckalay Office</a>
+        <a href="https://maps.google.com/?q=Meenakshi+Street+Thirunagar+Madurai+Tamil+Nadu+625006" target="_blank" style="color:#000;font-size:13px;text-decoration:underline;">&#128205; View Madurai Office</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>Quatrox Solutions Private Limited &copy; 2026 All Rights Reserved</p>
+    </div>
+  </div>
 </footer>
-
 </html>
