@@ -142,3 +142,8 @@ body {
 .dropdown:hover .submenu {
     display: block;
 }
+.desktop-menu {
+    display: flex;
+    gap: 45px;
+    align-items: center;
+}
