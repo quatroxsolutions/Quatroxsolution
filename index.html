@@ -1898,7 +1898,7 @@ document.addEventListener('click', function(e) {
     <nav class="qf-nav">
       <a class="loc-btn" onclick="openMap()">Locations</a>
       <a href="terms.html">Terms &amp; Conditions</a>
-      <a href="privacy.html">Privacy Policy</a>
+      <a href="javascript:void(0)" onclick="openPrivacy()">Privacy Policy</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -2003,6 +2003,311 @@ document.addEventListener('click', function(e) {
     if (e.key === 'Escape') closeMap();
   });
 </script>
+<!-- ═══════════════════════════════════════════════════════════
+     PRIVACY POLICY MODAL
+     INSTRUCTIONS:
+     1. Paste this entire block just before </body> in index.html
+     2. Find your footer nav link that says "Privacy Policy" and
+        change it to:  <a onclick="openPrivacy()">Privacy Policy</a>
+════════════════════════════════════════════════════════════ -->
 
+<!-- OVERLAY -->
+<div id="privacyOverlay" onclick="closePrivacyOutside(event)" style="
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    z-index:99999;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    box-sizing:border-box;
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+">
+
+  <!-- MODAL BOX -->
+  <div id="privacyModal" style="
+      background:#f7f4eb;
+      border-radius:20px;
+      width:min(860px, 100%);
+      max-height:90vh;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      box-shadow:0 40px 80px rgba(0,0,0,0.5);
+      transform:translateY(30px) scale(0.97);
+      transition:transform 0.35s cubic-bezier(0.34,1.4,0.64,1), opacity 0.3s;
+      opacity:0;
+      font-family:'DM Sans',sans-serif;
+  ">
+
+    <!-- MODAL HEADER -->
+    <div style="
+        background:linear-gradient(135deg,#0D0D29 0%,#000000 100%);
+        padding:22px 28px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        flex-shrink:0;
+        gap:16px;
+    ">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px;">Legal</div>
+        <div style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.02em;">Privacy Policy</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px;">Quatrox Solutions Private Limited &nbsp;·&nbsp; Effective April 12, 2026</div>
+      </div>
+      <button onclick="closePrivacy()" style="
+          width:36px;height:36px;
+          border-radius:10px;
+          background:rgba(255,255,255,0.1);
+          border:1px solid rgba(255,255,255,0.2);
+          color:#fff;font-size:18px;
+          cursor:pointer;
+          display:flex;align-items:center;justify-content:center;
+          flex-shrink:0;
+          transition:background 0.2s;
+          line-height:1;
+      " onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">✕</button>
+    </div>
+
+    <!-- SCROLLABLE CONTENT -->
+    <div style="overflow-y:auto;flex:1;padding:32px 36px 40px;">
+
+      <!-- Notice bar -->
+      <div style="background:#0D0D29;border-radius:12px;padding:16px 20px;margin-bottom:32px;display:flex;align-items:flex-start;gap:12px;">
+        <span style="font-size:18px;flex-shrink:0;">🔒</span>
+        <p style="font-size:13px;line-height:1.7;color:rgba(255,255,255,0.7);margin:0;">
+          <strong style="color:#fff;">Your privacy matters to us.</strong> We comply with the IT Act 2000 and India's Digital Personal Data Protection Act 2023. We never sell your data.
+        </p>
+      </div>
+
+      <!-- Section styles (inline for portability) -->
+      <style>
+        .pm-sec { margin-bottom:36px; }
+        .pm-sec-hd { display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:1.5px solid #e8e8f4; }
+        .pm-num { width:28px;height:28px;background:#0D0D29;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0; }
+        .pm-sec h2 { font-size:17px;font-weight:800;color:#0D0D29;margin:0; }
+        .pm-sec p { font-size:14px;line-height:1.8;color:#444;margin:0 0 10px; }
+        .pm-sec p:last-child { margin-bottom:0; }
+        .pm-sec h3 { font-size:14px;font-weight:700;color:#0D0D29;margin:16px 0 6px; }
+        .pm-sec ul { margin:0 0 10px;padding:0;list-style:none; }
+        .pm-sec ul li { font-size:14px;line-height:1.75;color:#444;padding:4px 0 4px 20px;position:relative;border-bottom:1px solid #f0eee6; }
+        .pm-sec ul li:last-child { border-bottom:none; }
+        .pm-sec ul li::before { content:'';position:absolute;left:0;top:13px;width:6px;height:6px;background:#0D0D29;border-radius:50%; }
+        .pm-sec a { color:#0D0D29;font-weight:600;text-underline-offset:3px; }
+        .pm-tbl-wrap { overflow-x:auto;border-radius:10px;border:1px solid #e8e8f4;margin:12px 0 16px; }
+        .pm-tbl { width:100%;border-collapse:collapse;font-size:13px; }
+        .pm-tbl th { background:#0D0D29;color:#fff;font-weight:700;text-align:left;padding:10px 14px;font-size:11px;letter-spacing:0.04em; }
+        .pm-tbl th:first-child { border-radius:9px 0 0 0; }
+        .pm-tbl th:last-child  { border-radius:0 9px 0 0; }
+        .pm-tbl td { padding:9px 14px;color:#333;border-bottom:1px solid #f0eee6;line-height:1.55;vertical-align:top; }
+        .pm-tbl tr:last-child td { border-bottom:none; }
+        .pm-tbl tr:nth-child(even) td { background:#faf9f5; }
+        .pm-box { background:#f7f4eb;border:1px solid #e8e8f4;border-left:4px solid #0D0D29;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0; }
+        .pm-box-lbl { font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#6b6baa;margin-bottom:8px; }
+        .pm-box p { font-size:13.5px;line-height:1.7;color:#333;margin:0 0 3px; }
+        .pm-contact-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px; }
+        .pm-contact-card { background:#fff;border:1px solid #e8e8f4;border-radius:10px;padding:14px 16px; }
+        .pm-contact-card-lbl { font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#6b6baa;margin-bottom:5px; }
+        .pm-contact-card p { font-size:13px;color:#333;margin:0;line-height:1.6; }
+        .pm-contact-card a { color:#0D0D29;font-weight:600;text-decoration:none; }
+      </style>
+
+      <!-- 1. Introduction -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">01</div><h2>Introduction</h2></div>
+        <p>Welcome to <strong>Quatrox Solutions Private Limited</strong> — a BPO company registered under the Companies Act, 2013, specialising in publishing and content technology services. This Privacy Policy explains how we collect, use, store, and protect your personal information when you visit our website or use our services.</p>
+        <p>By using our website, you acknowledge and agree to this Privacy Policy. If you do not agree, please discontinue use of our website immediately.</p>
+      </div>
+
+      <!-- 2. Information We Collect -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">02</div><h2>Information We Collect</h2></div>
+        <h3>Information you provide</h3>
+        <ul>
+          <li>Full name, email address, and phone number</li>
+          <li>Company name, business address, and designation</li>
+          <li>Project requirements and inquiry details</li>
+          <li>Billing and payment information</li>
+          <li>Resume and professional details (for job applicants)</li>
+        </ul>
+        <h3>Information collected automatically</h3>
+        <ul>
+          <li>IP address and approximate geographic location</li>
+          <li>Browser type, device, and OS information</li>
+          <li>Pages visited, time spent, and click patterns</li>
+          <li>Cookies and similar tracking technologies</li>
+        </ul>
+      </div>
+
+      <!-- 3. How We Use It -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">03</div><h2>How We Use Your Information</h2></div>
+        <div class="pm-tbl-wrap">
+          <table class="pm-tbl">
+            <thead><tr><th>Purpose</th><th>Details</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Service Delivery</strong></td><td>Provide, manage, and improve our services</td></tr>
+              <tr><td><strong>Communication</strong></td><td>Respond to inquiries and send project updates</td></tr>
+              <tr><td><strong>Marketing</strong></td><td>Send newsletters with your consent</td></tr>
+              <tr><td><strong>Security</strong></td><td>Detect and prevent fraud or technical issues</td></tr>
+              <tr><td><strong>Legal Compliance</strong></td><td>Comply with Indian and international laws</td></tr>
+              <tr><td><strong>Recruitment</strong></td><td>Evaluate job applications</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 4. Sharing -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">04</div><h2>How We Share Your Information</h2></div>
+        <p>We do <strong>not sell, rent, or trade</strong> your personal information. We may share data only with:</p>
+        <ul>
+          <li><strong>Service Providers</strong> — Trusted vendors (hosting, payments, analytics) bound by confidentiality agreements</li>
+          <li><strong>Legal Authorities</strong> — When required by law, court order, or government regulation</li>
+          <li><strong>Business Transfers</strong> — In case of merger or acquisition, with prior notice to you</li>
+          <li><strong>With Your Consent</strong> — When you have explicitly agreed</li>
+        </ul>
+      </div>
+
+      <!-- 5. Cookies -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">05</div><h2>Cookies &amp; Tracking</h2></div>
+        <div class="pm-tbl-wrap">
+          <table class="pm-tbl">
+            <thead><tr><th>Type</th><th>Purpose</th><th>Disableable?</th></tr></thead>
+            <tbody>
+              <tr><td>Essential</td><td>Core website functionality</td><td>No</td></tr>
+              <tr><td>Analytics</td><td>Understand visitor behaviour</td><td>Yes</td></tr>
+              <tr><td>Marketing</td><td>Relevant advertisements</td><td>Yes</td></tr>
+              <tr><td>Preference</td><td>Remember your settings</td><td>Yes</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>You can manage cookies through your browser settings. Disabling some may affect site functionality.</p>
+      </div>
+
+      <!-- 6. Security -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">06</div><h2>Data Security</h2></div>
+        <ul>
+          <li>SSL/TLS encryption for all data in transit</li>
+          <li>Encrypted storage for sensitive personal and financial data</li>
+          <li>Role-based access — only authorised personnel access your data</li>
+          <li>Regular security audits and vulnerability assessments</li>
+          <li>Secure data backup and disaster recovery protocols</li>
+        </ul>
+      </div>
+
+
+      <!-- 8. Your Rights -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">07</div><h2>Your Rights</h2></div>
+        <ul>
+          <li><strong>Access</strong> — Request a copy of data we hold about you</li>
+          <li><strong>Correction</strong> — Request correction of inaccurate data</li>
+          <li><strong>Deletion</strong> — Request erasure (subject to legal obligations)</li>
+          <li><strong>Portability</strong> — Receive your data in a machine-readable format</li>
+          <li><strong>Withdraw Consent</strong> — Opt out of marketing at any time</li>
+          <li><strong>Object / Restrict</strong> — Object to or limit how we process your data</li>
+        </ul>
+        <p>To exercise any right, email <a href="mailto:admin@quatroxsolutions.com">admin@quatroxsolutions.com</a>. We respond within <strong>30 days</strong>.</p>
+      </div>
+
+      <!-- 9. Children -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">08</div><h2>Children's Privacy</h2></div>
+        <p>Our services are not directed to anyone under 18. We do not knowingly collect data from minors. If you believe a minor has provided us data, contact us and we will delete it immediately.</p>
+      </div>
+
+      <!-- 10. Indian Law -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">09</div><h2>Indian Law Compliance</h2></div>
+        <ul>
+          <li>Information Technology Act, 2000</li>
+          <li>IT (SPDI) Rules, 2011</li>
+          <li>Digital Personal Data Protection Act, 2023</li>
+        </ul>
+        <div class="pm-box">
+          <div class="pm-box-lbl">Grievance Officer</div>
+          <p><strong>Mohamed Fahad M</strong></p>
+          <p>Founder &amp; Director — Quatrox Solutions Private Limited</p>
+          <p>Email: <a href="mailto:admin@quatroxsolutions.com">admin@quatroxsolutions.com</a></p>
+          <p>Response: Within 30 days of receipt</p>
+        </div>
+      </div>
+
+      <!-- 11. Changes -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">11</div><h2>Changes to This Policy</h2></div>
+        <p>We may update this policy periodically. When we do, we will update the effective date above and notify clients via email for significant changes. Continued use of our website means you accept the updated policy.</p>
+      </div>
+
+      <!-- 12. Contact -->
+      <div class="pm-sec">
+        <div class="pm-sec-hd"><div class="pm-num">12</div><h2>Contact Us</h2></div>
+        <div class="pm-contact-grid">
+          <div class="pm-contact-card">
+            <div class="pm-contact-card-lbl">Privacy Email</div>
+            <p><a href="mailto:admin@quatroxsolutions.com">admin@quatroxsolutions.com</a></p>
+          </div>
+          <div class="pm-contact-card">
+            <div class="pm-contact-card-lbl">General Email</div>
+            <p><a href="mailto:Contact@quatroxsolutions.com">Contact@quatroxsolutions.com</a></p>
+          </div>
+          <div class="pm-contact-card">
+            <div class="pm-contact-card-lbl">Phone</div>
+            <p><a href="tel:+917200801765">+91 7200801765</a></p>
+          </div>
+          <div class="pm-contact-card">
+            <div class="pm-contact-card-lbl">Thuckalay Office</div>
+            <p>16-74A, HMP Towers, Market Rd,<br>Thuckalay, TN — 629175</p>
+          </div>
+          <div class="pm-contact-card">
+            <div class="pm-contact-card-lbl">Madurai Office</div>
+            <p>66, Meenakshi St, Thirunagar,<br>Madurai, TN — 625006</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer note -->
+      <p style="font-size:12px;color:#999;text-align:center;margin-top:8px;border-top:1px solid #e8e8f4;padding-top:20px;">
+        © 2026 Quatrox Solutions Private Limited. All rights reserved.<br>
+        This policy is governed by the laws of India.
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function openPrivacy() {
+    var overlay = document.getElementById('privacyOverlay');
+    var modal   = document.getElementById('privacyModal');
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      modal.style.transform = 'translateY(0) scale(1)';
+      modal.style.opacity   = '1';
+    }, 10);
+  }
+  function closePrivacy() {
+    var overlay = document.getElementById('privacyOverlay');
+    var modal   = document.getElementById('privacyModal');
+    modal.style.transform = 'translateY(30px) scale(0.97)';
+    modal.style.opacity   = '0';
+    setTimeout(function() {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 300);
+  }
+  function closePrivacyOutside(e) {
+    if (e.target === document.getElementById('privacyOverlay')) closePrivacy();
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePrivacy();
+  });
+</script>
 </body>
 </html>
