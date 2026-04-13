@@ -827,7 +827,7 @@
         font-family: 'Geist', 'DM Sans', sans-serif;
         outline: none;
         transition: border-color 0.2s;
-        /* -webkit-appearance: none; */
+        -webkit-appearance: none;
     }
     .qx-field input:focus, .qx-field textarea:focus, .qx-field select:focus { border-bottom-color: #0d0d29; }
     .qx-field textarea { resize: none; height: 70px; }
@@ -1105,7 +1105,6 @@
         </div>
     </div>
 </div>
-
 <footer class="qf-wrap">
   <div class="qf-main">
 
@@ -1528,5 +1527,222 @@
     if (e.key === 'Escape') closePrivacy();
   });
 </script>
+
+<!-- CHATBOT -->
+<div id="chatbot-button">💭</div>
+<div id="chatbot-window">
+    <div id="chatbot-header">
+        <span>Quatrox solution's Assistant</span>
+        <span id="chatbot-close">✕</span>
+    </div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input-area">
+        <input type="text" id="chatbot-input" placeholder="Ask something..." />
+        <button id="chatbot-send">Send</button>
+    </div>
+</div>
+
+<style>
+#chatbot-button{position:fixed!important;bottom:25px!important;right:25px!important;background:#08080f;color:white;font-size:24px;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9999!important;box-shadow:0 4px 20px rgba(8,8,15,0.35);transition:transform 0.2s ease;-webkit-tap-highlight-color:transparent!important;user-select:none;}
+#chatbot-button:hover{transform:scale(1.1);}
+#chatbot-window{position:fixed!important;right:25px!important;bottom:100px!important;width:320px;height:420px;max-height:calc(100vh - 140px);background:white;border-radius:4px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.18);transition:transform 0.3s ease,opacity 0.3s ease;transform:translateY(20px);opacity:0;z-index:9998!important;}
+#chatbot-window.open{display:flex;transform:translateY(0);opacity:1;}
+#chatbot-header{background:#08080f;color:white;padding:15px;font-weight:600;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;font-family:'DM Sans',sans-serif;font-size:14px;letter-spacing:0.02em;}
+#chatbot-close{cursor:pointer;font-size:18px;opacity:0.6;transition:opacity 0.2s;}
+#chatbot-close:hover{opacity:1;}
+#chatbot-messages{flex:1;min-height:0;padding:12px;overflow-y:auto;font-family:'DM Sans',sans-serif;}
+#chatbot-input-area{display:flex;border-top:1px solid #eee;flex-shrink:0;}
+#chatbot-input{flex:1;padding:12px;border:none;outline:none;font-size:14px;font-family:'DM Sans',sans-serif;}
+#chatbot-input-area button{background:#08080f;color:white;border:none;padding:12px 18px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.04em;}
+#chatbot-input-area button:hover{background:#1c1c2e;}
+@media(max-width:600px){#chatbot-button{bottom:20px!important;right:20px!important;width:48px!important;height:48px!important;font-size:18px!important;}#chatbot-window{position:fixed!important;bottom:80px!important;left:10px!important;right:10px!important;width:calc(100% - 20px)!important;height:340px!important;}}
+</style>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+    /* ── EmailJS config (same as contact page) ── */
+    var EJS_PUBLIC_KEY       = "eOLCPZHW3sfnApbFD";
+    var EJS_SERVICE_ID       = "service_qoouqes";
+    var EJS_TEMPLATE_APPLY   = "template_656lb9e";
+    emailjs.init({ publicKey: EJS_PUBLIC_KEY });
+
+    /* ── Scroll fade observer ── */
+    const fadeTexts = document.querySelectorAll(".fade-text");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add("show"), i * 100);
+            } else {
+                entry.target.classList.remove("show");
+            }
+        });
+    }, { threshold: 0.1 });
+    fadeTexts.forEach(text => observer.observe(text));
+
+    document.addEventListener("DOMContentLoaded", function () {
+        /* ── Nav behaviour ── */
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const hamburger = document.querySelector(".hamburger");
+        const navbar = document.querySelector(".nav-bar");
+        if (hamburger) {
+            hamburger.addEventListener("click", (e) => {
+                e.stopPropagation();
+                mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
+            });
+        }
+        document.querySelectorAll(".mobile-menu a").forEach(link => {
+            link.addEventListener("click", () => { mobileMenu.style.display = "none"; });
+        });
+        document.addEventListener("click", (e) => {
+            if (mobileMenu && mobileMenu.style.display === "flex" && !mobileMenu.contains(e.target) && !hamburger.contains(e.target))
+                mobileMenu.style.display = "none";
+        });
+        let lastScroll = 0;
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+            if (navbar) navbar.style.transform = (currentScroll > lastScroll && currentScroll > 80) ? "translateY(-100%)" : "translateY(0)";
+            lastScroll = currentScroll;
+        });
+
+        /* ── Auto-open if URL has #apply ── */
+        if (window.location.hash === '#apply') {
+            document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    /* ── Role filter ── */
+    function filterRoles(dept, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cards = document.querySelectorAll('.role-card');
+        let visible = 0;
+        cards.forEach(card => {
+            const show = dept === 'all' || card.dataset.dept === dept;
+            card.style.display = show ? 'flex' : 'none';
+            if (show) visible++;
+        });
+        document.querySelector('.roles-count-badge').textContent = visible + (visible === 1 ? ' Role Available' : ' Roles Available');
+    }
+
+    /* ── Select job and scroll to form ── */
+    function selectJob(role) {
+        var sel = document.getElementById("a_position");
+        for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].text === role || sel.options[i].value === role) {
+                sel.selectedIndex = i;
+                break;
+            }
+        }
+        document.getElementById("apply").scrollIntoView({ behavior: "smooth" });
+    }
+
+    /* ── Apply form submit via EmailJS ── */
+    function handleApplySubmit(e) {
+        e.preventDefault();
+        var btn = document.getElementById("applyBtn");
+        btn.textContent = "Submitting...";
+        btn.disabled = true;
+
+        var params = {
+            applicant_name:  document.getElementById("a_name").value,
+            applicant_email: document.getElementById("a_email").value,
+            applicant_phone: document.getElementById("a_phone").value,
+            position:        document.getElementById("a_position").value,
+            cover_message:   document.getElementById("a_cover").value
+        };
+
+        emailjs.send(EJS_SERVICE_ID, EJS_TEMPLATE_APPLY, params)
+            .then(function() {
+                showToast("✓ Application submitted! We'll be in touch within 3–5 days.");
+                document.getElementById("applyForm").reset();
+                document.getElementById("resumeLabel").textContent = "Click to upload PDF, DOC or DOCX (max 5 MB)";
+            })
+            .catch(function(err) {
+                console.error("EmailJS error:", err);
+                showToast("Something went wrong. Please email us directly.");
+            })
+            .finally(function() {
+                btn.textContent = "Submit Application →";
+                btn.disabled = false;
+            });
+    }
+
+    /* ── Resume filename display ── */
+    function updateResumeName(input) {
+        var lbl = document.getElementById("resumeLabel");
+        lbl.textContent = input.files.length
+            ? "✓ " + input.files[0].name
+            : "Click to upload PDF, DOC or DOCX (max 5 MB)";
+    }
+
+    /* ── Toast notification ── */
+    function showToast(msg) {
+        var t = document.getElementById("qxToast");
+        if (!t) {
+            t = document.createElement("div");
+            t.id = "qxToast";
+            t.style.cssText = "position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(12px);background:#0d0d29;color:#f7f4eb;padding:10px 22px;border-radius:30px;font-size:13px;font-weight:500;opacity:0;pointer-events:none;transition:all 0.3s;z-index:9999;white-space:nowrap;font-family:'DM Sans',sans-serif;";
+            document.body.appendChild(t);
+        }
+        t.textContent = msg;
+        t.style.opacity = "1";
+        t.style.transform = "translateX(-50%) translateY(0)";
+        setTimeout(function() {
+            t.style.opacity = "0";
+            t.style.transform = "translateX(-50%) translateY(12px)";
+        }, 4500);
+    }
+
+    /* ── Chatbot ── */
+    const chatbotButton = document.getElementById("chatbot-button");
+    const chatbotWindow = document.getElementById("chatbot-window");
+    const chatbotInput = document.getElementById("chatbot-input");
+    const sendBtn = document.getElementById("chatbot-send");
+    const messages = document.getElementById("chatbot-messages");
+    let autoCloseTimer;
+    function openChatbot() {
+        chatbotWindow.classList.add("open"); chatbotButton.style.display = "none";
+        if (autoCloseTimer) clearTimeout(autoCloseTimer);
+        autoCloseTimer = setTimeout(() => { chatbotWindow.classList.remove("open"); chatbotButton.style.display = "flex"; }, 30000);
+    }
+    document.getElementById("chatbot-close").addEventListener("click", (e) => { e.stopPropagation(); chatbotWindow.classList.remove("open"); chatbotButton.style.display = "flex"; clearTimeout(autoCloseTimer); });
+    chatbotButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (chatbotWindow.classList.contains("open")) { chatbotWindow.classList.remove("open"); clearTimeout(autoCloseTimer); }
+        else {
+            openChatbot(); chatbotInput.focus();
+            if (messages.children.length === 0) {
+                setTimeout(() => { const w = document.createElement('div'); w.style.cssText='margin:8px 0;padding:10px 14px;background:#08080f;color:white;border-radius:4px;max-width:80%;font-size:13px;line-height:1.5;'; w.innerHTML='<b>Quatro:</b> Hello! 👋 Interested in joining Quatrox Solutions? Ask me about our open roles or how to apply!'; messages.appendChild(w); }, 500);
+            }
+        }
+    });
+    document.addEventListener("click", (e) => { if (chatbotWindow.classList.contains("open") && !chatbotWindow.contains(e.target) && !chatbotButton.contains(e.target)) { chatbotWindow.classList.remove("open"); chatbotButton.style.display = "flex"; clearTimeout(autoCloseTimer); } });
+    chatbotWindow.addEventListener("click", (e) => e.stopPropagation());
+    async function getAIResponse(msg) {
+        const m = msg.toLowerCase();
+        if (m.includes("xml") || m.includes("epub")) return "Our XML & ePub Executive role focuses on digital publishing formats and conversion workflows. Click Apply Now to go to the application form!";
+        if (m.includes("data processing")) return "Our Data Processing Executive handles structured data workflows and quality checks. Click Apply Now to apply!";
+        if (m.includes("annotate") || m.includes("ai data") || m.includes("voice")) return "Our AI Data Annotator role covers both voice and non-voice annotation tasks for AI training datasets. Click Apply Now!";
+        if (m.includes("media") || m.includes("localisation") || m.includes("localization")) return "Our Media Localisation Editor role involves adapting media content across languages and formats. Click Apply Now!";
+        if (m.includes("apply") || m.includes("job") || m.includes("role") || m.includes("position")) return "We have openings in Technical, Data, Voice & AI, and Media. Click 'Apply Now' on any role to go straight to the application form!";
+        if (m.includes("location") || m.includes("office") || m.includes("where")) return "We have offices in Thuckalay and Madurai, Tamil Nadu, India.";
+        if (m.includes("contact") || m.includes("email") || m.includes("phone")) return "Email: <a href='mailto:Contact@quatroxsolutions.com' style='color:#a0b4ff'>Contact@quatroxsolutions.com</a> | Phone: <a href='tel:+917200801765' style='color:#a0b4ff'>+91 7200801765</a>";
+        if (m.includes("hello") || m.includes("hi") || m.includes("hey")) return "Hi! 👋 I'm Quatro. Ask me about open roles, how to apply, or anything about Quatrox Solutions!";
+        if (m.includes("thank")) return "You're welcome! Good luck with your application! 😊";
+        return "I can help with information about our open roles, how to apply, or general info about Quatrox Solutions. What would you like to know?";
+    }
+    async function handleSendMessage() {
+        const message = chatbotInput.value.trim(); if (!message) return;
+        const u = document.createElement('div'); u.style.cssText='margin:8px 0;padding:10px 14px;background:#f0f0f0;border-radius:4px;max-width:75%;word-wrap:break-word;font-size:13px;line-height:1.5;'; u.innerHTML=`<b>You:</b> ${message}`; messages.appendChild(u); chatbotInput.value=""; messages.scrollTop=messages.scrollHeight;
+        const t = document.createElement('div'); t.id='typing-indicator'; t.style.cssText='margin:8px 0;padding:10px 14px;background:#08080f;color:white;border-radius:4px;max-width:60px;font-size:13px;'; t.textContent='...'; messages.appendChild(t); messages.scrollTop=messages.scrollHeight;
+        setTimeout(async () => { const ti=document.getElementById('typing-indicator'); if(ti) ti.remove(); const reply=await getAIResponse(message); const b=document.createElement('div'); b.style.cssText='margin:8px 0;padding:10px 14px;background:#08080f;color:white;border-radius:4px;max-width:75%;word-wrap:break-word;font-size:13px;line-height:1.5;'; b.innerHTML=`<b>Quatro:</b> ${reply}`; messages.appendChild(b); messages.scrollTop=messages.scrollHeight; }, 800);
+    }
+    sendBtn.addEventListener("mousedown", (e) => e.preventDefault());
+    sendBtn.addEventListener("click", () => { handleSendMessage(); setTimeout(() => chatbotInput.focus(), 50); });
+    chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handleSendMessage(); });
+</script>
+
 </body>
 </html>
