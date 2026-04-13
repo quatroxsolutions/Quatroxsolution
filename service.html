@@ -1031,9 +1031,129 @@ document.addEventListener("DOMContentLoaded",function(){
   });
 });
 </script>
-</body>
-
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-inner">
+      <span class="mq-item"><span class="mq-dot">✦</span> Accuracy</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Reliability</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Precision</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Trust</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Excellence</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Quality</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Consistency</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> On-Time Delivery</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Global Standards</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Human-Verified</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> SLA-Backed</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Data Security</span>
+      <!-- duplicate for seamless loop -->
+      <span class="mq-item"><span class="mq-dot">✦</span> Accuracy</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Reliability</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Precision</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Trust</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Excellence</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Quality</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Consistency</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> On-Time Delivery</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Global Standards</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Human-Verified</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> SLA-Backed</span>
+      <span class="mq-item"><span class="mq-dot">✦</span> Data Security</span>
+    </div>
+  </div>
+</div>
+ 
 <style>
+  .marquee-strip {
+    background: white;
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 0;
+  }
+ 
+  /* Soft fade edges */
+  .marquee-strip::before,
+  .marquee-strip::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .marquee-strip::before {
+    left: 0;
+    background: linear-gradient(to right, var(--ink) 0%, transparent 100%);
+  }
+  .marquee-strip::after {
+    right: 0;
+    background: linear-gradient(to left, var(--ink) 0%, transparent 100%);
+  }
+ 
+  .marquee-track {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+ 
+  .marquee-inner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee-scroll 32s linear infinite;
+  }
+  .marquee-strip:hover .marquee-inner {
+    animation-play-state: paused;
+  }
+ 
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+ 
+  .mq-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 36px;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.55);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+    cursor: default;
+    position: relative;
+  }
+  .mq-item:hover {
+    color: rgba(255,255,255,0.95);
+  }
+ 
+  /* Separator dot */
+  .mq-dot {
+    font-size: 9px;
+    color: var(--gold);
+    opacity: 0.7;
+    line-height: 1;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .mq-item:hover .mq-dot {
+    opacity: 1;
+    transform: rotate(45deg) scale(1.2);
+  }
+ 
+  @media (max-width: 600px) {
+    .marquee-inner { animation-duration: 22s; }
+    .mq-item { font-size: 13px; padding: 0 24px; }
+    .marquee-strip::before,
+    .marquee-strip::after { width: 60px; }
+  }
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
   .qf-wrap {
@@ -1724,4 +1844,5 @@ document.addEventListener("DOMContentLoaded",function(){
     if (e.key === 'Escape') closePrivacy();
   });
 </script>
+</footer>
 </html>
