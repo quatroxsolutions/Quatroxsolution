@@ -18,7 +18,7 @@
 
 <style>
 :root {
-    --ink: #08080f;
+    --ink: #0D0D29;
     --parchment: #f7f4eb;
     --violet: #5b4de0;
     --violet-soft: rgba(91,77,224,0.1);
@@ -97,7 +97,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--
 .cx-cta-ghost:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
 .cx-hero-cards {
     display: flex; flex-direction: column; gap: 1px;
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255, 255, 255, 0.767);
     opacity: 0; animation: riseIn 0.8s 0.45s forwards;
 }
 .cx-hero-card {
@@ -621,6 +621,27 @@ body { font-family: 'DM Sans', sans-serif; background: var(--ink); color: var(--
     .map-tabs { padding: 12px 18px 0; }
   }
 
+  .highlight-section {
+  background-color: #faf3e0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.highlight-box {
+  max-width: 250px;
+}
+
+.highlight-box h4 {
+  margin-bottom: 10px;
+}
+
+.highlight-box p {
+  font-size: 14px;
+  color: #555;
+}
+
 </style>
 </head>
 <body>
@@ -944,6 +965,22 @@ function showToast(msg) {
     setTimeout(function() { t.classList.remove("show"); }, 4500);
 }
 </script>
+<section class="highlight-section">
+  <div class="highlight-box">
+    <h4>⚡ Fast Response</h4>
+    <p>We reply within 24 hours on business days.</p>
+  </div>
+
+  <div class="highlight-box">
+    <h4>🔒 No Spam</h4>
+    <p>Your details are never shared with third parties.</p>
+  </div>
+
+  <div class="highlight-box">
+    <h4>📞 Direct Contact</h4>
+    <p>You speak with our team — not an automated system.</p>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer class="qf-wrap">
