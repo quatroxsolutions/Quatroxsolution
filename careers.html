@@ -363,6 +363,8 @@
   .qf-nav a:last-child::after { display: none; }
   .qf-nav a:hover { color: #fff; background: rgba(255,255,255,0.12); }
   .qf-nav a.loc-btn:hover { color: #7eb3ff; background: rgba(99,153,255,0.15); }
+.qf-nav a.terms-btn:hover { color: #7eb3ff; background: rgba(99,153,255,0.15); }
+.qf-nav a.privacy-btn:hover { color: #7eb3ff; background: rgba(99,153,255,0.15); }
 
   /* RIGHT: Social icons */
   .qf-socials {
@@ -1119,8 +1121,8 @@
     <!-- CENTER: Nav links -->
     <nav class="qf-nav">
       <a class="loc-btn" onclick="openMap()">Locations</a>
-      <a href="terms.html">Terms &amp; Conditions</a>
-      <a href="javascript:void(0)" onclick="openPrivacy()">Privacy Policy</a>
+      <a href="terms.html" class="terms-btn">Terms &amp; Conditions</a>
+    <a href="javascript:void(0)" class="privacy-btn" onclick="openPrivacy()">Privacy Policy</a>
     </nav>
 
     <!-- RIGHT: Social icons -->
