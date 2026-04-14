@@ -1121,7 +1121,7 @@
     <!-- CENTER: Nav links -->
     <nav class="qf-nav">
       <a class="loc-btn" onclick="openMap()">Locations</a>
-      <a href="terms.html" class="terms-btn">Terms &amp; Conditions</a>
+        <a href="javascript:void(0)" class="terms-btn" onclick="openTerms()">Terms &amp; Conditions</a>
     <a href="javascript:void(0)" class="privacy-btn" onclick="openPrivacy()">Privacy Policy</a>
     </nav>
 
@@ -1745,6 +1745,282 @@
     sendBtn.addEventListener("click", () => { handleSendMessage(); setTimeout(() => chatbotInput.focus(), 50); });
     chatbotInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handleSendMessage(); });
 </script>
+<!-- ═══════════════════════════════════════
+     TERMS & CONDITIONS MODAL
+     
+     STEP 1: In your footer, find:
+       <a href="terms.html" class="terms-btn">Terms &amp; Conditions</a>
+     Replace it with:
+       <a href="javascript:void(0)" class="terms-btn" onclick="openTerms()">Terms &amp; Conditions</a>
 
+     STEP 2: Paste the entire block below just before </body>
+════════════════════════════════════════ -->
+
+<!-- TERMS OVERLAY -->
+<div id="termsOverlay" onclick="closeTermsOutside(event)" style="
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    z-index:99999;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    box-sizing:border-box;
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+">
+
+  <!-- MODAL BOX -->
+  <div id="termsModal" style="
+      background:#f7f4eb;
+      border-radius:20px;
+      width:min(860px, 100%);
+      max-height:90vh;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      box-shadow:0 40px 80px rgba(0,0,0,0.5);
+      transform:translateY(30px) scale(0.97);
+      transition:transform 0.35s cubic-bezier(0.34,1.4,0.64,1), opacity 0.3s;
+      opacity:0;
+      font-family:'DM Sans',sans-serif;
+  ">
+
+    <!-- MODAL HEADER -->
+    <div style="
+        background:linear-gradient(135deg,#0D0D29 0%,#000000 100%);
+        padding:22px 28px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        flex-shrink:0;
+        gap:16px;
+    ">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px;">Legal</div>
+        <div style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.02em;">Terms &amp; Conditions</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:3px;">Quatrox Solutions Private Limited &nbsp;·&nbsp; Effective April 14, 2025</div>
+      </div>
+      <button onclick="closeTerms()" style="
+          width:36px;height:36px;
+          border-radius:10px;
+          background:rgba(255,255,255,0.1);
+          border:1px solid rgba(255,255,255,0.2);
+          color:#fff;font-size:18px;
+          cursor:pointer;
+          display:flex;align-items:center;justify-content:center;
+          flex-shrink:0;
+          transition:background 0.2s;
+          line-height:1;
+      " onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">✕</button>
+    </div>
+
+    <!-- SCROLLABLE CONTENT -->
+    <div style="overflow-y:auto;flex:1;padding:32px 36px 40px;">
+
+      <!-- Notice bar -->
+      <div style="background:#0D0D29;border-radius:12px;padding:16px 20px;margin-bottom:32px;display:flex;align-items:flex-start;gap:12px;">
+        <span style="font-size:18px;flex-shrink:0;">📋</span>
+        <p style="font-size:13px;line-height:1.7;color:rgba(255,255,255,0.7);margin:0;">
+          <strong style="color:#fff;">Please read carefully.</strong> By accessing or using our website, products, or services, you agree to be legally bound by these Terms and Conditions.
+        </p>
+      </div>
+
+      <style>
+        .tm-sec { margin-bottom:36px; }
+        .tm-sec-hd { display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:1.5px solid #e8e8f4; }
+        .tm-num { width:28px;height:28px;background:#0D0D29;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0; }
+        .tm-sec h2 { font-size:17px;font-weight:800;color:#0D0D29;margin:0; }
+        .tm-sec p { font-size:14px;line-height:1.8;color:#444;margin:0 0 10px; }
+        .tm-sec p:last-child { margin-bottom:0; }
+        .tm-sec ul { margin:0 0 10px;padding:0;list-style:none; }
+        .tm-sec ul li { font-size:14px;line-height:1.75;color:#444;padding:4px 0 4px 20px;position:relative;border-bottom:1px solid #f0eee6; }
+        .tm-sec ul li:last-child { border-bottom:none; }
+        .tm-sec ul li::before { content:'';position:absolute;left:0;top:13px;width:6px;height:6px;background:#0D0D29;border-radius:50%; }
+        .tm-sec a { color:#0D0D29;font-weight:600;text-underline-offset:3px; }
+        .tm-note { background:#f7f4eb;border:1px solid #e8e8f4;border-left:4px solid #0D0D29;border-radius:0 10px 10px 0;padding:16px 20px;margin:14px 0; }
+        .tm-note p { font-size:13.5px;line-height:1.7;color:#333;margin:0; }
+        .tm-warn { background:#fff8e6;border:1px solid #f6c94e;border-radius:10px;padding:14px 18px;margin:14px 0; }
+        .tm-warn p { font-size:13.5px;line-height:1.7;color:#7a4f00;margin:0; }
+        .tm-contact-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px; }
+        .tm-contact-card { background:#fff;border:1px solid #e8e8f4;border-radius:10px;padding:14px 16px; }
+        .tm-contact-card-lbl { font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#6b6baa;margin-bottom:5px; }
+        .tm-contact-card p { font-size:13px;color:#333;margin:0;line-height:1.6; }
+        .tm-contact-card a { color:#0D0D29;font-weight:600;text-decoration:none; }
+        @media(max-width:600px){
+          .tm-contact-grid { grid-template-columns:1fr; }
+        }
+      </style>
+
+      <!-- 1. Acceptance -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">01</div><h2>Acceptance of Terms</h2></div>
+        <p>By accessing, browsing, or using the Quatrox Solutions website or any of our services ("Services"), you confirm that you are at least 18 years of age, have read and understood these Terms, and agree to be legally bound by them.</p>
+        <p>These Terms constitute a legally binding agreement between you ("User", "Client") and Quatrox Solutions Private Limited ("Company", "we", "us", "our").</p>
+      </div>
+
+      <!-- 2. Services -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">02</div><h2>Services Offered</h2></div>
+        <p>Quatrox Solutions provides technology and business services including but not limited to:</p>
+        <ul>
+          <li>Software development and IT consulting</li>
+          <li>Web and mobile application design and development</li>
+          <li>ePub conversion, XML structuring, and typesetting</li>
+          <li>Accessibility remediation (WCAG 2.1 / PDF/UA)</li>
+          <li>Copy editing and proofreading</li>
+          <li>Voice internationalisation and SRT captioning</li>
+          <li>Technical support and maintenance services</li>
+        </ul>
+        <div class="tm-note">
+          <p>The scope, deliverables, timelines, and pricing for specific services will be governed by a separate Service Agreement or Statement of Work (SOW) entered into between the parties.</p>
+        </div>
+      </div>
+
+      <!-- 3. User Obligations -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">03</div><h2>User Obligations</h2></div>
+        <p>As a user of our website and services, you agree to:</p>
+        <ul>
+          <li>Provide accurate, current, and complete information when required</li>
+          <li>Not use the Services for any unlawful, fraudulent, or harmful purpose</li>
+          <li>Not attempt to gain unauthorised access to our systems or infrastructure</li>
+          <li>Not reproduce, distribute, or commercially exploit any content without prior written permission</li>
+          <li>Comply with all applicable local, national, and international laws and regulations</li>
+        </ul>
+      </div>
+
+      <!-- 4. IP -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">04</div><h2>Intellectual Property</h2></div>
+        <p>All content on this website — including text, graphics, logos, images, software code, and documentation — is the exclusive property of Quatrox Solutions Private Limited and is protected under applicable copyright, trademark, and intellectual property laws.</p>
+        <p>Nothing in these Terms grants you any right to use Quatrox Solutions' trademarks, logos, or proprietary content without express written permission.</p>
+        <div class="tm-note">
+          <p>Custom work developed for clients under a paid engagement will be governed by the intellectual property clauses outlined in the applicable Service Agreement or SOW.</p>
+        </div>
+      </div>
+
+      <!-- 5. Confidentiality -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">05</div><h2>Confidentiality</h2></div>
+        <p>Both parties agree to maintain strict confidentiality regarding any proprietary, technical, business, or personal information disclosed during the course of engagement. This obligation survives the termination of the business relationship.</p>
+        <p>Confidential information shall not be disclosed to third parties without prior written consent, except where required by law or court order.</p>
+      </div>
+
+      <!-- 6. Privacy -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">06</div><h2>Privacy &amp; Data Protection</h2></div>
+        <p>Quatrox Solutions is committed to protecting your personal data. Our collection, use, and processing of personal data is governed by our <strong>Privacy Policy</strong>, which forms an integral part of these Terms and Conditions.</p>
+        <p>We implement appropriate technical and organisational measures to safeguard your data in compliance with the Information Technology Act 2000 and India's Digital Personal Data Protection Act 2023.</p>
+      </div>
+
+      <!-- 7. Payment -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">07</div><h2>Payment Terms</h2></div>
+        <ul>
+          <li>Fees and payment schedules will be specified in the applicable SOW or invoice</li>
+          <li>Payments are due within the period specified on the invoice unless otherwise agreed</li>
+          <li>Late payments may attract interest or service suspension at our discretion</li>
+          <li>All fees are exclusive of applicable taxes unless stated otherwise</li>
+        </ul>
+      </div>
+
+      <!-- 8. Limitation of Liability -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">08</div><h2>Limitation of Liability</h2></div>
+        <div class="tm-warn">
+          <p>To the maximum extent permitted by applicable law, Quatrox Solutions shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to the use or inability to use our Services, even if we have been advised of the possibility of such damages. Our total liability shall not exceed the amount paid by you for the specific service in the three (3) months preceding the incident.</p>
+        </div>
+      </div>
+
+      <!-- 9. Disclaimer -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">09</div><h2>Disclaimer of Warranties</h2></div>
+        <p>Our Services are provided on an "as is" and "as available" basis without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+        <p>We do not warrant that the Services will be uninterrupted, error-free, or free of viruses or other harmful components.</p>
+      </div>
+
+      <!-- 10. Termination -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">10</div><h2>Termination</h2></div>
+        <p>Quatrox Solutions reserves the right to suspend or terminate your access to the Services at any time, with or without notice, if you violate any of these Terms or engage in conduct we consider harmful or inappropriate. Upon termination, your right to use the Services will immediately cease.</p>
+      </div>
+
+      <!-- 11. Changes -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">11</div><h2>Changes to These Terms</h2></div>
+        <p>We reserve the right to update or modify these Terms at any time. Changes will be posted on this page with an updated effective date. Continued use of our Services after any changes constitutes your acceptance of the revised Terms.</p>
+      </div>
+
+      <!-- 12. Governing Law -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">12</div><h2>Governing Law &amp; Jurisdiction</h2></div>
+        <p>These Terms shall be governed by and construed in accordance with the laws of India. Any disputes arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in Tamil Nadu, India.</p>
+      </div>
+
+      <!-- 13. Contact -->
+      <div class="tm-sec">
+        <div class="tm-sec-hd"><div class="tm-num">13</div><h2>Contact Us</h2></div>
+        <p>If you have any questions or concerns regarding these Terms and Conditions, please reach out to us:</p>
+        <div class="tm-contact-grid">
+          <div class="tm-contact-card">
+            <div class="tm-contact-card-lbl">Company</div>
+            <p>Quatrox Solutions Private Limited</p>
+          </div>
+          <div class="tm-contact-card">
+            <div class="tm-contact-card-lbl">Email</div>
+            <p><a href="mailto:Contact@quatroxsolutions.com">Contact@quatroxsolutions.com</a></p>
+          </div>
+          <div class="tm-contact-card">
+            <div class="tm-contact-card-lbl">Thuckalay Office</div>
+            <p>16-74A, HMP Towers, Market Rd,<br>Thuckalay, TN — 629175</p>
+          </div>
+          <div class="tm-contact-card">
+            <div class="tm-contact-card-lbl">Madurai Office</div>
+            <p>66, Meenakshi St, Thirunagar,<br>Madurai, TN — 625006</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer note -->
+      <p style="font-size:12px;color:#999;text-align:center;margin-top:8px;border-top:1px solid #e8e8f4;padding-top:20px;">
+        © 2026 Quatrox Solutions Private Limited. All rights reserved.<br>
+        This policy is governed by the laws of India.
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<!-- TERMS MODAL SCRIPT -->
+<script>
+  function openTerms() {
+    var overlay = document.getElementById('termsOverlay');
+    var modal   = document.getElementById('termsModal');
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() {
+      modal.style.transform = 'translateY(0) scale(1)';
+      modal.style.opacity   = '1';
+    }, 10);
+  }
+  function closeTerms() {
+    var overlay = document.getElementById('termsOverlay');
+    var modal   = document.getElementById('termsModal');
+    modal.style.transform = 'translateY(30px) scale(0.97)';
+    modal.style.opacity   = '0';
+    setTimeout(function() {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 300);
+  }
+  function closeTermsOutside(e) {
+    if (e.target === document.getElementById('termsOverlay')) closeTerms();
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeTerms();
+  });
+</script>
 </body>
 </html>
