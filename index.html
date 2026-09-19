@@ -115,9 +115,10 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: max-content;      /* let it size to its actual full text length */
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    width: max-content;
     white-space: nowrap;
     animation: hhMoveLR 10s linear infinite,
                hhShine 5s linear infinite;
