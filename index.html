@@ -100,10 +100,11 @@
 </header>
 
 <style>
+/* Desktop: moving marquee title */
 .header {
     position: relative;
     overflow: hidden;
-    min-height: 60vh; /* adjust to your existing header height */
+    min-height: 60vh;
 }
 .header-content {
     overflow: visible;
@@ -143,7 +144,8 @@
     text-align: center;
     height: 1.4em;
     overflow: hidden;
-h-word {
+}
+.hh-word {
     position: absolute;
     left: 0; right: 0;
     opacity: 0;
@@ -160,6 +162,42 @@ h-word {
     22%  { opacity: 1; }
     28%  { opacity: 0; }
     100% { opacity: 0; }
+}
+
+/* Mobile: title stays fixed and readable, only tagline moves */
+@media (max-width: 768px) {
+    .header {
+        min-height: 100vh;
+    }
+    .hh-title {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 90%;
+        margin: 0 auto;
+        white-space: normal;
+        text-align: center;
+        animation: none;
+        background: none;
+        -webkit-text-fill-color: #fff;
+        color: #fff;
+    }
+    .hh-rotator {
+        position: static;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 16px;
+    }
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 0 24px;
+        box-sizing: border-box;
+    }
 }
 </style>
 <!-- ═══════════════════════════════════════
