@@ -100,20 +100,22 @@
 </header>
 
 <style>
+.header-content {
+    overflow: visible;
+}
+
 .hh-title {
     background: linear-gradient(90deg, #fff, #cfd6ff, #fff);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block;
-    white-space: nowrap;
-    animation: hhSlideIn 1.4s ease-out forwards,
-               hhShine 5s linear infinite 1.4s;
+    display: block;
+    animation: hhSlideIn 1.2s ease-out forwards,
+               hhShine 5s linear infinite 1.2s;
 }
 @keyframes hhSlideIn {
-    0%   { transform: translateX(-120vw); opacity: 0; }
-    70%  { opacity: 1; }
+    0%   { transform: translateX(-60px); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
 }
 @keyframes hhShine {
@@ -2373,18 +2375,6 @@ document.addEventListener('click', function(e) {
     if (e.key === 'Escape') closePrivacy();
   });
 </script>
-    <!-- ═══════════════════════════════════════
-     TERMS & CONDITIONS MODAL
-     
-     STEP 1: In your footer, find:
-       <a href="terms.html" class="terms-btn">Terms &amp; Conditions</a>
-     Replace it with:
-       <a href="javascript:void(0)" class="terms-btn" onclick="openTerms()">Terms &amp; Conditions</a>
-
-     STEP 2: Paste the entire block below just before </body>
-════════════════════════════════════════ -->
-
-<!-- TERMS OVERLAY -->
 <div id="termsOverlay" onclick="closeTermsOutside(event)" style="
     display:none;
     position:fixed;
