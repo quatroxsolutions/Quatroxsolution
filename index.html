@@ -152,31 +152,33 @@
     border: none;
   }
 
-  .alo-hero {
+  section.alo-hero {
     max-width: 1000px;
     margin: 90px auto 60px;
     text-align: center;
     padding: 0 20px;
     position: relative;
-  }
- .alo-hero h1 {
-    font-size: clamp(40px, 6vw, 68px);
-    font-weight: 700;
+}
+section.alo-hero h1 {
+    font-size: clamp(40px, 6vw, 68px) !important;
+    font-weight: 700 !important;
     color: #0D0D29 !important;
-    line-height: 1.15;
-    margin: 0;
-    letter-spacing: -0.02em;
-    font-family: 'DM Sans', sans-serif;
+    line-height: 1.15 !important;
+    margin: 0 !important;
+    letter-spacing: -0.02em !important;
+    font-family: 'DM Sans', sans-serif !important;
+    -webkit-text-fill-color: #0D0D29 !important;
+    background: none !important;
 }
-.alo-hero p {
-    font-size: 18px;
+section.alo-hero p {
+    font-size: 18px !important;
     color: #6b6b78 !important;
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 28px auto 0;
-    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6 !important;
+    max-width: 700px !important;
+    margin: 28px auto 0 !important;
+    font-family: 'DM Sans', sans-serif !important;
 }
-  .alo-hero-dot {
+.alo-hero-dot {
     position: absolute;
     top: 10px;
     right: 5%;
@@ -184,15 +186,7 @@
     height: 14px;
     background: #0D0D29;
     border-radius: 50%;
-  }
-  .alo-hero p {
-    font-size: 18px;
-    color: #8a8a94;
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 28px auto 0;
-    font-family: 'DM Sans', sans-serif;
-  }
+}
 
   @media (max-width: 900px) {
     .alo-menu { display: none; }
