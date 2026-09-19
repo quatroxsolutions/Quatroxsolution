@@ -107,15 +107,14 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    animation: hhFloat 6s ease-in-out infinite,
-               hhShine 5s linear infinite;
+    white-space: nowrap;
+    animation: hhSlideIn 1.4s ease-out forwards,
+               hhShine 5s linear infinite 1.4s;
 }
-@keyframes hhFloat {
-    0%   { transform: translateX(0) translateY(0); }
-    25%  { transform: translateX(30px) translateY(-6px); }
-    50%  { transform: translateX(0) translateY(0); }
-    75%  { transform: translateX(-30px) translateY(-6px); }
-    100% { transform: translateX(0) translateY(0); }
+@keyframes hhSlideIn {
+    0%   { transform: translateX(-120vw); opacity: 0; }
+    70%  { opacity: 1; }
+    100% { transform: translateX(0); opacity: 1; }
 }
 @keyframes hhShine {
     0%   { background-position: 0% center; }
