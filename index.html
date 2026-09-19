@@ -100,15 +100,26 @@
 </header>
 
 <style>
+/* H1 — continuous soft floating motion, always visible */
 .hh-title {
-    opacity: 0;
-    transform: translateY(24px);
-    animation: hhFadeUp 0.9s ease forwards;
+    animation: hhFloat 4s ease-in-out infinite;
+    background: linear-gradient(90deg, #fff, #cfd6ff, #fff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hhFloat 4s ease-in-out infinite, hhShine 5s linear infinite;
 }
-@keyframes hhFadeUp {
-    to { opacity: 1; transform: translateY(0); }
+@keyframes hhFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+}
+@keyframes hhShine {
+    0%   { background-position: 0% center; }
+    100% { background-position: 200% center; }
 }
 
+/* Rotator — smooth crossfade, no blank gap */
 .hh-rotator {
     position: relative;
     height: 1.4em;
@@ -119,7 +130,6 @@
     position: absolute;
     left: 0; right: 0;
     opacity: 0;
-    transform: translateY(20px);
     animation: hhCycle 8s infinite;
 }
 .hh-word:nth-child(1) { animation-delay: 0s; }
@@ -128,10 +138,10 @@
 .hh-word:nth-child(4) { animation-delay: 6s; }
 
 @keyframes hhCycle {
-    0%   { opacity: 0; transform: translateY(20px); }
-    5%   { opacity: 1; transform: translateY(0); }
-    20%  { opacity: 1; transform: translateY(0); }
-    25%  { opacity: 0; transform: translateY(-20px); }
+    0%   { opacity: 0; }
+    3%   { opacity: 1; }
+    22%  { opacity: 1; }
+    28%  { opacity: 0; }
     100% { opacity: 0; }
 }
 </style>
