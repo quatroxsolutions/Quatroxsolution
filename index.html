@@ -101,7 +101,7 @@
 
 <style>
 .header {
-    overflow: visible;
+    overflow: hidden; /* needed so the sliding text doesn't cause a horizontal scrollbar */
 }
 .header-content {
     overflow: visible;
@@ -116,18 +116,14 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    white-space: normal;      /* allow wrapping instead of clipping */
-    word-wrap: break-word;
-    box-sizing: border-box;
-    animation: hhSlideIn 1.2s ease-out forwards,
-               hhShine 5s linear infinite 1.2s;
+    display: inline-block;
+    white-space: nowrap;
+    animation: hhMoveLR 8s linear infinite,
+               hhShine 5s linear infinite;
 }
-@keyframes hhSlideIn {
-    0%   { transform: translateX(-40px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+@keyframes hhMoveLR {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100vw); }
 }
 @keyframes hhShine {
     0%   { background-position: 0% center; }
