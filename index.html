@@ -89,10 +89,52 @@
     <img src="hero-bg.png" class="header-bg" alt="">
     <div class="overlay"></div>
     <div class="header-content">
-        <h1>BPO, Publishing & Digital Content Services</h1>
-        <h2><p>Quality Unmatched Accuracy Trust Reliability</p><p>On-time Xcellence</p></h2>
+        <h1 class="hh-title">BPO, Publishing &amp; Digital Content Services</h1>
+        <h2 class="hh-rotator">
+            <span class="hh-word">Quality</span>
+            <span class="hh-word">Unmatched Accuracy</span>
+            <span class="hh-word">Trust &amp; Reliability</span>
+            <span class="hh-word">On-time Xcellence</span>
+        </h2>
     </div>
 </header>
+
+<style>
+.hh-title {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: hhFadeUp 0.9s ease forwards;
+}
+@keyframes hhFadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hh-rotator {
+    position: relative;
+    height: 1.4em;
+    overflow: hidden;
+    display: block;
+}
+.hh-word {
+    position: absolute;
+    left: 0; right: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: hhCycle 8s infinite;
+}
+.hh-word:nth-child(1) { animation-delay: 0s; }
+.hh-word:nth-child(2) { animation-delay: 2s; }
+.hh-word:nth-child(3) { animation-delay: 4s; }
+.hh-word:nth-child(4) { animation-delay: 6s; }
+
+@keyframes hhCycle {
+    0%   { opacity: 0; transform: translateY(20px); }
+    5%   { opacity: 1; transform: translateY(0); }
+    20%  { opacity: 1; transform: translateY(0); }
+    25%  { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 0; }
+}
+</style>
 
 <!-- ═══════════════════════════════════════
      ABOUT SECTION
