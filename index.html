@@ -100,15 +100,15 @@
 </header>
 
 <style>
-/* H1 — continuous soft floating motion, always visible */
 .hh-title {
-    animation: hhFloat 4s ease-in-out infinite;
     background: linear-gradient(90deg, #fff, #cfd6ff, #fff);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: hhFloat 4s ease-in-out infinite, hhShine 5s linear infinite;
+    animation: hhFloat 4s ease-in-out infinite,
+               hhShine 5s linear infinite,
+               hhDrift 6s ease-in-out infinite;
 }
 @keyframes hhFloat {
     0%, 100% { transform: translateY(0); }
@@ -118,8 +118,11 @@
     0%   { background-position: 0% center; }
     100% { background-position: 200% center; }
 }
+@keyframes hhDrift {
+    0%, 100% { margin-left: 0px; }
+    50%      { margin-left: 24px; }
+}
 
-/* Rotator — smooth crossfade, no blank gap */
 .hh-rotator {
     position: relative;
     height: 1.4em;
@@ -145,7 +148,6 @@
     100% { opacity: 0; }
 }
 </style>
-
 <!-- ═══════════════════════════════════════
      ABOUT SECTION
 ════════════════════════════════════════ -->
