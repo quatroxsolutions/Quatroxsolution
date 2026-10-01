@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Quatrox Solutions</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="description" content="Quatrox Solutions services: document conversion, data extraction, media localisation, media services and case studies.">
+<link rel="canonical" href="https://www.quatroxsolutions.com/services/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#15233d;--muted:#5a6a82;--line:#e0e5ee;--bg:#fff;--soft:#f3f6fb;--grad:linear-gradient(110deg,#25a9f2 0%,#3478f6 48%,#5b21d6 100%);--blue:#3478f6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.x:focus,
+.x:focus-visible,
+.x:active{
+  outline:none !important;
+  box-shadow:none !important;
+}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+h2.sec{font-size:32px;font-weight:700;letter-spacing:-.5px;margin-bottom:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;font-weight:600;font-size:15px;border:0;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-grad{background:var(--grad);color:#fff}
+.btn-white{background:#fff;color:var(--ink)}
+
+/* ===== NAVBAR (same as home page) ===== */
+.quatrox-nav-wrap{position:fixed;top:0;left:0;width:100%;box-sizing:border-box;padding:14px 20px;z-index:1000;transition:transform .28s ease;font-family:'DM Sans',sans-serif}
+.quatrox-nav-wrap.nav-hidden{transform:translateY(-115%)}
+.quatrox-nav{max-width:1300px;margin:0 auto;border-radius:20px;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.72);background:linear-gradient(105deg,rgba(255,255,255,.58),rgba(242,246,255,.52));box-shadow:0 12px 34px rgba(40,68,108,.09);backdrop-filter:blur(24px) saturate(135%);-webkit-backdrop-filter:blur(24px) saturate(135%);transition:background .28s,box-shadow .28s,border-color .28s}
+.quatrox-nav-wrap.is-scrolled .quatrox-nav{background:linear-gradient(105deg,rgba(255,255,255,.82),rgba(238,243,255,.78));border-color:rgba(207,220,239,.96);box-shadow:0 16px 42px rgba(40,68,108,.16)}
+.quatrox-logo img{width:150px;height:52px;object-fit:cover;object-position:center;display:block}
+.quatrox-menu{display:flex;align-items:center;gap:32px}
+.quatrox-menu a{position:relative;text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;transition:color .2s}
+.quatrox-menu a.active{font-weight:700}
+.quatrox-menu a:hover{color:var(--blue)}
+.quatrox-menu a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;border-radius:2px;background:linear-gradient(90deg,#3d73d9,#7563d8);transform:scaleX(0);transition:transform .22s}
+.quatrox-menu a:hover::after,.quatrox-menu a.active::after{transform:scaleX(1)}
+.quatrox-right{display:flex;align-items:center;gap:16px}
+.quatrox-cta{background:linear-gradient(110deg,#25a9f2 0%,#3478f6 48%,#5b21d6 100%);color:#fff;border:0;border-radius:50px;padding:12px 22px;font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:8px;text-decoration:none;box-shadow:0 10px 24px rgba(65,69,237,.24);transition:filter .2s}
+.quatrox-cta:hover{filter:brightness(1.08)}
+.quatrox-hamburger{
+  display:none;
+  width:44px;
+  height:44px;
+  padding:0;
+  font-size:25px;
+  cursor:pointer;
+  color:var(--ink);
+  background:rgba(255,255,255,.42);
+  border:0;
+  border-radius:12px;
+  align-items:center;
+  justify-content:center;
+  outline:none;
+  box-shadow:none;
+}
+.mobile-menu{display:none;position:absolute;top:calc(100% + 10px);right:20px;width:min(220px,calc(100vw - 40px));box-sizing:border-box;flex-direction:column;padding:10px 16px;background:linear-gradient(135deg,rgba(239,250,255,.98),rgba(241,238,255,.98));backdrop-filter:blur(18px) saturate(135%);-webkit-backdrop-filter:blur(18px) saturate(135%);border:1px solid rgba(65,69,237,.24);border-radius:14px;box-shadow:0 16px 34px rgba(54,79,181,.2)}
+.mobile-menu a{padding:12px 0;font-size:15px;font-weight:700;color:#172554;border-bottom:1px solid rgba(65,69,237,.16)}
+.mobile-menu a:last-child{border-bottom:0}
+@media(max-width:900px){
+  .quatrox-menu{display:none}
+  .quatrox-hamburger{display:inline-flex}
+  .quatrox-nav{padding:12px 20px}
+}
+/* ===== CUSTOMER STORY ROTATING CAROUSEL ===== */
+
+.customer-carousel{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.customer-track{
+  width:100%;
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+}
+
+.customer-slide{
+  display:none;
+  grid-template-columns:1fr 1fr;
+  min-height:430px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 16px 40px rgba(21,35,61,.10);
+}
+
+.customer-slide.active{
+  display:grid;
+  animation:storyFade .45s ease;
+}
+
+@keyframes storyFade{
+  from{
+    opacity:0;
+    transform:translateX(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
+.customer-image{
+  min-height:430px;
+  overflow:hidden;
+  background:#edf3fb;
+}
+
+.customer-image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:transform .5s ease;
+}
+/* Move only Story 3 image toward the left */
+.customer-slide:nth-child(3) .customer-image img{
+  object-position:left center;
+}
+/* Move only Story 2 image toward the left */
+.customer-slide:nth-child(2) .customer-image img{
+  object-position:left center;
+}
+
+.customer-slide:hover .customer-image img{
+  transform:scale(1.03);
+}
+
+.customer-content{
+  padding:46px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.story-label{
+  display:inline-flex;
+  width:max-content;
+  padding:7px 15px;
+  border-radius:50px;
+  background:linear-gradient(
+    110deg,
+    #25a9f2,
+    #3478f6 48%,
+    #5b21d6
+  );
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+.customer-content h3{
+  font-size:30px;
+  line-height:1.2;
+  letter-spacing:-.6px;
+  margin-bottom:14px;
+  color:var(--ink);
+  transform:translateX(-20px);
+}
+
+.customer-content p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.65;
+  margin-bottom:26px;
+  max-width:560px;
+}
+
+.story-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:26px;
+}
+
+.story-stats div{
+  padding:14px;
+  background:var(--soft);
+  border-radius:12px;
+}
+
+.story-stats strong{
+  display:block;
+  font-size:20px;
+  color:var(--blue);
+  margin-bottom:2px;
+}
+
+.story-stats span{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.35;
+}
+
+.story-read{
+  width:max-content;
+  border:0;
+  background:none;
+  padding:0;
+  color:var(--blue);
+  font:700 14px 'Inter',sans-serif;
+  cursor:pointer;
+}
+
+.story-read:hover{
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+
+/* arrows */
+
+.story-arrow{
+  flex:0 0 auto;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid #d8e1ef;
+  background:#fff;
+  color:var(--ink);
+  font-size:30px;
+  line-height:1;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 20px rgba(21,35,61,.10);
+  transition:all .2s ease;
+  z-index:3;
+}
+
+.story-arrow:hover{
+  background:var(--grad);
+  color:#fff;
+  border-color:transparent;
+  transform:translateY(-2px);
+}
+
+
+/* dots */
+
+.story-dots{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  margin-top:22px;
+}
+
+.story-dots button{
+  width:9px;
+  height:9px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#cbd5e1;
+  cursor:pointer;
+  transition:all .25s ease;
+}
+
+.story-dots button.active{
+  width:28px;
+  border-radius:20px;
+  background:var(--grad);
+}
+
+
+/* mobile */
+
+@media(max-width:900px){
+
+  .customer-slide{
+    grid-template-columns:1fr;
+  }
+
+  .customer-image{
+    min-height:280px;
+    height:280px;
+  }
+
+  .customer-content{
+    padding:30px;
+  }
+
+  .customer-content h3{
+    font-size:25px;
+  }
+
+  .customer-carousel{
+    gap:8px;
+  }
+
+  .story-arrow{
+    width:38px;
+    height:38px;
+    font-size:25px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .customer-carousel{
+    display:block;
+  }
+
+  .customer-slide{
+    border-radius:18px;
+  }
+
+  .customer-image{
+    height:220px;
+    min-height:220px;
+  }
+
+  .customer-content{
+    padding:24px;
+  }
+
+  .customer-content h3{
+    font-size:22px;
+  }
+
+  .customer-content p{
+    font-size:14px;
+  }
+
+  .story-stats{
+    gap:8px;
+  }
+
+  .story-stats div{
+    padding:11px;
+  }
+
+  .story-stats strong{
+    font-size:17px;
+  }
+
+  .story-stats span{
+    font-size:11px;
+  }
+
+  .story-arrow{
+    position:absolute;
+    top:88px;
+    z-index:5;
+  }
+
+  .story-prev{
+    left:10px;
+  }
+
+  .story-next{
+    right:10px;
+  }
+
+}
+@media(max-width:600px){
+  .quatrox-nav-wrap{padding:9px 12px}
+  .quatrox-nav{padding:9px 14px;border-radius:16px}
+  .quatrox-logo img{width:124px;height:44px}
+  .quatrox-cta{padding:9px 12px;font-size:12px}
+  .quatrox-cta span{display:none}
+  .mobile-menu{right:12px;width:calc(100vw - 24px)}
+}
+/* nav is now floating, so push hero text below it */
+.slide .wrap{padding-top:90px}
+
+/* hero carousel */
+.hero{position:relative;height:min(560px,80vh);min-height:440px;overflow:hidden;background:#0d1b3a}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .6s}
+.slide.on{opacity:1;visibility:visible}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(7,17,40,.85),rgba(7,17,40,.45) 55%,rgba(7,17,40,.1))}
+.slide .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.slide h1,.slide h2{color:#fff;font-size:clamp(32px,5vw,58px);font-weight:800;line-height:1.08;letter-spacing:-1px;max-width:680px;margin-bottom:14px}
+.slide p{color:rgba(255,255,255,.88);font-size:18px;max-width:520px;margin-bottom:26px}
+.ctrl{position:absolute;z-index:5;bottom:22px;left:0;right:0}
+.ctrl .wrap{display:flex;align-items:center;gap:14px}
+.ctrl button{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.7);background:rgba(0,0,0,.25);color:#fff;cursor:pointer;font-size:15px}
+.dots{display:flex;gap:8px}
+.dots button{width:12px;height:12px;padding:0;border-radius:50%;background:transparent}
+.dots button.on{background:#fff}
+
+/* tabbed cards */
+.tabs-sec{padding:64px 0 24px}
+.tabbar{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:28px;overflow-x:auto}
+.tabbar button{background:none;border:0;padding:14px 22px;font:600 15px 'Inter';color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.tabbar button.on{color:var(--blue);border-color:var(--blue)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.lcard{display:flex;flex-direction:column;justify-content:space-between;min-height:180px;padding:24px;border:1px solid var(--line);border-radius:14px;background:var(--soft);transition:box-shadow .25s,border-color .25s}
+.lcard:hover{box-shadow:0 10px 28px rgba(21,35,61,.12);border-color:#c9d6ee}
+.lcard h3{font-size:18px;margin-bottom:8px}
+.lcard p{font-size:14px;color:var(--muted)}
+.lcard .go{margin-top:16px;color:var(--blue);font-weight:600;font-size:14px}
+.panel[hidden]{display:none}
+
+/* solutions */
+.sol{padding:56px 0}
+.sol .row{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:18px;overflow:hidden;margin-bottom:24px;background:var(--soft)}
+.sol .row:nth-child(even) .txt{order:2}
+.sol .txt{padding:44px}
+.sol .txt h3{font-size:26px;letter-spacing:-.4px;margin-bottom:10px}
+.sol .txt p{color:var(--muted);margin-bottom:16px}
+.sol .txt ul{list-style:none;margin-bottom:22px}
+.sol .txt li{padding:6px 0 6px 18px;position:relative;font-size:15px}
+.sol .txt li::before{content:'';position:absolute;left:0;top:15px;width:7px;height:7px;border-radius:50%;background:var(--grad)}
+.sol .img{min-height:280px;background-size:cover;background-position:center}
+
+/* stories */
+.stories{padding:56px 0;background:var(--soft)}
+.feature{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+.big{position:relative;min-height:430px;border-radius:18px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;cursor:pointer;text-align:left;border:0;background:#0d1b3a}
+.big img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.big:hover img{transform:scale(1.04)}
+.big::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(7,17,40,.9),rgba(7,17,40,.1) 70%)}
+.big div{position:relative;z-index:2;padding:32px}
+.big h3{font-size:28px;line-height:1.2;margin-bottom:8px}
+.big p{color:rgba(255,255,255,.85);font-size:15px;max-width:520px}
+.side{display:flex;flex-direction:column;gap:16px}
+.mini{display:flex;gap:16px;align-items:center;background:#fff;border-radius:14px;padding:12px;cursor:pointer;text-align:left;border:0;font:inherit;color:inherit;flex:1;transition:box-shadow .25s}
+.mini:hover{box-shadow:0 10px 28px rgba(21,35,61,.12)}
+.mini img{width:124px;height:100%;min-height:96px;object-fit:cover;border-radius:10px}
+.mini b{display:block;font-size:13px;color:var(--blue);margin-bottom:4px}
+.mini span{font-weight:600;line-height:1.35}
+@media(max-width:900px){.feature{grid-template-columns:1fr}.big{min-height:340px}}
+
+/* careers + banners */
+.career{margin:56px auto;border-radius:20px;background:var(--grad);color:#fff;padding:52px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.career h2{font-size:30px;max-width:560px;letter-spacing:-.5px;margin-bottom:8px}
+.career p{opacity:.92;max-width:520px}
+.more{padding:0 0 64px}
+.ban{position:relative;border-radius:18px;overflow:hidden;min-height:260px;background:#0d1b3a;color:#fff;display:flex;align-items:flex-end}
+.ban img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.ban div{position:relative;padding:28px}
+.ban h3{font-size:22px;margin-bottom:14px;max-width:340px}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(10,20,40,.6)}
+.modal.open{display:flex}
+.mbox{background:#fff;border-radius:18px;max-width:680px;width:100%;max-height:88vh;overflow:auto;padding:36px;position:relative}
+.mbox h3{font-size:24px;margin-bottom:10px;padding-right:40px}
+.mbox .lead{color:var(--muted);margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px}
+.stats div{background:var(--soft);border-radius:10px;padding:14px;font-size:13px;color:var(--muted)}
+.stats b{display:block;font-size:22px;color:var(--ink)}
+.mbox .out{background:var(--grad);color:#fff;border-radius:10px;padding:18px;font-size:15px}
+.x{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:16px}
+
+footer{background:linear-gradient(135deg,#172554,#2837a4 52%,#4c1d95);color:#fff;padding:44px 0 26px}
+footer .top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:24px}
+footer .top nav{display:flex;gap:26px;flex-wrap:wrap;font-size:14px}
+footer .top nav a:hover{text-decoration:underline}
+footer small{opacity:.8}
+@media(max-width:1000px){.grid4{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr}.sol .row{grid-template-columns:1fr}.sol .row:nth-child(even) .txt{order:0}}
+@media(max-width:600px){.wrap{padding:0 18px}.grid4{grid-template-columns:1fr}.sol .txt,.career{padding:28px}h2.sec{font-size:26px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+footer .loc{background:none;border:0;color:#fff;font:inherit;cursor:pointer;padding:0}
+footer .loc:hover{text-decoration:underline}
+.mapbox{max-width:820px;padding:28px}
+.mtabs{display:flex;gap:8px;margin:14px 0}
+.mtabs button{padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font:600 13px 'Inter';cursor:pointer;color:var(--muted)}
+.mtabs button.on{background:var(--grad);color:#fff;border-color:transparent}
+.mframe{width:100%;height:320px;border:1px solid var(--line);border-radius:12px;display:block}
+.minfo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.minfo div{background:var(--soft);border-radius:10px;padding:14px;font-size:14px}
+.minfo b{display:block;font-size:11px;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+.minfo a{color:var(--blue);font-weight:600}
+@media(max-width:600px){.minfo{grid-template-columns:1fr}.mframe{height:240px}}
+/* footer social icons */
+.qf-socials{display:flex;align-items:center;gap:8px}
+.qf-soc{width:38px;height:38px;border:1px solid rgba(151,202,255,.32);border-radius:10px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.75);background:rgba(37,169,242,.1);transition:all .25s}
+.qf-soc:hover{background:linear-gradient(135deg,rgba(37,169,242,.42),rgba(91,33,214,.46));border-color:rgba(255,255,255,.58);color:#fff;transform:translateY(-2px)}
+.qf-soc svg{width:16px;height:16px;fill:currentColor}
+footer .bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+@media(max-width:600px){footer .bottom{flex-direction:column;align-items:flex-start}}
+/* ===== MOBILE: tighter footer ===== */
+@media(max-width:600px){
+  footer{padding:24px 0 18px}
+  footer .top{gap:12px;margin-bottom:14px}
+  footer .top b{font-size:18px}
+  footer .top nav{gap:6px 16px;font-size:13px}
+  footer .loc{font-size:13px}
+  footer .bottom{gap:12px}
+  footer small{font-size:12px;line-height:1.5}
+  .qf-socials{gap:6px}
+  .qf-soc{width:34px;height:34px}
+}
+
+
+/* ===== FOOTER (TCL-style) ===== */ 
+/* ===== FOOTER — QUATROX LOGO COLORS ===== */
+.qx-foot {
+    background: linear-gradient(
+        135deg,
+        #25A9F2 0%,
+        #3478F6 50%,
+        #5B21D6 100%
+    ) !important;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    padding: 60px 5% 0;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,.28);
+}
+
+.qx-foot::before {
+    content: "";
+    position: absolute;
+    top: -90px;
+    right: -90px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,.18),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.qx-foot .qx-col-title,
+.qx-foot .qx-copy,
+.qx-foot .qx-badge {
+    color: #fff !important;
+}
+
+.qx-foot .qx-col li a {
+    color: rgba(255,255,255,.85) !important;
+}
+
+.qx-foot .qx-col li a:hover {
+    color: #fff !important;
+}
+.qx-foot-cols{display:grid;grid-template-columns:repeat(4,1fr) 1.3fr;gap:36px;padding-bottom:44px} 
+.qx-col-title{display:block;width:100%;text-align:left;background:none;border:0;padding:0;margin:0 0 18px;font:700 13px 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;cursor:default} 
+.qx-col ul{list-style:none;margin:0;padding:0} 
+.qx-col li{margin-bottom:11px} 
+.qx-col li a{color:rgba(255,255,255,.72);text-decoration:none;font-size:14px;line-height:1.4;transition:color .2s;cursor:pointer;word-break:break-word} 
+.qx-col li a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px} 
+ 
+.qx-socials{display:flex;gap:8px;margin-bottom:26px} 
+.qx-soc{width:38px;height:38px;border:1px solid rgba(151,202,255,.32);border-radius:10px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.8);background:rgba(37,169,242,.1);transition:all .25s} 
+.qx-soc:hover{background:linear-gradient(135deg,rgba(37,169,242,.42),rgba(91,33,214,.46));border-color:rgba(255,255,255,.58);color:#fff;transform:translateY(-2px)} 
+.qx-soc svg{width:16px;height:16px;fill:currentColor} 
+ 
+.qx-cta-block h5{margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)} 
+.qx-cta-link{color:#fff;font-size:13px;font-weight:700;letter-spacing:.06em;text-decoration:none;border-bottom:2px solid #25a9f2;padding-bottom:3px;transition:border-color .2s} 
+.qx-cta-link:hover{border-color:#fff} 
+ 
+.qx-foot-brand{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:26px 0;border-top:1px solid rgba(255,255,255,.18)} 
+.qx-brand{display:flex;align-items:center;gap:14px;color:#fff;text-decoration:none;font-size:20px;font-weight:700;letter-spacing:-.02em} 
+.qx-brand img{height:48px;width:auto;filter:drop-shadow(0 0 12px rgba(99,153,255,.4))} 
+.qx-loc{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff;border-radius:50px;padding:9px 18px;font:600 13px 'DM Sans',sans-serif;cursor:pointer;transition:background .2s} 
+.qx-loc:hover{background:rgba(255,255,255,.18)} 
+ 
+.qx-foot-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 0 24px;border-top:1px solid rgba(255,255,255,.18)} 
+.qx-policies{display:flex;gap:22px;flex-wrap:wrap} 
+.qx-policies a{color:rgba(255,255,255,.8);font-size:12.5px;text-decoration:none;cursor:pointer} 
+.qx-policies a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px} 
+.qx-copy{font-size:12.5px;color:rgba(255,255,255,.8)} 
+ 
+/* tablet */ 
+@media(max-width:1000px){ 
+  .qx-foot-cols{grid-template-columns:repeat(2,1fr)} 
+  .qx-col-social{grid-column:1 / -1} 
+} 
+ 
+/* phones: tap-to-open sections */ 
+@media(max-width:768px){ 
+  .qx-foot{padding-top:32px} 
+  .qx-foot-cols{grid-template-columns:1fr;gap:0;padding-bottom:26px} 
+  .qx-col{border-bottom:1px solid rgba(255,255,255,.18)} 
+  .qx-col-social{border-bottom:0;padding-top:24px} 
+  .qx-col-title{margin:0;padding:18px 0;cursor:pointer;position:relative} 
+  .qx-col-title.qx-static{cursor:default;padding:0 0 14px} 
+  .qx-col:not(.qx-col-social) .qx-col-title::after{content:"";position:absolute;right:4px;top:50%;width:8px;height:8px;margin-top:-6px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);transition:transform .3s} 
+  .qx-col.open .qx-col-title::after{transform:rotate(-135deg);margin-top:-2px} 
+  .qx-col:not(.qx-col-social) ul{max-height:0;overflow:hidden;transition:max-height .35s ease} 
+  .qx-col.open ul{max-height:400px;padding-bottom:10px} 
+  .qx-foot-brand{flex-direction:column;align-items:flex-start;padding:22px 0} 
+  .qx-foot-bottom{flex-direction:column;align-items:flex-start;gap:10px} 
+} 
+@media (max-width:600px){
+    .slide img[src="Epub hero.png"]{
+        object-position:100% center;
+    }
+}
+/* Mobile hamburger - match Home page */
+@media (max-width:600px){
+
+  .quatrox-hamburger{
+    width:44px;
+    height:44px;
+    padding:0;
+    font-size:25px;
+    border-radius:12px;
+    background:rgba(255,255,255,.42);
+    border:0;
+    outline:none;
+    box-shadow:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .quatrox-hamburger:focus,
+  .quatrox-hamburger:focus-visible,
+  .quatrox-hamburger:active{
+    outline:none !important;
+    border:0 !important;
+    box-shadow:none !important;
+      background-color: rgba(255,255,255,.42) !important;
+  -webkit-tap-highlight-color: transparent !important;
+  tap-highlight-color: transparent !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="quatrox-nav-wrap">
+  <nav class="quatrox-nav">
+    <a class="quatrox-logo" href="index.html"><img src="Logo.png" alt="Quatrox Solutions"></a>
+    <div class="quatrox-menu">
+      <a href="index.html">Home</a>
+      <a href="index.html#About">About Us</a>
+      <a href="service.html" class="active">Services</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="quatrox-right">
+      <a href="contact.html" class="quatrox-cta">Book a call <span>📞</span></a>
+      <button class="quatrox-hamburger" type="button" aria-label="Menu">&#9776;</button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#About">About</a>
+    <a href="service.html">Services</a>
+    <a href="careers.html">Careers</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+</div>
+
+<main>
+<!-- HERO CAROUSEL -->
+<section class="hero" aria-label="Featured services">
+  <div class="slide on"><img src="wide_cinematic_modern_tech_office_workspace_scen.png"" alt=""><div class="wrap"><h1>Your content, ready for every reader</h1><p>Conversion, extraction and media services delivered with accuracy and on time.</p><a href="#services" class="btn btn-white">Explore services</a></div></div>
+  <div class="slide"><img src="Epub hero.png" alt=""><div class="wrap"><h2>EPUB conversion at scale</h2><p>Standards-compliant EPUB 2 and 3, accessible on Kindle, iBooks and Android.</p><a href="#stories" class="btn btn-white">Read the story</a></div></div>
+  <div class="slide"><img src="Subtitle hero.png" alt=""><div class="wrap"><h2>Subtitles up to 50% faster</h2><p>An AI-human workflow that raises accuracy across bulk media files.</p></div></div>
+  <div class="ctrl"><div class="wrap">
+    <button id="prev" aria-label="Previous slide">&#8249;</button>
+    <div class="dots" id="dots"></div>
+    <button id="next" aria-label="Next slide">&#8250;</button>
+    <button id="pause" aria-label="Pause">&#10074;&#10074;</button>
+  </div></div>
+</section>
+
+<!-- TABBED SERVICES -->
+<section class="tabs-sec" id="services">
+  <div class="wrap">
+    <h2 class="sec">What would you like to do?</h2>
+    <div class="tabbar" role="tablist">
+      <button class="on" role="tab" data-t="0">Convert documents</button>
+      <button role="tab" data-t="1">Extract data</button>
+      <button role="tab" data-t="2">Localise media</button>
+      <button role="tab" data-t="3">Caption &amp; transcribe</button>
+    </div>
+    <div class="panel grid4" data-p="0">
+      <a href="contact.html" class="lcard"><div><h3>PDF to Word</h3><p>Editable files with layout, tables and fonts intact.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>EPUB conversion</h3><p>EPUB 2 and 3, reflowable or fixed layout.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Accessibility remediation</h3><p>WCAG 2.1 and PDF/UA tagging.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Copy editing</h3><p>Proofreading and typesetting before release.</p></div><span class="go">Get a quote</span></a>
+    </div>
+    <div class="panel grid4" data-p="1" hidden>
+      <a href="contact.html" class="lcard"><div><h3>Scanned documents to Excel</h3><p>Invoices, forms and ledgers as clean spreadsheets.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Handwritten records</h3><p>OCR with manual verification.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Archival digitisation</h3><p>Low-quality and mixed-language scans.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Data cleanup</h3><p>Analysis-ready output for reporting.</p></div><span class="go">Get a quote</span></a>
+    </div>
+    <div class="panel grid4" data-p="2" hidden>
+      <a href="contact.html" class="lcard"><div><h3>SRT translation</h3><p>Accurate timing and natural phrasing.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Multi-language rollout</h3><p>One project across many language pairs.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Training content</h3><p>Corporate learning videos, localised.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Entertainment media</h3><p>Subtitles that connect with local audiences.</p></div><span class="go">Get a quote</span></a>
+    </div>
+    <div class="panel grid4" data-p="3" hidden>
+      <a href="contact.html" class="lcard"><div><h3>Audio transcription</h3><p>Verbatim or edited, with time codes.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Video subtitles</h3><p>Timestamped SRT files.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Podcast transcripts</h3><p>Searchable media archives.</p></div><span class="go">Get a quote</span></a>
+      <a href="contact.html" class="lcard"><div><h3>Accessibility captions</h3><p>Captions that meet accessibility needs.</p></div><span class="go">Get a quote</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="sol">
+  <div class="wrap">
+    <h2 class="sec">Solutions that keep your work moving</h2>
+    <div class="row">
+      <div class="txt"><h3>Document services</h3><p>Large volumes converted accurately, checked before delivery.</p><ul><li>PDF, Word and Excel formats</li><li>1,200+ pages per day</li><li>Multi-pass quality review</li></ul><a href="contact.html" class="btn btn-grad">Talk to us</a></div>
+      <div class="img" style="background-image:url('pdf.jpeg')" role="img" aria-label="Document conversion"></div>
+    </div>
+    <div class="row">
+      <div class="txt"><h3>Media services</h3><p>Transcription, subtitling and localisation for global audiences.</p><ul><li>SRT editing and translation</li><li>AI-assisted, human-verified</li><li>Consistent formatting across batches</li></ul><a href="contact.html" class="btn btn-grad">Talk to us</a></div>
+      <div class="img" style="background-image:url('srt.jpeg')" role="img" aria-label="Media services"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES -->
+<section class="stories" id="stories">
+  <div class="wrap">
+
+    <h2 class="sec">Customer stories</h2>
+
+    <div class="customer-carousel">
+
+      <button class="story-arrow story-prev" id="storyPrev" aria-label="Previous customer story">
+        &#8249;
+      </button>
+
+      <div class="customer-track" id="customerTrack">
+
+        <!-- Story 1 -->
+        <article class="customer-slide active">
+          <div class="customer-image">
+            <img src="Customer Story.png" alt="Customer story">
+          </div>
+
+          <div class="customer-content">
+            <span class="story-label">Customer Story</span>
+
+            <h3>EPUB conversion at scale for a global academic publisher</h3>
+
+            <p>
+              A print catalogue moved to EPUB 2 and 3,
+              WCAG-compliant and device-ready.
+            </p>
+
+            <div class="story-stats">
+              <div>
+                <strong>100%</strong>
+                <span>EPUB standards compliance</span>
+              </div>
+
+              <div>
+                <strong>30%</strong>
+                <span>Production efficiency gain</span>
+              </div>
+
+              <div>
+                <strong>2–3 days</strong>
+                <span>Turnaround per title</span>
+              </div>
+
+              <div>
+                <strong>30</strong>
+                <span>Team members</span>
+              </div>
+            </div>
+
+            <button class="story-read" data-story="0">
+              Read customer story →
+            </button>
+          </div>
+        </article>
+
+
+        <!-- Story 2 -->
+        <article class="customer-slide">
+          <div class="customer-image">
+            <img src="customer story 2.png" alt="PDF to Word customer story">
+          </div>
+
+          <div class="customer-content">
+            <span class="story-label">Customer Story</span>
+
+            <h3>PDF to Word conversion with zero layout loss</h3>
+
+            <p>
+              Complex PDFs converted into fully editable Word files
+              at high volume.
+            </p>
+
+            <div class="story-stats">
+              <div>
+                <strong>1,200+</strong>
+                <span>Pages per day</span>
+              </div>
+
+              <div>
+                <strong>5–10</strong>
+                <span>Team members</span>
+              </div>
+
+              <div>
+                <strong>100%</strong>
+                <span>Client specification compliance</span>
+              </div>
+
+              <div>
+                <strong>Multi</strong>
+                <span>QA review passes</span>
+              </div>
+            </div>
+
+            <button class="story-read" data-story="1">
+              Read customer story →
+            </button>
+          </div>
+        </article>
+
+
+        <!-- Story 3 -->
+        <article class="customer-slide">
+          <div class="customer-image">
+            <img src="Srt Customer Story.png" alt="SRT subtitle customer story">
+          </div>
+
+          <div class="customer-content">
+            <span class="story-label">Customer Story</span>
+
+            <h3>AI-assisted SRT subtitle workflow optimisation</h3>
+
+            <p>
+              A slow manual subtitle pipeline rebuilt as an
+              AI-human hybrid workflow.
+            </p>
+
+            <div class="story-stats">
+              <div>
+                <strong>30–50%</strong>
+                <span>Faster turnaround</span>
+              </div>
+
+              <div>
+                <strong>5</strong>
+                <span>Editors and QA</span>
+              </div>
+
+              <div>
+                <strong>Higher</strong>
+                <span>Accuracy and consistency</span>
+              </div>
+
+              <div>
+                <strong>Bulk</strong>
+                <span>Projects on schedule</span>
+              </div>
+            </div>
+
+            <button class="story-read" data-story="2">
+              Read customer story →
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="story-arrow story-next" id="storyNext" aria-label="Next customer story">
+        &#8250;
+      </button>
+
+    </div>
+
+    <div class="story-dots" id="storyDots">
+      <button class="active" aria-label="Customer story 1"></button>
+      <button aria-label="Customer story 2"></button>
+      <button aria-label="Customer story 3"></button>
+    </div>
+
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="career">
+    <div><h2>Help shape the next project with a career at Quatrox</h2><p>Join a team where careful work is noticed and you grow every day.</p></div>
+    <a href="careers.html" class="btn btn-white">Explore careers</a>
+  </section>
+</div>
+
+<section class="more">
+  <div class="wrap grid3" style="grid-template-columns:1fr 1fr">
+    <div class="ban"><img src="service home.png" alt=""><div><h3>Have a project in mind?</h3><a href="contact.html" class="btn btn-white">Get in touch</a></div></div>
+    <div class="ban"><img src="epub.jpeg" alt=""><div><h3>See how we work with publishers</h3><a href="#stories" class="btn btn-white">Read stories</a></div></div>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="mbox"><button
+  class="x"
+  id="mx"
+  type="button"
+  aria-label="Close"
+  onclick="document.getElementById('modal').classList.remove('open')">
+  &#10005;
+</button><h3 id="mt"></h3><p class="lead" id="ml"></p><div class="stats" id="ms"></div><div class="out" id="mo"></div></div></div>
+
+<div class="modal" id="mapModal" role="dialog" aria-modal="true" aria-label="Office locations">
+  <div class="mbox mapbox">
+    <button
+  class="x"
+  id="mapX"
+  type="button"
+  aria-label="Close"
+  onclick="document.getElementById('mapModal').classList.remove('open')"
+>&#10005;</button>
+    <h3>Our office locations</h3>
+    <p class="lead" style="margin-bottom:0">Two offices serving clients worldwide</p>
+    <div class="mtabs"><button class="on" data-m="0">Thuckalay</button><button data-m="1">Madurai</button></div>
+    <iframe class="mframe" id="mapFrame" title="Office map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://maps.google.com/maps?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175&output=embed&z=15"></iframe>
+    <div class="minfo">
+      <div><b>Address</b><span id="mapAddr">16-74A, HMP Towers<br>Market Rd, Thuckalay<br>Tamil Nadu — 629175</span><br><a id="mapDir" target="_blank" rel="noopener" href="https://maps.google.com/?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175">Get directions</a></div>
+      <div><b>Contact</b>+91 7200801765<br>contact@quatroxsolutions.com<br><br><b>Business hours</b>Mon – Sat, 9 AM – 6 PM IST</div>
+    </div>
+  </div>
+</div>
+
+<footer class="qx-foot">
+
+  <div class="qx-foot-inner">
+
+
+
+    <div class="qx-foot-cols">
+
+
+
+      <div class="qx-col">
+
+        <button class="qx-col-title" type="button">Services</button>
+
+        <ul>
+
+          <li><a href="service.html">ePub Conversion</a></li>
+
+          <li><a href="service.html">XML Conversion</a></li>
+
+          <li><a href="service.html">Copy Editing</a></li>
+
+          <li><a href="service.html">Accessibility Services</a></li>
+
+          <li><a href="service.html">Typesetting</a></li>
+
+          <li><a href="service.html">Voice Internationalisation</a></li>
+
+        </ul>
+
+      </div>
+
+
+
+      <div class="qx-col">
+
+        <button class="qx-col-title" type="button">Company</button>
+
+        <ul>
+
+          <li><a href="index.html">Home</a></li>
+
+          <li><a href="#About">About Us</a></li>
+
+          <li><a href="#History">Our History</a></li>
+
+          <li><a href="#Leadership">Leadership</a></li>
+
+          <li><a href="careers.html">Careers</a></li>
+
+        </ul>
+
+      </div>
+
+
+
+      <div class="qx-col">
+
+        <button class="qx-col-title" type="button">Support</button>
+
+        <ul>
+
+          <li><a href="contact.html">Contact Us</a></li>
+
+          <li><a href="contact.html">Book a Call</a></li>
+
+          <li><a href="javascript:void(0)" onclick="openTerms()">Terms &amp; Conditions</a></li>
+
+          <li><a href="mailto:contact@quatroxsolutions.com">contact@quatroxsolutions.com</a></li>
+
+          <li><a href="tel:+917200801765">+91 7200801765</a></li>
+
+        </ul>
+
+      </div>
+
+
+
+      <div class="qx-col">
+
+        <button class="qx-col-title" type="button">Legal</button>
+
+        <ul>
+
+          <li><a href="javascript:void(0)" onclick="openTerms()">Terms &amp; Conditions</a></li>
+
+          <li><a href="javascript:void(0)" onclick="openPrivacy()">Privacy Policy</a></li>
+
+        </ul>
+
+      </div>
+
+
+
+      <div class="qx-col qx-col-social">
+
+        <div class="qx-col-title qx-static">Follow Us</div>
+
+        <div class="qx-socials">
+
+          <a class="qx-soc" title="WhatsApp" aria-label="WhatsApp" href="https://wa.me/917200801765" target="_blank" rel="noopener">
+
+            <svg viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+
+          </a>
+
+          <a class="qx-soc" title="Instagram" aria-label="Instagram" href="https://www.instagram.com/quatrox_solutions" target="_blank" rel="noopener">
+
+            <svg viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm.003 1.44c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg>
+
+          </a>
+
+          <a class="qx-soc" title="LinkedIn" aria-label="LinkedIn" href="https://www.linkedin.com/in/quatrox-data-solutions-a29792378" target="_blank" rel="noopener">
+
+            <svg viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>
+
+          </a>
+
+        </div>
+
+
+
+        <div class="qx-cta-block">
+
+          <h5>Have a project in mind?</h5>
+
+          <a class="qx-cta-link" href="contact.html">START A PROJECT &rarr;</a>
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+
+    <!-- brand row -->
+
+    <div class="qx-foot-brand">
+
+      <a class="qx-brand" href="index.html">
+
+        <img src="Quatrox Solutions Logo Footer.png" alt="Quatrox Solutions Logo">
+
+        <span>Quatrox Solutions</span>
+
+      </a>
+
+      <button class="qx-loc" type="button" onclick="document.getElementById('mapModal').classList.add('open')">
+
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a5 5 0 0 0-5 5c0 3.5 5 11 5 11s5-7.5 5-11a5 5 0 0 0-5-5m0 7.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5"/></svg>
+
+        Thuckalay &amp; Madurai, India
+
+      </button>
+
+    </div>
+
+
+
+    <!-- legal row -->
+
+    <div class="qx-foot-bottom">
+
+      <div class="qx-policies">
+
+        <a href="javascript:void(0)" onclick="openTerms()">Terms &amp; Conditions</a>
+
+        <a href="javascript:void(0)" onclick="openPrivacy()">Privacy Policy</a>
+
+      </div>
+
+      <div class="qx-copy">&copy; 2026 Quatrox Solutions Private Limited. All rights reserved.</div>
+
+    </div>
+
+
+
+  </div>
+
+</footer>
+
+<style>
+.lg-overlay{display:none;position:fixed;inset:0;background:rgba(21,35,61,.6);z-index:99999;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.lg-overlay.open{display:flex}
+.lg-modal{background:#F5F9FF;border:1px solid rgba(255,255,255,.7);border-radius:22px;width:min(860px,100%);max-height:90vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 40px 90px rgba(37,67,112,.35);transform:translateY(30px) scale(.97);transition:transform .35s cubic-bezier(.34,1.4,.64,1),opacity .3s;opacity:0;font-family:'DM Sans',sans-serif}
+.lg-overlay.open .lg-modal{transform:translateY(0) scale(1);opacity:1}
+.lg-head{position:relative;overflow:hidden;background:linear-gradient(110deg,#25A9F2 0%,#3478F6 48%,#5B21D6 100%);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;gap:16px}
+.lg-head::before{content:'';position:absolute;top:-90px;right:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.28),transparent 70%);pointer-events:none}.lg-head>*{position:relative}
+.lg-kicker{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:5px}.lg-title{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em}.lg-sub{font-size:12px;color:rgba(255,255,255,.88);margin-top:3px}
+.lg-close{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,transform .2s;line-height:1}.lg-close:hover{background:rgba(255,255,255,.34);transform:rotate(90deg)}
+.lg-body{overflow-y:auto;flex:1;padding:32px 36px 40px;scrollbar-width:thin;scrollbar-color:#3478F6 #e6f0ff}.lg-notice{background:linear-gradient(110deg,rgba(37,169,242,.12),rgba(91,33,214,.12));border:1px solid rgba(52,120,246,.25);border-radius:14px;padding:16px 20px;margin-bottom:32px;display:flex;align-items:flex-start;gap:12px}.lg-notice span{font-size:18px;flex-shrink:0}.lg-notice p{font-size:13.5px;line-height:1.7;color:#5B6B88;margin:0}.lg-notice strong,.pm-sec strong,.tm-sec strong{color:#15233D}
+.pm-sec,.tm-sec{margin-bottom:34px}.pm-sec-hd,.tm-sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid rgba(52,120,246,.15)}.pm-num,.tm-num{width:30px;height:30px;background:linear-gradient(135deg,#25A9F2,#3478F6 55%,#5B21D6);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 6px 14px rgba(52,120,246,.28)}
+.pm-sec h2,.tm-sec h2{font-size:17px;font-weight:800;color:#15233D;margin:0}.pm-sec p,.tm-sec p{font-size:14px;line-height:1.8;color:#5B6B88;margin:0 0 10px}.pm-sec p:last-child,.tm-sec p:last-child{margin-bottom:0}.pm-sec h3{font-size:14px;font-weight:700;color:#3478F6;margin:16px 0 6px}.pm-sec ul,.tm-sec ul{margin:0 0 10px;padding:0;list-style:none}.pm-sec ul li,.tm-sec ul li{font-size:14px;line-height:1.75;color:#5B6B88;padding:5px 0 5px 22px;position:relative;border-bottom:1px solid #e6eefb}.pm-sec ul li:last-child,.tm-sec ul li:last-child{border-bottom:none}.pm-sec ul li::before,.tm-sec ul li::before{content:'';position:absolute;left:0;top:14px;width:8px;height:8px;background:linear-gradient(135deg,#25A9F2,#5B21D6);border-radius:50%}
+.pm-sec a,.tm-sec a{color:#3478F6;font-weight:600;text-underline-offset:3px}.pm-sec a:hover,.tm-sec a:hover{color:#5B21D6}.pm-tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid #dfe7f2;margin:12px 0 16px;background:#fff}.pm-tbl{width:100%;border-collapse:collapse;font-size:13px}.pm-tbl th{background:linear-gradient(110deg,#25A9F2,#3478F6 55%,#5B21D6);color:#fff;font-weight:700;text-align:left;padding:11px 14px;font-size:11px;letter-spacing:.06em}.pm-tbl td{padding:10px 14px;color:#5B6B88;border-bottom:1px solid #e6eefb;line-height:1.55;vertical-align:top}.pm-tbl tr:last-child td{border-bottom:none}.pm-tbl tr:nth-child(even) td{background:#F5F9FF}
+.pm-box,.tm-note{background:#fff;border:1px solid #dfe7f2;border-left:4px solid #3478F6;border-radius:0 12px 12px 0;padding:16px 20px;margin:14px 0}.pm-box-lbl,.pm-contact-card-lbl,.tm-contact-card-lbl{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3478F6;margin-bottom:6px}.pm-box p,.tm-note p{font-size:13.5px;line-height:1.7;color:#5B6B88;margin:0 0 3px}.tm-warn{background:linear-gradient(110deg,rgba(37,169,242,.1),rgba(91,33,214,.1));border:1px solid rgba(52,120,246,.3);border-radius:12px;padding:14px 18px;margin:14px 0}.tm-warn p{font-size:13.5px;line-height:1.7;color:#15233D;margin:0}
+.pm-contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.tm-contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}.pm-contact-card,.tm-contact-card{background:#fff;border:1px solid #dfe7f2;border-radius:14px;padding:14px 16px;transition:border-color .2s,box-shadow .2s,transform .2s}.pm-contact-card:hover,.tm-contact-card:hover{border-color:rgba(52,120,246,.45);box-shadow:0 12px 28px rgba(52,120,246,.14);transform:translateY(-2px)}.pm-contact-card p,.tm-contact-card p{font-size:13px;color:#5B6B88;margin:0;line-height:1.6}.pm-contact-card a,.tm-contact-card a{color:#3478F6;font-weight:600;text-decoration:none;overflow-wrap:anywhere}.lg-foot{font-size:12px;color:#5B6B88;text-align:center;margin-top:8px;border-top:1px solid #dfe7f2;padding-top:20px}
+@media(max-width:786px){.pm-contact-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}@media(max-width:600px){.tm-contact-grid{grid-template-columns:1fr}.lg-head{padding:18px}.lg-body{padding:24px 18px 30px}.lg-title{font-size:19px}}
+@media(prefers-reduced-motion:reduce){.lg-modal,.lg-close,.pm-contact-card,.tm-contact-card{transition:none}}
+</style>
+
+<div id="privacyOverlay" class="lg-overlay" onclick="closePrivacyOutside(event)">
+<div id="privacyModal" class="lg-modal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+  <div class="lg-head"><div><div class="lg-kicker">Legal</div><div class="lg-title" id="privacyTitle">Privacy Policy</div><div class="lg-sub">Quatrox Solutions Private Limited &nbsp;|&nbsp; Effective April 12, 2026</div></div><button class="lg-close" type="button" onclick="closePrivacy()" aria-label="Close">&#10005;</button></div>
+  <div class="lg-body">
+    <div class="lg-notice"><span aria-hidden="true">&#128274;</span><p><strong>Your privacy matters to us.</strong> We comply with the IT Act 2000 and India's Digital Personal Data Protection Act 2023. We never sell your data.</p></div>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">01</div><h2>Introduction</h2></div><p>Welcome to <strong>Quatrox Solutions Private Limited</strong> - a BPO company registered under the Companies Act, 2013, specialising in publishing and content technology services. This Privacy Policy explains how we collect, use, store, and protect your personal information when you visit our website or use our services.</p><p>By using our website, you acknowledge and agree to this Privacy Policy. If you do not agree, please discontinue use of our website immediately.</p></section>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">02</div><h2>Information We Collect</h2></div><h3>Information you provide</h3><ul><li>Full name, email address, and phone number</li><li>Company name, business address, and designation</li><li>Project requirements and inquiry details</li><li>Billing and payment information</li><li>Resume and professional details (for job applicants)</li></ul><h3>Information collected automatically</h3><ul><li>IP address and approximate geographic location</li><li>Browser type, device, and OS information</li><li>Pages visited, time spent, and click patterns</li><li>Cookies and similar tracking technologies</li></ul></section>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">03</div><h2>How We Use Your Information</h2></div><div class="pm-tbl-wrap"><table class="pm-tbl"><thead><tr><th>Purpose</th><th>Details</th></tr></thead><tbody><tr><td><strong>Service Delivery</strong></td><td>Provide, manage, and improve our services</td></tr><tr><td><strong>Communication</strong></td><td>Respond to inquiries and send project updates</td></tr><tr><td><strong>Marketing</strong></td><td>Send newsletters with your consent</td></tr><tr><td><strong>Security</strong></td><td>Detect and prevent fraud or technical issues</td></tr><tr><td><strong>Legal Compliance</strong></td><td>Comply with Indian and international laws</td></tr><tr><td><strong>Recruitment</strong></td><td>Evaluate job applications</td></tr></tbody></table></div></section>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">04</div><h2>How We Share Your Information</h2></div><p>We do <strong>not sell, rent, or trade</strong> your personal information. We may share data only with:</p><ul><li><strong>Service Providers</strong> - Trusted vendors (hosting, payments, analytics) bound by confidentiality agreements</li><li><strong>Legal Authorities</strong> - When required by law, court order, or government regulation</li><li><strong>Business Transfers</strong> - In case of merger or acquisition, with prior notice to you</li><li><strong>With Your Consent</strong> - When you have explicitly agreed</li></ul></section>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">05</div><h2>Cookies &amp; Tracking</h2></div><div class="pm-tbl-wrap"><table class="pm-tbl"><thead><tr><th>Type</th><th>Purpose</th><th>Disableable?</th></tr></thead><tbody><tr><td>Essential</td><td>Core website functionality</td><td>No</td></tr><tr><td>Analytics</td><td>Understand visitor behaviour</td><td>Yes</td></tr><tr><td>Marketing</td><td>Relevant advertisements</td><td>Yes</td></tr><tr><td>Preference</td><td>Remember your settings</td><td>Yes</td></tr></tbody></table></div><p>You can manage cookies through your browser settings. Disabling some may affect site functionality.</p></section>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">06</div><h2>Data Security</h2></div><ul><li>SSL/TLS encryption for all data in transit</li><li>Encrypted storage for sensitive personal and financial data</li><li>Role-based access - only authorised personnel access your data</li><li>Regular security audits and vulnerability assessments</li><li>Secure data backup and disaster recovery protocols</li></ul></section>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">07</div><h2>Your Rights</h2></div><ul><li><strong>Access</strong> - Request a copy of data we hold about you</li><li><strong>Correction</strong> - Request correction of inaccurate data</li><li><strong>Deletion</strong> - Request erasure (subject to legal obligations)</li><li><strong>Portability</strong> - Receive your data in a machine-readable format</li><li><strong>Withdraw Consent</strong> - Opt out of marketing at any time</li><li><strong>Object / Restrict</strong> - Object to or limit how we process your data</li></ul><p>To exercise any right, email <a href="mailto:admin@quatroxsolutions.com">admin@quatroxsolutions.com</a>. We respond within <strong>30 days</strong>.</p></section>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">08</div><h2>Children's Privacy</h2></div><p>Our services are not directed to anyone under 18. We do not knowingly collect data from minors. If you believe a minor has provided us data, contact us and we will delete it immediately.</p></section>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">09</div><h2>Indian Law Compliance</h2></div><ul><li>Information Technology Act, 2000</li><li>IT (SPDI) Rules, 2011</li><li>Digital Personal Data Protection Act, 2023</li></ul><div class="pm-box"><div class="pm-box-lbl">Grievance Officer</div><p><strong>Mohamed Fahad</strong></p><p>Founder &amp; Managing Director - Quatrox Solutions Private Limited</p><p>Email: <a href="mailto:admin@quatroxsolutions.com">admin@quatroxsolutions.com</a></p><p>Response: Within 30 days of receipt</p></div></section>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">11</div><h2>Changes to This Policy</h2></div><p>We may update this policy periodically. When we do, we will update the effective date above and notify clients via email for significant changes. Continued use of our website means you accept the updated policy.</p></section>
+    <section class="pm-sec"><div class="pm-sec-hd"><div class="pm-num">12</div><h2>Contact Us</h2></div><div class="pm-contact-grid"><div class="pm-contact-card"><div class="pm-contact-card-lbl">Privacy Email</div><p><a href="mailto:admin@quatroxsolutions.com">admin@quatroxsolutions.com</a></p></div><div class="pm-contact-card"><div class="pm-contact-card-lbl">General Email</div><p><a href="mailto:contact@quatroxsolutions.com">contact@quatroxsolutions.com</a></p></div><div class="pm-contact-card"><div class="pm-contact-card-lbl">Phone</div><p><a href="tel:+917200801765">+91 7200801765</a></p></div><div class="pm-contact-card"><div class="pm-contact-card-lbl">Thuckalay Office</div><p>16-74A, HMP Towers, Market Rd,<br>Thuckalay, TN - 629175</p></div><div class="pm-contact-card"><div class="pm-contact-card-lbl">Madurai Office</div><p>66, Meenakshi St, Thirunagar,<br>Madurai, TN - 625006</p></div></div></section>
+    <p class="lg-foot">&copy; 2026 Quatrox Solutions Private Limited. All rights reserved.<br>This policy is governed by the laws of India.</p>
+  </div>
+</div>
+</div>
+
+<div id="termsOverlay" class="lg-overlay" onclick="closeTermsOutside(event)">
+<div id="termsModal" class="lg-modal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+  <div class="lg-head"><div><div class="lg-kicker">Legal</div><div class="lg-title" id="termsTitle">Terms &amp; Conditions</div><div class="lg-sub">Quatrox Solutions Private Limited &nbsp;|&nbsp; Effective April 14, 2025</div></div><button class="lg-close" type="button" onclick="closeTerms()" aria-label="Close">&#10005;</button></div>
+  <div class="lg-body">
+    <div class="lg-notice"><span aria-hidden="true">&#128203;</span><p><strong>Please read carefully.</strong> By accessing or using our website, products, or services, you agree to be legally bound by these Terms and Conditions.</p></div>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">01</div><h2>Acceptance of Terms</h2></div><p>By accessing, browsing, or using the Quatrox Solutions website or any of our services ("Services"), you confirm that you are at least 18 years of age, have read and understood these Terms, and agree to be legally bound by them.</p><p>These Terms constitute a legally binding agreement between you ("User", "Client") and Quatrox Solutions Private Limited ("Company", "we", "us", "our").</p></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">02</div><h2>Services Offered</h2></div><p>Quatrox Solutions provides technology and business services including but not limited to:</p><ul><li>Software development and IT consulting</li><li>Web and mobile application design and development</li><li>ePub conversion, XML structuring, and typesetting</li><li>Accessibility remediation (WCAG 2.1 / PDF/UA)</li><li>Copy editing and proofreading</li><li>Voice internationalisation and SRT captioning</li><li>Technical support and maintenance services</li></ul><div class="tm-note"><p>The scope, deliverables, timelines, and pricing for specific services will be governed by a separate Service Agreement or Statement of Work (SOW) entered into between the parties.</p></div></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">03</div><h2>User Obligations</h2></div><p>As a user of our website and services, you agree to:</p><ul><li>Provide accurate, current, and complete information when required</li><li>Not use the Services for any unlawful, fraudulent, or harmful purpose</li><li>Not attempt to gain unauthorised access to our systems or infrastructure</li><li>Not reproduce, distribute, or commercially exploit any content without prior written permission</li><li>Comply with all applicable local, national, and international laws and regulations</li></ul></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">04</div><h2>Intellectual Property</h2></div><p>All content on this website - including text, graphics, logos, images, software code, and documentation - is the exclusive property of Quatrox Solutions Private Limited and is protected under applicable copyright, trademark, and intellectual property laws.</p><p>Nothing in these Terms grants you any right to use Quatrox Solutions' trademarks, logos, or proprietary content without express written permission.</p><div class="tm-note"><p>Custom work developed for clients under a paid engagement will be governed by the intellectual property clauses outlined in the applicable Service Agreement or SOW.</p></div></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">05</div><h2>Confidentiality</h2></div><p>Both parties agree to maintain strict confidentiality regarding any proprietary, technical, business, or personal information disclosed during the course of engagement. This obligation survives the termination of the business relationship.</p><p>Confidential information shall not be disclosed to third parties without prior written consent, except where required by law or court order.</p></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">06</div><h2>Privacy &amp; Data Protection</h2></div><p>Quatrox Solutions is committed to protecting your personal data. Our collection, use, and processing of personal data is governed by our <strong>Privacy Policy</strong>, which forms an integral part of these Terms and Conditions.</p><p>We implement appropriate technical and organisational measures to safeguard your data in compliance with the Information Technology Act 2000 and India's Digital Personal Data Protection Act 2023.</p></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">07</div><h2>Payment Terms</h2></div><ul><li>Fees and payment schedules will be specified in the applicable SOW or invoice</li><li>Payments are due within the period specified on the invoice unless otherwise agreed</li><li>Late payments may attract interest or service suspension at our discretion</li><li>All fees are exclusive of applicable taxes unless stated otherwise</li></ul></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">08</div><h2>Limitation of Liability</h2></div><div class="tm-warn"><p>To the maximum extent permitted by applicable law, Quatrox Solutions shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to the use or inability to use our Services, even if we have been advised of the possibility of such damages. Our total liability shall not exceed the amount paid by you for the specific service in the three (3) months preceding the incident.</p></div></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">09</div><h2>Disclaimer of Warranties</h2></div><p>Our Services are provided on an "as is" and "as available" basis without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p><p>We do not warrant that the Services will be uninterrupted, error-free, or free of viruses or other harmful components.</p></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">10</div><h2>Termination</h2></div><p>Quatrox Solutions reserves the right to suspend or terminate your access to the Services at any time, with or without notice, if you violate any of these Terms or engage in conduct we consider harmful or inappropriate. Upon termination, your right to use the Services will immediately cease.</p></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">11</div><h2>Changes to These Terms</h2></div><p>We reserve the right to update or modify these Terms at any time. Changes will be posted on this page with an updated effective date. Continued use of our Services after any changes constitutes your acceptance of the revised Terms.</p></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">12</div><h2>Governing Law &amp; Jurisdiction</h2></div><p>These Terms shall be governed by and construed in accordance with the laws of India. Any disputes arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in Tamil Nadu, India.</p></section>
+    <section class="tm-sec"><div class="tm-sec-hd"><div class="tm-num">13</div><h2>Contact Us</h2></div><p>If you have any questions or concerns regarding these Terms and Conditions, please reach out to us:</p><div class="tm-contact-grid"><div class="tm-contact-card"><div class="tm-contact-card-lbl">Company</div><p>Quatrox Solutions Private Limited</p></div><div class="tm-contact-card"><div class="tm-contact-card-lbl">Email</div><p><a href="mailto:contact@quatroxsolutions.com">contact@quatroxsolutions.com</a></p></div><div class="tm-contact-card"><div class="tm-contact-card-lbl">Thuckalay Office</div><p>16-74A, HMP Towers, Market Rd,<br>Thuckalay, TN - 629175</p></div><div class="tm-contact-card"><div class="tm-contact-card-lbl">Madurai Office</div><p>66, Meenakshi St, Thirunagar,<br>Madurai, TN - 625006</p></div></div></section>
+    <p class="lg-foot">&copy; 2026 Quatrox Solutions Private Limited. All rights reserved.<br>This policy is governed by the laws of India.</p>
+  </div>
+</div>
+</div>
+
+<script>
+function openLegalModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+function closeLegalModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+function openPrivacy(){openLegalModal('privacyOverlay')}
+function closePrivacy(){closeLegalModal('privacyOverlay')}
+function closePrivacyOutside(event){if(event.target===document.getElementById('privacyOverlay'))closePrivacy()}
+function openTerms(){openLegalModal('termsOverlay')}
+function closeTerms(){closeLegalModal('termsOverlay')}
+function closeTermsOutside(event){if(event.target===document.getElementById('termsOverlay'))closeTerms()}
+document.addEventListener('keydown',function(event){if(event.key==='Escape'){closePrivacy();closeTerms()}})
+</script>
+
+<script>
+var S=[
+{t:"EPUB conversion at scale for a global academic publisher",l:"A print catalogue moved to EPUB 2 and 3, WCAG-compliant and device-ready.",s:[["100%","EPUB standards compliance"],["30%","Production efficiency gain"],["2–3 days","Turnaround per title"],["30","Team members"]],o:"Zero critical errors, seamless performance on every major platform, delivered within a 10–12 week engagement."},
+{t:"PDF to Word conversion with zero layout loss",l:"Complex PDFs converted into fully editable Word files at high volume.",s:[["1,200+","Pages per day"],["5–10","Team members"],["100%","Client spec compliance"],["Multi","QA review passes"]],o:"Layout intact, tables accurate and fonts correct, ready to use from day one."},
+{t:"AI-assisted SRT subtitle workflow optimisation",l:"A slow manual subtitle pipeline rebuilt as an AI-human hybrid.",s:[["30–50%","Faster turnaround"],["5","Editors and QA"],["Higher","Accuracy and consistency"],["Bulk","Projects on schedule"]],o:"Faster delivery, consistent formatting and a repeatable model for future media projects."}];
+var $=function(i){return document.getElementById(i)};
+/* navbar */
+(function(){
+  var wrap=document.querySelector(".quatrox-nav-wrap"),
+      menu=$("mobileMenu"),
+      ham=document.querySelector(".quatrox-hamburger"),
+      last=window.pageYOffset;
+  ham.addEventListener("click",function(e){
+    e.stopPropagation();
+    menu.style.display=menu.style.display==="flex"?"none":"flex";
+  });
+  document.addEventListener("click",function(e){
+    if(!menu.contains(e.target)&&!ham.contains(e.target))menu.style.display="none";
+  });
+  menu.querySelectorAll("a").forEach(function(a){a.onclick=function(){menu.style.display="none"}});
+  window.addEventListener("scroll",function(){
+    var y=window.pageYOffset;
+    wrap.classList.toggle("is-scrolled",y>24);
+    if(y>last&&y>80){wrap.classList.add("nav-hidden");menu.style.display="none"}
+    else if(y<last){wrap.classList.remove("nav-hidden")}
+    last=y;
+  });
+})();
+/* carousel */
+var sl=document.querySelectorAll(".slide"),dots=$("dots"),cur=0,timer,playing=true;
+sl.forEach(function(_,i){var b=document.createElement("button");b.setAttribute("aria-label","Slide "+(i+1));b.onclick=function(){go(i)};dots.appendChild(b)});
+function go(n){cur=(n+sl.length)%sl.length;sl.forEach(function(s,i){s.classList.toggle("on",i===cur)});[].forEach.call(dots.children,function(d,i){d.classList.toggle("on",i===cur)})}
+function start(){clearInterval(timer);if(playing)timer=setInterval(function(){go(cur+1)},6000)}
+$("prev").onclick=function(){go(cur-1);start()};$("next").onclick=function(){go(cur+1);start()};
+$("pause").onclick=function(){playing=!playing;this.innerHTML=playing?"&#10074;&#10074;":"&#9654;";start()};
+go(0);start();
+/* tabs */
+document.querySelectorAll(".tabbar button").forEach(function(b){b.onclick=function(){
+  document.querySelectorAll(".tabbar button").forEach(function(x){x.classList.toggle("on",x===b)});
+  document.querySelectorAll(".panel").forEach(function(p){p.hidden=p.dataset.p!==b.dataset.t})}});
+/* ===== CUSTOMER STORY CAROUSEL ===== */
+
+var customerSlides = document.querySelectorAll(".customer-slide");
+var storyDots = document.querySelectorAll("#storyDots button");
+var storyCurrent = 0;
+var storyTimer;
+
+function showCustomerStory(n){
+
+  storyCurrent = (n + customerSlides.length) % customerSlides.length;
+
+  customerSlides.forEach(function(slide,i){
+    slide.classList.toggle("active",i === storyCurrent);
+  });
+
+  storyDots.forEach(function(dot,i){
+    dot.classList.toggle("active",i === storyCurrent);
+  });
+
+}
+
+function startCustomerStories(){
+
+  clearInterval(storyTimer);
+
+  storyTimer = setInterval(function(){
+
+    showCustomerStory(storyCurrent + 1);
+
+  },7000);
+
+}
+
+$("storyPrev").onclick=function(){
+
+  showCustomerStory(storyCurrent - 1);
+  startCustomerStories();
+
+};
+
+$("storyNext").onclick=function(){
+
+  showCustomerStory(storyCurrent + 1);
+  startCustomerStories();
+
+};
+
+storyDots.forEach(function(dot,i){
+
+  dot.onclick=function(){
+
+    showCustomerStory(i);
+    startCustomerStories();
+
+  };
+
+});
+
+
+/* Open existing customer story modal */
+
+document.querySelectorAll(".story-read").forEach(function(b){
+
+  b.onclick=function(){
+
+    var d=S[b.dataset.story];
+
+    $("mt").textContent=d.t;
+    $("ml").textContent=d.l;
+    $("mo").textContent=d.o;
+
+    $("ms").innerHTML=d.s.map(function(x){
+
+      return "<div><b>"+x[0]+"</b>"+x[1]+"</div>";
+
+    }).join("");
+
+    $("modal").classList.add("open");
+
+  };
+
+});
+
+
+showCustomerStory(0);
+startCustomerStories();
+/* map modal */
+var L=[
+{s:"https://maps.google.com/maps?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175&output=embed&z=15",a:"16-74A, HMP Towers<br>Market Rd, Thuckalay<br>Tamil Nadu — 629175",d:"https://maps.google.com/?q=16-74A+HMP+Towers+Market+Rd+Thuckalay+Tamil+Nadu+629175"},
+{s:"https://maps.google.com/maps?q=Meenakshi+Street+Thirunagar+Madurai+Tamil+Nadu+625006&output=embed&z=15",a:"66, 5-5/9 Meenakshi Street<br>Thirunagar, Madurai<br>Tamil Nadu — 625006",d:"https://maps.google.com/?q=Meenakshi+Street+Thirunagar+Madurai+Tamil+Nadu+625006"}];
+function cm(){
+  document.getElementById("mapModal").classList.remove("open");
+}
+
+document.getElementById("mapModal").onclick=function(e){
+  if(e.target === this){
+    cm();
+  }
+};
+
+$("mapModal").onclick=function(e){
+    if(e.target===this){
+        $("mapModal").classList.remove("open");
+    }
+};
+document.querySelectorAll(".mtabs button").forEach(function(b){b.onclick=function(){
+  var l=L[b.dataset.m];
+  document.querySelectorAll(".mtabs button").forEach(function(x){x.classList.toggle("on",x===b)});
+  $("mapFrame").src=l.s;$("mapAddr").innerHTML=l.a;$("mapDir").href=l.d}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){cl();cm()}});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var mq = window.matchMedia("(max-width:768px)");
+  var cols = document.querySelectorAll(".qx-col:not(.qx-col-social)");
+
+  function closeAll() {
+    cols.forEach(function (c) {
+      c.classList.remove("open");
+      c.querySelector(".qx-col-title").setAttribute("aria-expanded", "false");
+    });
+  }
+
+  cols.forEach(function (col) {
+    var btn = col.querySelector(".qx-col-title");
+    btn.setAttribute("aria-expanded", "false");
+    btn.addEventListener("click", function () {
+      if (!mq.matches) return;
+      var wasOpen = col.classList.contains("open");
+      closeAll();
+      if (!wasOpen) {
+        col.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  mq.addEventListener("change", function () { if (!mq.matches) closeAll(); });
+});
+</script>
+</body>
+</html>
