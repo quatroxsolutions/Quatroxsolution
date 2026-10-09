@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="global.css">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="image-theme.css">
 <style>
 * {
     -webkit-tap-highlight-color: transparent !important;
@@ -70,7 +71,7 @@ section.quatrox-hero {
   box-sizing: border-box;
   overflow: hidden;
   border-radius: 24px;
-  background: #18202a;
+  background: var(--qx-blue, #3478f6);
 }
 
 section.quatrox-hero::after {
@@ -143,7 +144,7 @@ section.quatrox-hero p {
     margin: 58px auto 42px;
     padding: 34px 24px;
     aspect-ratio: 1672 / 941;
-    background-color: #18202a;
+    background-color: var(--qx-blue, #3478f6);
   }
 
   section.quatrox-hero::after {
@@ -177,7 +178,7 @@ section.quatrox-hero p {
     padding: 70px clamp(28px, 6vw, 88px);
     text-align: left;
     align-items: flex-start;
-    background: #18202a;
+    background: var(--qx-blue, #3478f6);
   }
 
   section.quatrox-hero h1,
@@ -1340,53 +1341,11 @@ gap: 7px;
     -webkit-text-fill-color: transparent;
   }
 
-  #chatbot-button {
-    background: linear-gradient(135deg, #25a9f2 0%, #3478f6 48%, #5b21d6 100%) !important;
-    box-shadow: 0 8px 24px rgba(65, 69, 237, 0.32) !important;
-    border: 1px solid rgba(255, 255, 255, 0.55);
-  }
-
-  #chatbot-button img {
-    width: 34px;
-    height: 34px;
-    object-fit: contain;
-    display: block;
-    border-radius: 10px;
-  }
-
-  #chatbot-window {
-    background: rgba(247, 251, 255, 0.96) !important;
-    border: 1px solid rgba(65, 69, 237, 0.2);
-    box-shadow: 0 18px 48px rgba(54, 79, 181, 0.22) !important;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-  }
-
-  #chatbot-header {
-    background: linear-gradient(110deg, #25a9f2 0%, #3478f6 48%, #5b21d6 100%) !important;
-  }
-
-  #chatbot-input-area button {
-    background: linear-gradient(110deg, #3478f6, #5b21d6) !important;
-  }
-
-  #chatbot-input-area button:hover {
-    background: linear-gradient(110deg, #25a9f2, #4145ed) !important;
-  }
-
-  #chatbot-messages div {
-    background: linear-gradient(110deg, #3478f6, #5b21d6) !important;
-  }
-
-  #chatbot-messages div[style*="background:#f0f0f0"] {
-    background: rgba(65, 69, 237, 0.1) !important;
-    color: #25A9F2 !important;
-  }
 </style>
 
 <!-- ═══════════════════════════════════════ CHATBOT ════════════════════════════════════════ -->
 
-<div id="chatbot-button">💭</div> <div id="chatbot-window"> <div id="chatbot-header"> <span>Quatrox solution's Assistant</span> <span id="chatbot-close">✕</span> </div> <div id="chatbot-messages"></div> <div id="chatbot-input-area"> <input type="text" id="chatbot-input" placeholder="Ask something..." /> <button id="chatbot-send">Send</button> </div> </div>
+<button id="chatbot-button" class="chatbot-launcher" type="button" aria-label="Quatrox Assistant" aria-controls="chatbot-window" aria-expanded="false"><span class="chatbot-tooltip" aria-hidden="true">Quatrox Assistant</span><svg class="chatbot-launcher-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 8.5A4.5 4.5 0 0 1 10.5 4h11A4.5 4.5 0 0 1 26 8.5v9a4.5 4.5 0 0 1-4.5 4.5H15l-5.5 4v-4.35A4.5 4.5 0 0 1 6 17.5v-9Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M11 12h10M11 16h6" stroke="white" stroke-width="1.8" stroke-linecap="round"/><path class="qx-icon-gold" d="m22.5 21 .85 1.65L25 23.5l-1.65.85L22.5 26l-.85-1.65L20 23.5l1.65-.85L22.5 21Z" fill="none" stroke-width="1.5" stroke-linejoin="round"/></svg><span class="chatbot-notification" aria-hidden="true"></span></button> <div id="chatbot-window" class="chatbot-premium-panel" role="region" aria-label="Quatro AI chat" aria-hidden="true"> <div id="chatbot-header"> <span>Quatrox Solutions Assistant</span> <button id="chatbot-close" type="button" aria-label="Close chat">✕</button> </div> <div id="chatbot-messages" aria-live="polite"></div> <div id="chatbot-input-area"> <input type="text" id="chatbot-input" placeholder="Ask something..." aria-label="Message Quatro AI" /> <button id="chatbot-send" type="button" aria-label="Send message" title="Send message"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button> </div> </div>
 
 <style> #chatbot-button { position: fixed !important; bottom: 25px !important; right: 25px !important; background: #0D0D29; color: white; font-size: 24px; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 9999 !important; box-shadow: 0 4px 12px rgba(13,13,41,0.4); transition: transform 0.2s ease; -webkit-tap-highlight-color: transparent !important; user-select: none; } #chatbot-button:hover { transform: scale(1.1); } #chatbot-window { position: fixed !important; right: 25px !important; bottom: 100px !important; width: 320px; height: 420px; max-height: calc(100vh - 140px); background: white; border-radius: 15px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s ease, opacity 0.3s ease; transform: translateY(20px); opacity: 0; z-index: 9998 !important; } #chatbot-window.open { display: flex; transform: translateY(0); opacity: 1; } #chatbot-header { background: #0D0D29; color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; } #chatbot-close { cursor: pointer; font-size: 18px; opacity: 0.8; -webkit-tap-highlight-color: transparent; transition: opacity 0.2s; } #chatbot-close:hover { opacity: 1; } #chatbot-messages { flex: 1; min-height: 0; padding: 10px; overflow-y: auto; overflow-x: hidden; } #chatbot-messages div { word-wrap: break-word; word-break: break-word; overflow-wrap: break-word; } #chatbot-input-area { display: flex; border-top: 1px solid #ddd; flex-shrink: 0; } #chatbot-input { flex: 1; padding: 10px; border: none; outline: none; font-size: 16px; } #chatbot-input-area button { background: #0D0D29; color: white; border: none; padding: 10px 15px; cursor: pointer; -webkit-tap-highlight-color: transparent !important; } #chatbot-input-area button:hover { background: #1a1a3e; } @media (max-width: 600px) { #chatbot-button { bottom: 20px !important; right: 20px !important; width: 48px !important; height: 48px !important; font-size: 18px !important; } #chatbot-window { position: fixed !important; bottom: 80px !important; left: 10px !important; right: 10px !important; width: calc(100% - 20px) !important; height: 340px !important; max-height: 340px !important; border-radius: 16px !important; } #chatbot-header { padding: 11px 14px !important; font-size: 13px !important; } #chatbot-messages { padding: 8px !important; } #chatbot-messages div { font-size: 13px !important; } #chatbot-input { padding: 8px !important; font-size: 14px !important; } #chatbot-input-area button { padding: 8px 12px !important; font-size: 13px !important; } } /* Fix mobile keyboard overlap */ @media (max-width: 600px) { #chatbot-window { width: 320px; height: 70vh; max-height: 70vh; } #chatbot-messages { overflow-y: auto; } } </style>
 
@@ -2361,7 +2320,10 @@ document.addEventListener("DOMContentLoaded", function () {
   mq.addEventListener("change", function () { if (!mq.matches) closeAll(); });
 });
 </script>
-</body> 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="chatbot-knowledge.js"></script>
+<link rel="stylesheet" href="chatbot-theme.css?v=20261009-6">
+</body>
 <!-- ===== LEADERSHIP: MOBILE STACKING CARDS =====
      in index.html (after the existing scripts).
      Phones only (max-width: 560px). Desktop and tablet are unchanged. -->
