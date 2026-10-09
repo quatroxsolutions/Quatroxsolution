@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="global.css">
+<link rel="stylesheet" href="image-theme.css">
 <style>
 /* ===== NAVBAR (same as Services page) ===== */
 .quatrox-nav-wrap{position:fixed;top:0;left:0;width:100%;box-sizing:border-box;padding:14px 20px;z-index:1000;transition:transform .28s ease;font-family:'DM Sans',sans-serif}
@@ -1136,6 +1137,62 @@ function switchTab(idx, el) {
 }
 document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMap(); });
 </script>
+
+<button id="chatbot-button" class="chatbot-launcher" type="button" aria-label="Quatrox Assistant" aria-controls="chatbot-window" aria-expanded="false"><span class="chatbot-tooltip" aria-hidden="true">Quatrox Assistant</span><svg class="chatbot-launcher-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 8.5A4.5 4.5 0 0 1 10.5 4h11A4.5 4.5 0 0 1 26 8.5v9a4.5 4.5 0 0 1-4.5 4.5H15l-5.5 4v-4.35A4.5 4.5 0 0 1 6 17.5v-9Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M11 12h10M11 16h6" stroke="white" stroke-width="1.8" stroke-linecap="round"/><path class="qx-icon-gold" d="m22.5 21 .85 1.65L25 23.5l-1.65.85L22.5 26l-.85-1.65L20 23.5l1.65-.85L22.5 21Z" fill="none" stroke-width="1.5" stroke-linejoin="round"/></svg><span class="chatbot-notification" aria-hidden="true"></span></button>
+<div id="chatbot-window" class="chatbot-premium-panel" role="region" aria-label="Quatro AI chat" aria-hidden="true">
+  <div id="chatbot-header">
+    <span>Quatrox Solutions Assistant</span>
+    <button id="chatbot-close" type="button" aria-label="Close chat">✕</button>
+  </div>
+  <div id="chatbot-messages" aria-live="polite"></div>
+  <div id="chatbot-input-area">
+    <input type="text" id="chatbot-input" placeholder="Ask something..." aria-label="Message" />
+    <button id="chatbot-send" type="button" aria-label="Send message" title="Send message"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+</div>
+<style>
+#chatbot-button{position:fixed;right:25px;bottom:25px;z-index:9999;width:60px;height:60px;border:1px solid rgba(255,255,255,.55);border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#25a9f2,#3478f6 48%,#5b21d6);box-shadow:0 8px 24px rgba(65,69,237,.32);color:#fff;font-size:24px;cursor:pointer;user-select:none}
+#chatbot-window{position:fixed;right:25px;bottom:100px;z-index:9998;width:320px;height:420px;max-height:calc(100vh - 140px);display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(65,69,237,.2);border-radius:15px;background:rgba(247,251,255,.96);box-shadow:0 18px 48px rgba(54,79,181,.22);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+#chatbot-window.open{display:flex}
+#chatbot-header{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:15px;background:linear-gradient(110deg,#25a9f2,#3478f6 48%,#5b21d6);color:#fff;font:600 14px 'DM Sans',sans-serif}
+#chatbot-close{border:0;background:transparent;color:#fff;font-size:18px;cursor:pointer}
+#chatbot-messages{flex:1;min-height:0;overflow:auto;padding:10px;font-family:'DM Sans',sans-serif}
+#chatbot-messages div{overflow-wrap:anywhere;word-break:break-word}
+#chatbot-input-area{display:flex;flex-shrink:0;border-top:1px solid #ddd}
+#chatbot-input{flex:1;min-width:0;padding:10px;border:0;outline:none;font:16px 'DM Sans',sans-serif}
+#chatbot-input-area button{padding:10px 15px;border:0;background:linear-gradient(110deg,#3478f6,#5b21d6);color:#fff;font-family:'DM Sans',sans-serif;cursor:pointer}
+@media(max-width:600px){#chatbot-button{right:20px;bottom:20px;width:48px;height:48px;font-size:18px}#chatbot-window{right:10px;bottom:80px;left:10px;width:calc(100% - 20px);height:340px;max-height:340px;border-radius:16px}#chatbot-header{padding:11px 14px;font-size:13px}#chatbot-messages{padding:8px}#chatbot-input{padding:8px;font-size:14px}#chatbot-input-area button{padding:8px 12px;font-size:13px}}
+</style>
+<script src="chatbot-knowledge.js"></script>
+<script>
+(function () {
+    var button = document.getElementById("chatbot-button");
+    var chat = document.getElementById("chatbot-window");
+    var input = document.getElementById("chatbot-input");
+    var close = document.getElementById("chatbot-close");
+
+    function setChatOpen(isOpen) {
+        chat.classList.toggle("open", isOpen);
+        button.setAttribute("aria-expanded", String(isOpen));
+        chat.setAttribute("aria-hidden", String(!isOpen));
+        button.querySelector(".chatbot-notification").hidden = isOpen;
+        if (isOpen) input.focus();
+    }
+
+    button.addEventListener("click", function () {
+        setChatOpen(!chat.classList.contains("open"));
+    });
+    close.addEventListener("click", function () { setChatOpen(false); });
+    chat.addEventListener("click", function (event) { event.stopPropagation(); });
+    document.addEventListener("click", function (event) {
+        if (!chat.contains(event.target) && !button.contains(event.target)) setChatOpen(false);
+    });
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") setChatOpen(false);
+    });
+})();
+</script>
+<link rel="stylesheet" href="chatbot-theme.css?v=20261009-6">
 
 </body>
 </html>
