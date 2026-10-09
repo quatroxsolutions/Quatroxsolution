@@ -180,6 +180,8 @@
     var mobileViewport = window.matchMedia("(max-width: 600px)");
     var visualViewport = window.visualViewport;
     var viewportHeightBeforeFocus = 0;
+    var pageScrollIntentUntil = 0;
+    var pageTouchStart = null;
 
     function syncKeyboardLayout() {
       var activeField = chatWindow.contains(document.activeElement) &&
@@ -226,8 +228,43 @@
         syncKeyboardLayout();
       }, 0);
     });
+    function notePageTouchStart(event) {
+      if (!mobileViewport.matches || !chatWindow.classList.contains("open") ||
+          chatWindow.contains(event.target) || !event.touches.length) {
+        pageTouchStart = null;
+        return;
+      }
+      pageTouchStart = {
+        x: event.touches[0].clientX,
+        y: event.touches[0].clientY
+      };
+    }
+
+    document.addEventListener("touchstart", notePageTouchStart, { capture: true, passive: true });
+    document.addEventListener("touchmove", function (event) {
+      if (!pageTouchStart || !event.touches.length) return;
+      var touch = event.touches[0];
+      if (Math.abs(touch.clientX - pageTouchStart.x) > 8 ||
+          Math.abs(touch.clientY - pageTouchStart.y) > 8) {
+        pageScrollIntentUntil = Date.now() + 1200;
+      }
+    }, { capture: true, passive: true });
+    document.addEventListener("touchend", function () {
+      pageTouchStart = null;
+    }, { capture: true, passive: true });
+    document.addEventListener("touchcancel", function () {
+      pageTouchStart = null;
+    }, { capture: true, passive: true });
+    document.addEventListener("wheel", function (event) {
+      if (mobileViewport.matches && chatWindow.classList.contains("open") &&
+          !chatWindow.contains(event.target)) {
+        pageScrollIntentUntil = Date.now() + 500;
+      }
+    }, { capture: true, passive: true });
     window.addEventListener("scroll", function () {
-      if (mobileViewport.matches && chatWindow.classList.contains("open")) {
+      if (mobileViewport.matches && chatWindow.classList.contains("open") &&
+          Date.now() <= pageScrollIntentUntil) {
+        pageScrollIntentUntil = 0;
         closeChat(false);
       }
     }, { passive: true });
