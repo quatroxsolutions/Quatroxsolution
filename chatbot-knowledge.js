@@ -177,6 +177,60 @@
     if (!button || !chatWindow || !close || !input || !send || !messages) return;
     var notification = button.querySelector(".chatbot-notification");
     var hasWelcomed = false;
+    var mobileViewport = window.matchMedia("(max-width: 600px)");
+    var visualViewport = window.visualViewport;
+    var viewportHeightBeforeFocus = 0;
+
+    function syncKeyboardLayout() {
+      var activeField = chatWindow.contains(document.activeElement) &&
+        document.activeElement.matches("input, textarea");
+      if (!mobileViewport.matches || !visualViewport || !chatWindow.classList.contains("open") || !activeField ||
+          visualViewport.height >= (viewportHeightBeforeFocus || window.innerHeight) - 100) {
+        chatWindow.classList.remove("keyboard-open");
+        chatWindow.style.removeProperty("--chatbot-viewport-height");
+        chatWindow.style.removeProperty("--chatbot-viewport-offset-top");
+        return;
+      }
+      chatWindow.style.setProperty("--chatbot-viewport-height", visualViewport.height + "px");
+      chatWindow.style.setProperty("--chatbot-viewport-offset-top", visualViewport.offsetTop + "px");
+      chatWindow.classList.add("keyboard-open");
+    }
+
+    function closeChat(restoreFocus) {
+      chatWindow.classList.remove("open", "keyboard-open");
+      chatWindow.style.removeProperty("--chatbot-viewport-height");
+      chatWindow.style.removeProperty("--chatbot-viewport-offset-top");
+      if (chatWindow.contains(document.activeElement) && typeof document.activeElement.blur === "function") {
+        document.activeElement.blur();
+      }
+      if (restoreFocus) {
+        window.requestAnimationFrame(function () { button.focus(); });
+      }
+    }
+
+    if (visualViewport) {
+      visualViewport.addEventListener("resize", syncKeyboardLayout);
+      visualViewport.addEventListener("scroll", syncKeyboardLayout);
+    }
+    chatWindow.addEventListener("focusin", function (event) {
+      if (event.target.matches("input, textarea")) {
+        viewportHeightBeforeFocus = visualViewport ? visualViewport.height : window.innerHeight;
+        window.setTimeout(syncKeyboardLayout, 250);
+      }
+    });
+    chatWindow.addEventListener("focusout", function () {
+      window.setTimeout(function () {
+        if (!chatWindow.contains(document.activeElement) || !document.activeElement.matches("input, textarea")) {
+          viewportHeightBeforeFocus = 0;
+        }
+        syncKeyboardLayout();
+      }, 0);
+    });
+    window.addEventListener("scroll", function () {
+      if (mobileViewport.matches && chatWindow.classList.contains("open")) {
+        closeChat(false);
+      }
+    }, { passive: true });
 
     if (window.emailjs && typeof window.emailjs.init === "function") {
       window.emailjs.init({ publicKey: "eOLCPZHW3sfnApbFD" });
@@ -436,15 +490,14 @@
         chatWindow.classList.toggle("open", isOpen);
         if (isOpen) {
           showWelcome();
-          input.focus();
+          if (!mobileViewport.matches) input.focus();
         } else {
-          window.requestAnimationFrame(function () { button.focus(); });
+          closeChat(true);
         }
       } else if (target.closest("#chatbot-close")) {
         event.preventDefault();
         event.stopImmediatePropagation();
-        chatWindow.classList.remove("open");
-        window.requestAnimationFrame(function () { button.focus(); });
+        closeChat(true);
       } else if (target.closest("#chatbot-send")) {
         event.preventDefault();
         event.stopImmediatePropagation();
@@ -462,8 +515,7 @@
       if (event.key !== "Escape" || !chatWindow.classList.contains("open")) return;
       event.preventDefault();
       event.stopImmediatePropagation();
-      chatWindow.classList.remove("open");
-      window.requestAnimationFrame(function () { button.focus(); });
+      closeChat(true);
     }, true);
   }
 

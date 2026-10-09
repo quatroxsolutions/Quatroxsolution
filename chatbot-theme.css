@@ -525,6 +525,18 @@
     min-height: min(300px, calc(100dvh - 94px)) !important;
   }
 
+  #chatbot-window.chatbot-premium-panel.keyboard-open {
+    top: calc(var(--chatbot-viewport-offset-top, 0px) + env(safe-area-inset-top) + 8px) !important;
+    right: max(6px, env(safe-area-inset-right)) !important;
+    bottom: auto !important;
+    left: max(6px, env(safe-area-inset-left)) !important;
+    width: auto !important;
+    height: calc(var(--chatbot-viewport-height, 100dvh) - env(safe-area-inset-top) - 16px) !important;
+    max-height: none !important;
+    min-height: 0 !important;
+    border-radius: 16px !important;
+  }
+
   #chatbot-messages {
     padding: 13px 11px !important;
   }
