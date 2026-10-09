@@ -179,23 +179,54 @@
     var hasWelcomed = false;
     var mobileViewport = window.matchMedia("(max-width: 600px)");
     var visualViewport = window.visualViewport;
-    var viewportHeightBeforeFocus = 0;
+    var isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    var viewportHeightBeforeFocus = visualViewport ? visualViewport.height : window.innerHeight;
+    var viewportSyncTimer = 0;
+    var viewportSyncFrame = 0;
     var pageScrollIntentUntil = 0;
     var pageTouchStart = null;
 
+    if (isIOS) document.documentElement.classList.add("ios-chatbot-viewport");
+
     function syncKeyboardLayout() {
-      var activeField = chatWindow.contains(document.activeElement) &&
-        document.activeElement.matches("input, textarea");
-      if (!mobileViewport.matches || !visualViewport || !chatWindow.classList.contains("open") || !activeField ||
-          visualViewport.height >= (viewportHeightBeforeFocus || window.innerHeight) - 100) {
+      viewportSyncFrame = 0;
+      if (!mobileViewport.matches || !visualViewport || !chatWindow.classList.contains("open")) {
         chatWindow.classList.remove("keyboard-open");
         chatWindow.style.removeProperty("--chatbot-viewport-height");
         chatWindow.style.removeProperty("--chatbot-viewport-offset-top");
+        if (visualViewport) viewportHeightBeforeFocus = visualViewport.height;
         return;
       }
-      chatWindow.style.setProperty("--chatbot-viewport-height", visualViewport.height + "px");
-      chatWindow.style.setProperty("--chatbot-viewport-offset-top", visualViewport.offsetTop + "px");
+
+      var activeField = chatWindow.contains(document.activeElement) &&
+        document.activeElement.matches("input, textarea, select");
+      var viewportHeight = visualViewport.height;
+      if (!activeField || viewportHeight >= viewportHeightBeforeFocus - 100) {
+        chatWindow.classList.remove("keyboard-open");
+        chatWindow.style.removeProperty("--chatbot-viewport-height");
+        chatWindow.style.removeProperty("--chatbot-viewport-offset-top");
+        viewportHeightBeforeFocus = viewportHeight;
+        return;
+      }
+
+      var heightValue = Math.round(viewportHeight) + "px";
+      var offsetValue = Math.round(visualViewport.offsetTop) + "px";
+      if (chatWindow.style.getPropertyValue("--chatbot-viewport-height") !== heightValue) {
+        chatWindow.style.setProperty("--chatbot-viewport-height", heightValue);
+      }
+      if (chatWindow.style.getPropertyValue("--chatbot-viewport-offset-top") !== offsetValue) {
+        chatWindow.style.setProperty("--chatbot-viewport-offset-top", offsetValue);
+      }
       chatWindow.classList.add("keyboard-open");
+    }
+
+    function scheduleKeyboardLayout() {
+      window.clearTimeout(viewportSyncTimer);
+      if (viewportSyncFrame) window.cancelAnimationFrame(viewportSyncFrame);
+      viewportSyncTimer = window.setTimeout(function () {
+        viewportSyncFrame = window.requestAnimationFrame(syncKeyboardLayout);
+      }, isIOS ? 120 : 0);
     }
 
     function closeChat(restoreFocus) {
@@ -205,68 +236,70 @@
       if (chatWindow.contains(document.activeElement) && typeof document.activeElement.blur === "function") {
         document.activeElement.blur();
       }
+      scheduleKeyboardLayout();
       if (restoreFocus) {
         window.requestAnimationFrame(function () { button.focus(); });
       }
     }
 
     if (visualViewport) {
-      visualViewport.addEventListener("resize", syncKeyboardLayout);
-      visualViewport.addEventListener("scroll", syncKeyboardLayout);
+      visualViewport.addEventListener("resize", scheduleKeyboardLayout);
+      visualViewport.addEventListener("scroll", scheduleKeyboardLayout);
     }
+    window.addEventListener("resize", scheduleKeyboardLayout);
+    window.addEventListener("orientationchange", function () {
+      viewportHeightBeforeFocus = window.innerHeight;
+      scheduleKeyboardLayout();
+    });
     chatWindow.addEventListener("focusin", function (event) {
-      if (event.target.matches("input, textarea")) {
-        viewportHeightBeforeFocus = visualViewport ? visualViewport.height : window.innerHeight;
-        window.setTimeout(syncKeyboardLayout, 250);
+      if (event.target.matches("input, textarea, select")) {
+        scheduleKeyboardLayout();
       }
     });
-    chatWindow.addEventListener("focusout", function () {
-      window.setTimeout(function () {
-        if (!chatWindow.contains(document.activeElement) || !document.activeElement.matches("input, textarea")) {
-          viewportHeightBeforeFocus = 0;
+    chatWindow.addEventListener("focusout", scheduleKeyboardLayout);
+    if (!isIOS) {
+      function notePageTouchStart(event) {
+        if (!mobileViewport.matches || !chatWindow.classList.contains("open") ||
+            chatWindow.contains(event.target) || !event.touches.length) {
+          pageTouchStart = null;
+          return;
         }
-        syncKeyboardLayout();
-      }, 0);
-    });
-    function notePageTouchStart(event) {
-      if (!mobileViewport.matches || !chatWindow.classList.contains("open") ||
-          chatWindow.contains(event.target) || !event.touches.length) {
-        pageTouchStart = null;
-        return;
+        pageTouchStart = {
+          x: event.touches[0].clientX,
+          y: event.touches[0].clientY
+        };
       }
-      pageTouchStart = {
-        x: event.touches[0].clientX,
-        y: event.touches[0].clientY
-      };
-    }
 
-    document.addEventListener("touchstart", notePageTouchStart, { capture: true, passive: true });
-    document.addEventListener("touchmove", function (event) {
-      if (!pageTouchStart || !event.touches.length) return;
-      var touch = event.touches[0];
-      if (Math.abs(touch.clientX - pageTouchStart.x) > 8 ||
-          Math.abs(touch.clientY - pageTouchStart.y) > 8) {
-        pageScrollIntentUntil = Date.now() + 1200;
-      }
-    }, { capture: true, passive: true });
-    document.addEventListener("touchend", function () {
-      pageTouchStart = null;
-    }, { capture: true, passive: true });
-    document.addEventListener("touchcancel", function () {
-      pageTouchStart = null;
-    }, { capture: true, passive: true });
-    document.addEventListener("wheel", function (event) {
-      if (mobileViewport.matches && chatWindow.classList.contains("open") &&
-          !chatWindow.contains(event.target)) {
-        pageScrollIntentUntil = Date.now() + 500;
-      }
-    }, { capture: true, passive: true });
+      document.addEventListener("touchstart", notePageTouchStart, { capture: true, passive: true });
+      document.addEventListener("touchmove", function (event) {
+        if (!pageTouchStart || !event.touches.length) return;
+        var touch = event.touches[0];
+        if (Math.abs(touch.clientX - pageTouchStart.x) > 8 ||
+            Math.abs(touch.clientY - pageTouchStart.y) > 8) {
+          pageScrollIntentUntil = Date.now() + 1200;
+        }
+      }, { capture: true, passive: true });
+      document.addEventListener("touchend", function () {
+        pageTouchStart = null;
+      }, { capture: true, passive: true });
+      document.addEventListener("touchcancel", function () {
+        pageTouchStart = null;
+      }, { capture: true, passive: true });
+      document.addEventListener("wheel", function (event) {
+        if (mobileViewport.matches && chatWindow.classList.contains("open") &&
+            !chatWindow.contains(event.target)) {
+          pageScrollIntentUntil = Date.now() + 500;
+        }
+      }, { capture: true, passive: true });
+    }
     window.addEventListener("scroll", function () {
-      if (mobileViewport.matches && chatWindow.classList.contains("open") &&
+      if (!isIOS && mobileViewport.matches && chatWindow.classList.contains("open") &&
           Date.now() <= pageScrollIntentUntil) {
         pageScrollIntentUntil = 0;
         closeChat(false);
+        return;
       }
+      if (chatWindow.classList.contains("open")) scheduleKeyboardLayout();
     }, { passive: true });
 
     if (window.emailjs && typeof window.emailjs.init === "function") {

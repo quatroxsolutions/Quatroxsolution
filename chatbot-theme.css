@@ -547,6 +547,51 @@
   }
 }
 
+@media (max-width: 600px) {
+  html.ios-chatbot-viewport #chatbot-button.chatbot-launcher {
+    z-index: 2147483000 !important;
+    box-sizing: border-box;
+  }
+
+  html.ios-chatbot-viewport #chatbot-window.chatbot-premium-panel {
+    position: fixed !important;
+    z-index: 2147483001 !important;
+    top: auto !important;
+    right: max(10px, env(safe-area-inset-right)) !important;
+    bottom: calc(env(safe-area-inset-bottom) + 76px) !important;
+    left: max(10px, env(safe-area-inset-left)) !important;
+    box-sizing: border-box;
+    width: auto !important;
+    height: min(500px, calc(100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 100px)) !important;
+    max-height: calc(100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 100px) !important;
+    overflow: hidden;
+    transform: none !important;
+    transition: opacity .2s ease;
+  }
+
+  html.ios-chatbot-viewport #chatbot-window.chatbot-premium-panel.keyboard-open {
+    top: calc(var(--chatbot-viewport-offset-top, 0px) + env(safe-area-inset-top) + 8px) !important;
+    right: max(6px, env(safe-area-inset-right)) !important;
+    bottom: auto !important;
+    left: max(6px, env(safe-area-inset-left)) !important;
+    width: auto !important;
+    height: max(0px, calc(var(--chatbot-viewport-height, 100dvh) - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 16px)) !important;
+    max-height: max(0px, calc(var(--chatbot-viewport-height, 100dvh) - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 16px)) !important;
+    min-height: 0 !important;
+  }
+
+  html.ios-chatbot-viewport #chatbot-window #chatbot-input,
+  html.ios-chatbot-viewport #chatbot-window .chatbot-enquiry-form input,
+  html.ios-chatbot-viewport #chatbot-window .chatbot-enquiry-form select,
+  html.ios-chatbot-viewport #chatbot-window .chatbot-enquiry-form textarea {
+    font-size: 16px !important;
+  }
+
+  html.ios-chatbot-viewport #chatbot-messages {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 @media (max-width: 600px) and (hover: hover) {
   #chatbot-button.chatbot-launcher:hover {
     animation-play-state: paused;
