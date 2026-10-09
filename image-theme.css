@@ -1,0 +1,13 @@
+img,
+[role="img"] {
+  background-color: var(--qx-blue, #3478f6) !important;
+}
+
+.quatrox-logo img,
+.qx-brand img,
+img.qf-logo,
+img.logo,
+img[alt*="logo" i],
+img[src*="logo" i] {
+  background-color: transparent !important;
+}
